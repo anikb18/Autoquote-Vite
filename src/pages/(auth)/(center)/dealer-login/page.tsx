@@ -2,7 +2,7 @@
 
 import { SignIn } from '@clerk/nextjs';
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 interface Props {
   params: { locale: string };
@@ -28,7 +28,7 @@ export default function DealerLoginPage({
                 <span>{t('userLogin')}</span>
                 <span>{t('or')}</span>
                 <Link 
-                  href={`/${locale}/sign-in`}
+                  to={`/${locale}/sign-in`}
                   className="text-[#446df6] transition-all duration-300 hover:text-[#0496ff] hover:scale-[1.02] active:scale-[0.98]"
                 >
                   {t('clickHere')}
@@ -89,7 +89,7 @@ export default function DealerLoginPage({
               <div className="mt-8 flex items-center justify-center space-x-1.5 text-[13px] font-medium text-gray-600">
                 <span>{t('noDealerAccount')}</span>
                 <Link 
-                  href={`/${locale}/dealer-sign-up`}
+                  to={`/${locale}/dealer-sign-up`}
                   className="text-[#446df6] transition-all duration-300 hover:text-[#0496ff] hover:scale-[1.02] active:scale-[0.98]"
                 >
                   {t('startHere')}

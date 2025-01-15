@@ -758,5 +758,9 @@
       "time_left": "Temps restant"
     },
     "search": "Rechercher une enchère..."
+  },
+  "theme": {
+    "darkMode": "Mode Sombre",
+    "lightMode": "Mode Clair"
   }
 }

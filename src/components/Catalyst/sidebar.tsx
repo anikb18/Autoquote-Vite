@@ -1,14 +1,12 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-import { usePathname } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
+import { Link, useLocation } from 'react-router-dom';
 import clsx from 'clsx';
 import { LayoutGroup, motion } from 'framer-motion';
 import { default as React, useState } from 'react';
 import { TouchTarget } from './button';
-import { Link } from './link';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { ThemeAwareLogo } from '@/components/Logo/ThemeAwareLogo';
 
 interface SidebarProps {
   className?: string;
@@ -31,8 +29,10 @@ export function CollapsibleSidebar({
       )}
     >
       <SidebarHeader>
-        <Link href="/" className="flex items-center justify-center gap-2">
-          <ThemeAwareLogo iconOnly={isCollapsed} />
+        <Link to="/" className="flex items-center justify-center gap-2">
+          <span className={clsx('text-lg font-semibold text-gray-900 dark:text-white', isCollapsed && 'sr-only')}>
+            AutoQuote24
+          </span>
         </Link>
       </SidebarHeader>
       <div className="flex-1 overflow-y-auto">
@@ -40,12 +40,12 @@ export function CollapsibleSidebar({
       </div>
       <button
         onClick={() => setIsCollapsed(!isCollapsed)}
-        className="absolute -right-3 top-16 flex h-6 w-6 items-center justify-center rounded-full border bg-white shadow-sm"
+        className="absolute -right-3 top-16 flex h-6 w-6 items-center justify-center rounded-full border bg-white shadow-sm dark:bg-gray-800 dark:border-gray-700"
       >
         {isCollapsed ? (
-          <ChevronRight className="h-4 w-4" />
+          <ChevronRight className="h-4 w-4 text-gray-600 dark:text-gray-300" />
         ) : (
-          <ChevronLeft className="h-4 w-4" />
+          <ChevronLeft className="h-4 w-4 text-gray-600 dark:text-gray-300" />
         )}
       </button>
     </div>
@@ -53,8 +53,8 @@ export function CollapsibleSidebar({
 }
 
 export function Sidebar({ className = '' }: SidebarProps) {
-  const t = useTranslations();
-  const pathname = usePathname();
+  const { t } = useTranslation();
+  const pathname = useLocation().pathname;
 
   const navigation = [
     {
@@ -87,7 +87,7 @@ export function Sidebar({ className = '' }: SidebarProps) {
           return (
             <Link
               key={item.href}
-              href={item.href}
+              to={item.href}
               className={clsx(
                 'flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50',
                 isActive ? 'bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-50' : ''
@@ -103,11 +103,11 @@ export function Sidebar({ className = '' }: SidebarProps) {
 }
 
 export function SidebarNav({ children }: { children: React.ReactNode }) {
-  return <nav className="grid gap-1">{children}</nav>;
+  return <nav className="flex-1">{children}</nav>;
 }
 
 export function SidebarList({ children }: { children: React.ReactNode }) {
-  return <div className="grid gap-1">{children}</div>;
+  return <ul className="space-y-1">{children}</ul>;
 }
 
 export function SidebarHeader({
@@ -117,7 +117,7 @@ export function SidebarHeader({
   return (
     <div
       {...props}
-      className={clsx('flex h-14 items-center justify-center border-b px-6', className)}
+      className={clsx('flex h-16 items-center border-b px-4 dark:border-gray-800', className)}
     />
   );
 }
@@ -129,7 +129,7 @@ export function SidebarBody({
   return (
     <div
       {...props}
-      className={clsx('flex-1 overflow-auto py-2', className)}
+      className={clsx('flex-1 overflow-y-auto px-4 py-2', className)}
     />
   );
 }
@@ -141,7 +141,7 @@ export function SidebarFooter({
   return (
     <div
       {...props}
-      className={clsx('mt-auto flex items-center gap-2 p-4', className)}
+      className={clsx('mt-auto border-t px-4 py-4 dark:border-gray-800', className)}
     />
   );
 }
@@ -151,7 +151,7 @@ export function SidebarSection({
   ...props
 }: React.ComponentPropsWithoutRef<'div'>) {
   return (
-    <div {...props} className={clsx('grid gap-1 px-3 pb-2', className)} />
+    <div {...props} className={clsx('space-y-3', className)} />
   );
 }
 
@@ -159,14 +159,16 @@ export function SidebarDivider({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<'hr'>) {
-  return <hr {...props} className={clsx('my-2 border-gray-200', className)} />;
+  return (
+    <hr {...props} className={clsx('border-t dark:border-gray-800', className)} />
+  );
 }
 
 export function SidebarSpacer({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<'div'>) {
-  return <div {...props} className={clsx('h-4', className)} />;
+  return <div {...props} className={clsx('h-6', className)} />;
 }
 
 export function SidebarHeading({
@@ -177,7 +179,7 @@ export function SidebarHeading({
     <h3
       {...props}
       className={clsx(
-        'mb-2 px-3 text-xs font-medium uppercase text-gray-500',
+        'mb-2 px-2 text-xs font-medium uppercase text-gray-500 dark:text-gray-400',
         className
       )}
     />
@@ -186,23 +188,22 @@ export function SidebarHeading({
 
 export const SidebarItem = React.forwardRef<
   HTMLAnchorElement,
-  React.ComponentPropsWithoutRef<'a'> & { current?: boolean }
->(function SidebarItem({ current, className, children, ...props }, ref) {
+  React.ComponentPropsWithoutRef<'a'> & { isActive?: boolean }
+>(function SidebarItem({ isActive, className, children, ...props }, ref) {
   return (
-    <TouchTarget>
-      <a
-        ref={ref}
-        {...props}
-        className={clsx(
-          'group relative flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800',
-          current &&
-            'text-gray-900 before:absolute before:-left-4 before:top-1 before:h-8 before:w-1 before:rounded-full before:bg-gray-300 dark:text-white dark:before:bg-gray-500',
-          className
-        )}
-      >
-        {children}
-      </a>
-    </TouchTarget>
+    <Link
+      ref={ref}
+      className={clsx(
+        'group flex items-center rounded-lg px-3 py-2 text-sm font-medium',
+        isActive
+          ? 'bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-white'
+          : 'text-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-800',
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </Link>
   );
 });
 
@@ -210,5 +211,5 @@ export function SidebarLabel({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<'span'>) {
-  return <span {...props} className={clsx('truncate', className)} />;
+  return <span {...props} className={clsx('flex-1', className)} />;
 }

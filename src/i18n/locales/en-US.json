@@ -339,5 +339,9 @@
       "rejected": "Rejected"
     },
     "search": "Search quotes..."
+  },
+  "theme": {
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode"
   }
 }

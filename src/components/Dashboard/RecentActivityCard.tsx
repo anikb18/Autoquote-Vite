@@ -3,7 +3,7 @@
 import { StackedLayout } from '@/components/Catalyst/stacked-layout';
 import { Button } from '@/components/Catalyst/button';
 import { ClockIcon, CarIcon, DollarSignIcon } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 interface RecentActivityCardProps {
   userId: string;
@@ -74,7 +74,7 @@ export function RecentActivityCard({ userId, translations }: RecentActivityCardP
       <div className="p-6">
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-lg font-medium">{translations.title}</h3>
-          <Link href="/activity" className="inline-block">
+          <Link to="/activity" className="inline-block">
             <Button
               variant="ghost"
               size="sm"

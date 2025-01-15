@@ -2,7 +2,7 @@
 
 import { UserButton } from '@clerk/nextjs';
 import { useTranslations } from 'next-intl';
-import { Link } from 'next/link';
+import { Link } from 'react-router-dom';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { PiGearFill } from 'react-icons/pi';
@@ -18,7 +18,7 @@ export function Header() {
       className="bg-white/10 backdrop-blur-xl rounded-2xl p-4 shadow-xl border border-white/20 w-full"
     >
       <div className="flex justify-between h-12">
-        <Link href="/dashboard" className="flex items-center gap-2" aria-label={t('dashboard')}>
+        <Link to="/dashboard" className="flex items-center gap-2" aria-label={t('dashboard')}>
           <div className="relative h-8 w-8">
             <Image
               src="/dark.svg"

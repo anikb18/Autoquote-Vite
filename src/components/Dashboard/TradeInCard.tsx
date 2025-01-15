@@ -3,7 +3,7 @@
 import { DashboardCard } from '@/components/shared/DashboardCard';
 import { Button } from '@/components/ui/button';
 import { CarIcon } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 interface TradeInTranslations {
   title: string;
@@ -60,7 +60,7 @@ export function TradeInCard({ userId, translations }: TradeInCardProps) {
             className="ml-4"
             asChild
           >
-            <Link href="/trade-in/new">
+            <Link to="/trade-in/new">
               {translations.getEstimate}
             </Link>
           </Button>
@@ -93,7 +93,7 @@ export function TradeInCard({ userId, translations }: TradeInCardProps) {
             className="w-full"
             asChild
           >
-            <Link href="/trade-in/history">
+            <Link to="/trade-in/history">
               {translations.view_history}
             </Link>
           </Button>

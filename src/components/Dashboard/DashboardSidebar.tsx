@@ -1,10 +1,9 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-import { usePathname } from 'next/navigation';
+import { useTranslations } from 'react-i18next';
+import { Link, useLocation } from 'react-router-dom';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'next/link';
-import Image from 'next/image';
 import {
   PiChartLineUpBold,
   PiCarFill,
@@ -16,7 +15,7 @@ import {
 
 interface NavItem {
   name: string;
-  href: string;
+  to: string;
   icon: React.ReactNode;
 }
 
@@ -26,45 +25,45 @@ interface DashboardSidebarProps {
 }
 
 export function DashboardSidebar({ locale, userType }: DashboardSidebarProps) {
-  const t = useTranslations('navigation');
-  const pathname = usePathname();
+  const { t } = useTranslations('navigation');
+  const location = useLocation();
 
   const navigation: NavItem[] = [
     {
       name: t('dashboard'),
-      href: '/dashboard',
+      to: '/dashboard',
       icon: <PiChartLineUpBold className="h-6 w-6" />,
     },
     {
       name: t('quotes'),
-      href: '/dashboard/quotes',
+      to: '/dashboard/quotes',
       icon: <PiCarFill className="h-6 w-6" />,
     },
     {
       name: t('auctions'),
-      href: '/dashboard/auctions',
+      to: '/dashboard/auctions',
       icon: <PiCurrencyDollarBold className="h-6 w-6" />,
     },
     {
       name: t('messages'),
-      href: '/dashboard/messages',
+      to: '/dashboard/messages',
       icon: <PiChatTextBold className="h-6 w-6" />,
     },
     ...(userType === 'dealer' ? [
       {
         name: t('tradeIn'),
-        href: '/dashboard/trade-ins',
+        to: '/dashboard/trade-ins',
         icon: <PiCurrencyDollarBold className="h-6 w-6" />,
       }
     ] : []),
     {
       name: t('notifications'),
-      href: '/dashboard/notifications',
+      to: '/dashboard/notifications',
       icon: <PiBellBold className="h-6 w-6" />,
     },
     {
       name: t('settings'),
-      href: '/settings',
+      to: '/settings',
       icon: <PiGearFill className="h-6 w-6" />,
     },
   ].filter(Boolean);
@@ -73,8 +72,8 @@ export function DashboardSidebar({ locale, userType }: DashboardSidebarProps) {
     <div className="flex flex-col h-full">
       {/* Logo */}
       <div className="px-6 py-8">
-        <Link href="/" className="block">
-          <Image
+        <Link to="/" className="block">
+          <img
             src="/dark.svg"
             alt="AutoQuote24"
             width={180}
@@ -87,11 +86,11 @@ export function DashboardSidebar({ locale, userType }: DashboardSidebarProps) {
       {/* Navigation */}
       <nav className="flex-1 flex flex-col gap-2 px-4">
         {navigation.map((item) => {
-          const isActive = pathname.startsWith(item.href);
+          const isActive = location.pathname.startsWith(item.to);
           return (
             <Link
               key={item.name}
-              href={item.href}
+              to={item.to}
               className="group relative"
             >
               <motion.div

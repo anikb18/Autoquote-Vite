@@ -1,13 +1,13 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import LanguageSwitcher from './LanguageSwitcher';
 import { ShieldCheckIcon } from '@heroicons/react/24/outline';
 
 export default function AuthFooter({ locale }: { locale: string }) {
-  const t = useTranslations('navigation');
-  const tAuth = useTranslations('auth.layout');
+  const { t } = useTranslation();
+  const tAuth = useTranslation('auth.layout');
 
   return (
     <footer className="bg-[#003139]/5 mt-auto">
@@ -17,7 +17,7 @@ export default function AuthFooter({ locale }: { locale: string }) {
             <ShieldCheckIcon className="h-4 w-4 text-[#446df6]" />
             <span>{tAuth('securityNote')}</span>
             <Link 
-              href={`/${locale}/security`} 
+              to={`/${locale}/security`} 
               className="ml-1 font-medium text-[#446df6] transition-colors duration-200 hover:text-[#446df6]/80"
             >
               {t('learnMore')} →
@@ -26,25 +26,25 @@ export default function AuthFooter({ locale }: { locale: string }) {
 
           <div className="flex justify-center gap-6">
             <Link
-              href={`/${locale}`}
+              to={`/${locale}`}
               className="text-[13px] font-medium text-gray-600 transition-colors duration-200 hover:text-[#003139]"
             >
               {t('home')}
             </Link>
             <Link
-              href={`/${locale}/pricing`}
+              to={`/${locale}/pricing`}
               className="text-[13px] font-medium text-gray-600 transition-colors duration-200 hover:text-[#003139]"
             >
               {t('pricing')}
             </Link>
             <Link
-              href={`/${locale}/about`}
+              to={`/${locale}/about`}
               className="text-[13px] font-medium text-gray-600 transition-colors duration-200 hover:text-[#003139]"
             >
               {t('about')}
             </Link>
             <Link
-              href={`/${locale}/contact`}
+              to={`/${locale}/contact`}
               className="text-[13px] font-medium text-gray-600 transition-colors duration-200 hover:text-[#003139]"
             >
               {t('contact')}
