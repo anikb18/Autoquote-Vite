@@ -2,7 +2,8 @@
   "name": "autoquote24",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+ "lockfileVersion": 3,
+  "requires": true,
   "browserslist": "defaults, not ie <= 11",
   "scripts": {
     "dev": "vite",

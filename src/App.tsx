@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,21 +7,22 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { I18nextProvider } from 'react-i18next';
 import { HelmetProvider } from 'react-helmet-async';
 import i18n from './i18n';
-import { AuthProvider } from "./pages/(auth)/providers/AuthProvider";
-import { ProtectedRoute } from "./pages/(auth)/components/ProtectedRoute";
+import { AuthProvider } from "@/features/auth/AuthProvider";
+import { ProtectedRoute } from "@/features/auth/components/ProtectedRoute";
 import { ThemeProvider } from "./providers/theme-provider";
-import HomePage from './pages/HomePage';
-import Index from "./pages/Index";
 import { TranslationsProvider } from '@/components/TranslationsProvider';
-import SignInPage from './pages/(auth)/(center)/sign-in/[[...sign-in]]/page';
-import CenterLayout from './pages/(auth)/(center)/layout';
-import SignUpPage from './pages/(auth)/(center)/sign-up/[[...sign-up]]/page';
 import { ViewModeProvider } from '@/contexts/ViewModeContext';
 
-// Import your dashboard pages
-import DashboardLayout from './pages/(auth)/dashboard/layout';
-import { lazy, Suspense } from 'react';
-import DashboardPage from './pages/(auth)/dashboard/page';
+// Pages
+import HomePage from './pages/HomePage';
+import Index from "./pages/Index";
+import SignInPage from './pages/(auth)/(center)/sign-in/[[...sign-in]]/page';
+import SignUpPage from './pages/(auth)/(center)/sign-up/[[...sign-up]]/page';
+import CenterLayout from './pages/(auth)/(center)/layout';
+import DashboardLayout from '@/features/dashboard/layouts/DashboardLayout';
+
+// Lazy loaded dashboard pages
+const DashboardPage = lazy(() => import('./pages/(auth)/dashboard/page'));
 const VehiclesPage = lazy(() => import('./pages/(auth)/dashboard/vehicles/page'));
 const AnalyticsPage = lazy(() => import('./pages/(auth)/dashboard/analytics/page'));
 const CustomersPage = lazy(() => import('./pages/(auth)/dashboard/customers/page'));
@@ -34,7 +35,7 @@ const DealershipPage = lazy(() => import('./pages/(auth)/dashboard/dealership/pa
 const TeamPage = lazy(() => import('./pages/(auth)/dashboard/team/page'));
 const InventoryPage = lazy(() => import('./pages/(auth)/dashboard/inventory/page'));
 const SecurityPage = lazy(() => import('./pages/(auth)/dashboard/security/page'));
-import UserProfilePage from './pages/(auth)/UserProfile';
+const UserProfilePage = lazy(() => import('./pages/(auth)/UserProfile'));
 
 const App = () => {
   const queryClient = new QueryClient({
@@ -50,12 +51,18 @@ const App = () => {
       <QueryClientProvider client={queryClient}>
         <I18nextProvider i18n={i18n}>
           <TranslationsProvider>
-            <Router>
-              <ThemeProvider>
-                <TooltipProvider>
+            <ThemeProvider>
+              <TooltipProvider>
+                <Router>
                   <AuthProvider>
                     <ViewModeProvider>
-                      <Suspense fallback={<div>Loading...</div>}>
+                      <Suspense 
+                        fallback={
+                          <div className="flex items-center justify-center min-h-screen">
+                            <div className="h-32 w-32 animate-spin rounded-full border-b-2 border-t-2 border-blue-500" />
+                          </div>
+                        }
+                      >
                         <Routes>
                           <Route path="/" element={<HomePage />} />
                           <Route path="/index" element={<Index />} />
@@ -87,16 +94,16 @@ const App = () => {
                           </Route>
                         </Routes>
                       </Suspense>
+                      <Toaster />
+                      <Sonner />
                     </ViewModeProvider>
                   </AuthProvider>
-                </TooltipProvider>
-              </ThemeProvider>
-            </Router>
+                </Router>
+              </TooltipProvider>
+            </ThemeProvider>
           </TranslationsProvider>
         </I18nextProvider>
       </QueryClientProvider>
-      <Toaster />
-      <Sonner />
     </HelmetProvider>
   );
 };

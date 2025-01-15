@@ -1,8 +1,8 @@
-const headlessuiPlugin = require('@headlessui/tailwindcss');
-const formsPlugin = require('@tailwindcss/forms');
+import headlessuiPlugin from '@headlessui/tailwindcss';
+import formsPlugin from '@tailwindcss/forms';
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     "./index.html",
     "./src/**/*.{js,jsx,ts,tsx}",
