@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="160" height="32" viewBox="0 0 160 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Car Icon -->
+  <path d="M24 8C24 6.89543 23.1046 6 22 6H10C8.89543 6 8 6.89543 8 8V14H6L4 18V24C4 24.5523 4.44772 25 5 25H7C7.55228 25 8 24.5523 8 24V22H24V24C24 24.5523 24.4477 25 25 25H27C27.5523 25 28 24.5523 28 24V18L26 14H24V8Z" fill="#003139"/>
+  <circle cx="10" cy="19" r="2" fill="#446df6"/>
+  <circle cx="22" cy="19" r="2" fill="#446df6"/>
+  
+  <!-- Text -->
+  <text x="40" y="22" font-family="Arial" font-size="20" font-weight="bold" fill="#003139">
+    AutoQuote24
+  </text>
+</svg>

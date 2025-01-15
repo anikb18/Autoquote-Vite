@@ -1,0 +1,39 @@
+.supabase-container {
+  width: 100%;
+}
+
+.supabase-button {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.supabase-button:hover {
+  opacity: 0.9;
+}
+
+.supabase-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.9375rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s;
+}
+
+.supabase-input:focus {
+  border-color: #446df6;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(68, 109, 246, 0.1);
+}
+
+.supabase-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #374151;
+}

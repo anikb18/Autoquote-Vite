@@ -1,0 +1,13 @@
+.logoWrapper {
+  @apply relative flex items-center;
+}
+
+.logoDefault {
+  width: 180px;
+  height: 40px;
+}
+
+.logoSmall {
+  width: 32px;
+  height: 32px;
+}

@@ -1,0 +1,125 @@
+```
+## AutoQuote24 Development Instructions
+
+**Project Overview**
+
+AutoQuote24 is Quebec Canada's leading specialized car buying and selling platform. It streamlines the vehicle purchase process through a private bidding system.
+
+**Core Features**
+
+* **Car Buying Service**
+    * Users submit vehicle preferences and pay a $40 fee.
+    * Dealers submit private bids without seeing competitors' offers.
+    * System automatically selects top 3 lowest price quotes.
+    * Trade-in value assessment available.
+    * Balloon payment calculations included.
+    * Accessories selection system.
+* **Car Selling System**
+    * Users can create detailed car listings.
+    * Upload up to 4 high-quality vehicle photos.
+    * Dealers receive notifications of listings in their area.
+    * 24-hour business day auction countdown.
+    * Secure communication between seller and winning dealer.
+* **Chat System**
+    * Activated after user accepts a quote.
+    * End-to-end encrypted direct communication between buyer and dealer.
+    * Real-time notifications.
+    * Secure document sharing and digital signature capabilities.
+
+**Technical Architecture**
+
+Frontend: React.js with Redux Toolkit, Tailwind CSS, Catalyst (platform), Salient (homepage).
+backend: vite
+* **3rd-Party Services:**
+    * Authentication: Clerk or Supabase
+    * Database: Supabase
+    * Payment processing: Stripe
+    * AI services: Google Gemini (`AIzaSyCf8ofwBfuuoVa-jVdTc3CeRxZH8RYAqL4`) for vehicle data autocomplete (2024-2025 models).
+    * Prisma ORM used for database interactions.
+
+**Development Requirements**
+
+* Implement all core features listed above.
+* **Security Implementation:**
+    * End-to-end bid encryption.
+    * Multi-factor authentication.
+    * GDPR compliance measures.
+    * Secure file upload handling.
+* **Performance Requirements:**
+    * Implement Redis caching for frequent queries.
+    * Database query optimization.
+    * Pagination for large datasets.
+    * Rate limiting implementation.
+  **Brand Colors:**
+  main: #003139
+  secondary: #d1d2c3
+  blue: #446df6
+
+**Testing Strategy**
+
+* **Required Coverage:**
+    * Unit tests for business logic.
+    * Integration tests for API endpoints.
+    * End-to-end testing for critical user flows.
+    * Load testing for auction system.
+
+**Developer Resources**
+
+* API documentation (refer to provided documentation).
+* Database schema design (refer to provided documentation).
+* Integration guides for 3rd-party services (refer to provided documentation).
+
+**Business Model**
+
+* **Revenue Streams:**
+    * Users pay $40 for quote service.
+    * Users pay $10 for trade-in valuation only.
+    * Dealers pay subscription fees:
+        * $1595/mo for new car quotes.
+        * $1895/mo including used car buyouts.
+
+**Primary Goals**
+
+* **For Buyers:**
+    * Eliminate negotiation stress.
+    * Receive competitive dealer quotes.
+    * Streamline the car buying process.
+    * Provide transparent pricing.
+* **For Dealers:**
+    * Access to qualified leads.
+    * Private bidding system.
+    * Efficient customer acquisition.
+    * Streamlined sales process.
+
+**Additional Features**
+
+* **User Features:**
+    * Photo Management: Up to 4 high-quality photos, required views (front, rear, interior dashboard, seats), 10MB max per photo.
+    * Trade-in System: Detailed condition assessment, mileage input, maintenance history, VIN verification, photo upload.
+    * Vehicle Search: Autocomplete for 2024-2025 models, separate autocomplete for trade-in, advanced filtering.
+* **Dealer Features:**
+    * Dashboard Integration: Auction monitoring, bid history, quote management, communication tools, performance analytics.
+
+**Security Features**
+
+* **Data Protection:**
+    * End-to-end encryption for bids.
+    * Secure file upload handling.
+    * Data backup strategy.
+    * GDPR compliance measures.
+
+Translation Guidelines
+
+* **Always** do translations for every new component using the `i18n` in C:\Autoquote Vite\src\i18n folder system and add them to the `./locales` folder.
+
+**Component Libraries**
+
+* Platform: Catalyst components from TailwindUI (`./components/Catalyst`).
+* Homepage: Salient components (`./components`).
+
+**Important Notes**
+
+* Remember to always follow the translation guidelines.
+* Refer to the provided API documentation, database schema design, and 3rd-party integration guides for detailed technical information.
+* Ensure all security and performance requirements are met.
+```

@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.text-autoquote {
+    color: #003139;
+  }
+  .blue-autoquote {
+      color: #446DF6
+  }

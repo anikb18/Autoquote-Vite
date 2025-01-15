@@ -1,0 +1,8 @@
+.statCardIcon {
+  @apply p-2 rounded-lg;
+}
+
+.statCardIconWrapper {
+  background-color: var(--accent-color);
+  opacity: 0.15;
+}

@@ -1,0 +1,76 @@
+{
+  "dashboard": {
+    "navigation": {
+      "dashboard": "Tableau de bord",
+      "vehicles": "Véhicules",
+      "analytics": "Analytiques",
+      "customers": "Clients",
+      "settings": "Paramètres"
+    },
+    "profile": {
+      "title": "Votre profil",
+      "user": "Utilisateur",
+      "dashboard": "Tableau de bord"
+    },
+    "welcome": "Bienvenue, {{name}}!",
+    "welcome_message": {
+      "admin": "Gérez vos concessionnaires et surveillez les performances globales.",
+      "dealer": "Consultez vos demandes de prix et gérez vos offres.",
+      "user": "Suivez vos demandes de prix et économisez sur votre prochain véhicule."
+    },
+    "stats": {
+      "total_dealers": "Concessionnaires",
+      "total_revenue": "Revenu total",
+      "total_users": "Utilisateurs",
+      "total_quotes": "Demandes totales",
+      "total_value": "Valeur totale",
+      "conversion_rate": "Taux de conversion",
+      "active_quotes": "Demandes actives",
+      "best_offer": "Meilleure offre",
+      "total_savings": "Économies totales"
+    },
+    "status": {
+      "pending": "En attente",
+      "approved": "Approuvé",
+      "rejected": "Refusé"
+    },
+    "recent_quotes": {
+      "title": "Demandes récentes",
+      "description": "Vos dernières demandes de prix"
+    },
+    "view_details": "Voir les détails",
+    "view_all_quotes": "Voir toutes les demandes",
+    "user": "utilisateur"
+  },
+  "views": {
+    "admin": "Vue administrateur",
+    "dealer": "Vue concessionnaire",
+    "user": "Vue utilisateur"
+  },
+  "common": {
+    "select_view": "Sélectionner la vue",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "save": "Sauvegarder",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "view": "Voir",
+    "close": "Fermer"
+  },
+  "auth": {
+    "signIn": "Se connecter",
+    "signInDescription": "Connectez-vous à votre compte pour accéder à votre tableau de bord",
+    "signUp": "S'inscrire",
+    "signUpDescription": "Créez votre compte pour commencer",
+    "forgotPassword": "Mot de passe oublié?",
+    "emailPlaceholder": "Votre adresse courriel",
+    "passwordPlaceholder": "Votre mot de passe",
+    "continueWithGoogle": "Continuer avec Google",
+    "continueWithEmail": "Continuer avec courriel",
+    "alreadyHaveAccount": "Vous avez déjà un compte?",
+    "dontHaveAccount": "Vous n'avez pas de compte?",
+    "signOut": "Se déconnecter"
+  }
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="82" height="82" viewBox="0 0 82 82" xmlns="http://www.w3.org/2000/svg">
+  <path d="M41 0L82 41L41 82L0 41L41 0Z" fill="currentColor"/>
+  <path d="M41 10L72 41L41 72L10 41L41 10Z" fill="white"/>
+  <path d="M41 20L62 41L41 62L20 41L41 20Z" fill="currentColor"/>
+</svg>

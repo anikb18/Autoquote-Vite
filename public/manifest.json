@@ -1,0 +1,106 @@
+{
+  "name": "AutoQuote24 - Meilleurs prix autos au Québec | Best Car Deals in Quebec",
+  "short_name": "AutoQuote24",
+  "description": "Obtenez les meilleures soumissions des concessionnaires locaux | Get the best quotes from local dealers",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/maskable-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/maskable-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#18181b",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/?source=pwa",
+  "id": "/",
+  "scope": "/",
+  "lang": "fr-CA",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "categories": ["business", "finance", "shopping", "automotive"],
+  "screenshots": [
+    {
+      "src": "/screenshots/homepage-fr.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Page d'accueil AutoQuote24"
+    },
+    {
+      "src": "/screenshots/homepage-en.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "AutoQuote24 Homepage"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Nouvelle soumission | New Quote",
+      "short_name": "Soumission",
+      "description": "Demander une nouvelle soumission | Request a new quote",
+      "url": "/quotes/new?source=pwa",
+      "icons": [{ "src": "/icons/new-quote.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Évaluation d'échange | Trade-in Value",
+      "short_name": "Échange",
+      "description": "Évaluer votre véhicule d'échange | Value your trade-in",
+      "url": "/trade-in?source=pwa",
+      "icons": [{ "src": "/icons/trade-in.png", "sizes": "192x192" }]
+    }
+  ],
+  "related_applications": [],
+  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
+  "handle_links": "preferred",
+  "launch_handler": {
+    "client_mode": ["navigate-existing", "auto"]
+  },
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "protocol_handlers": [
+    {
+      "protocol": "web+autoquote",
+      "url": "/quote?id=%s"
+    }
+  ],
+  "share_target": {
+    "action": "/share-target",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "photos",
+          "accept": ["image/jpeg", "image/png", "image/webp"]
+        }
+      ]
+    }
+  }
+}
