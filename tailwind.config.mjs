@@ -1,3 +1,6 @@
+import forms from '@tailwindcss/forms';
+import headlessui from '@headlessui/tailwindcss';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
@@ -73,8 +76,5 @@ export default {
       },
     },
   },
-  plugins: [
-    require("@tailwindcss/forms"),
-    require("@headlessui/tailwindcss")
-  ],
+  plugins: [forms, headlessui],
 }
