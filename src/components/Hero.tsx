@@ -1,8 +1,8 @@
-import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Container } from './Container';
 import { useTheme } from '@/providers/theme-provider';
+import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 
 // Import partner logos
@@ -26,7 +26,7 @@ const partners = [
   ],
 ];
 
-export default function Hero() {
+export function Hero() {
   const { t } = useTranslation();
   const { theme } = useTheme();
 
@@ -51,58 +51,35 @@ export default function Hero() {
         {t('hero.description')}
       </p>
       <div className="mt-10 flex justify-center gap-x-6">
-        <Button asChild size="lg" className="rounded-full">
-          <Link to="/register">
-            {t('hero.getStarted')}
-          </Link>
+        <Button asChild>
+          <Link to="/sign-up">{t('hero.getStarted')}</Link>
         </Button>
-        <Button
-          asChild
-          variant="outline"
-          size="lg"
-          className="rounded-full"
-        >
-          <Link to="#how-it-works">
-            <svg
-              aria-hidden="true"
-              className="h-3 w-3 flex-none fill-[#446df6] group-active:fill-current"
-            >
-              <path d="m9.997 6.91-7.583 3.447A1 1 0 0 1 1 9.447V2.553a1 1 0 0 1 1.414-.91L9.997 5.09c.782.355.782 1.465 0 1.82Z" />
-            </svg>
-            <span className="ml-3">{t('hero.learnMore')}</span>
-          </Link>
+        <Button variant="outline" asChild>
+          <Link to="/sign-in">{t('hero.signIn')}</Link>
         </Button>
       </div>
       <div className="mt-36 lg:mt-44">
-        <p className="font-display text-base text-gray-900 dark:text-gray-100">
+        <p className="font-display text-base text-gray-900 dark:text-gray-300">
           {t('hero.partners.title')}
         </p>
-        <ul
-          role="list"
-          className="mt-8 flex items-center justify-center gap-x-8 sm:flex-col sm:gap-x-0 sm:gap-y-10 xl:flex-row xl:gap-x-12 xl:gap-y-0"
-        >
+        <div className="mt-8 flex justify-center gap-x-8">
           {partners.map((group, groupIndex) => (
-            <li key={groupIndex}>
-              <ul
-                role="list"
-                className="flex flex-col items-center gap-y-8 sm:flex-row sm:gap-x-12 sm:gap-y-0"
-              >
-                {group.map((company) => (
-                  <li key={company.name} className="flex">
-                    <img 
-                      src={company.logo} 
-                      alt={company.name}
-                      className={clsx(
-                        'h-8 sm:h-10 object-contain',
-                        theme === 'dark' ? 'brightness-0 invert' : 'brightness-75'
-                      )}
-                    />
-                  </li>
-                ))}
-              </ul>
-            </li>
+            <div key={groupIndex} className="flex gap-x-6">
+              {group.map((partner) => (
+                <div key={partner.name} className="relative h-8 w-32">
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className={clsx(
+                      'h-full w-full object-contain',
+                      theme === 'dark' && 'invert'
+                    )}
+                  />
+                </div>
+              ))}
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </Container>
   );

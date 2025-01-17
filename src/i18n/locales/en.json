@@ -1,0 +1,40 @@
+{
+  "header": {
+    "open_menu": "Open Menu",
+    "close_menu": "Close Menu",
+    "toggle_theme": "Toggle Theme"
+  },
+  "dashboard": {
+    "sections": {
+      "car_viewer": "Car Viewer",
+      "quick_actions": "Quick Actions",
+      "specifications": "Specifications"
+    },
+    "actions": {
+      "refresh": "Refresh",
+      "rotate": "Rotate View",
+      "get_quote": "Get Quote",
+      "sell_car": "Sell Your Car"
+    },
+    "car_details": {
+      "make": "Make",
+      "model": "Model",
+      "year": "Year"
+    },
+    "specs": {
+      "city_mpg": "City MPG",
+      "highway_mpg": "Highway MPG",
+      "fuel_type": "Fuel Type",
+      "transmission": "Transmission",
+      "drive": "Drive"
+    },
+    "errors": {
+      "fetch_quote": "Could not fetch your quote. Please try again.",
+      "user_not_found": "User profile not found. Please sign in again.",
+      "initialization": "Error during initialization. Please refresh the page."
+    },
+    "labels": {
+      "latest": "Latest"
+    }
+  }
+}

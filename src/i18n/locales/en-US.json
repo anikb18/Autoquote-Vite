@@ -8,10 +8,12 @@
     "navigation": {
       "features": "Features",
       "testimonials": "Testimonials",
-      "pricing": "Pricing"
+      "pricing": "Pricing",
+      "about": "About"
     },
     "buttons": {
-      "signIn": "Sign In"
+      "signIn": "Sign In",
+      "signUp": "Sign Up"
     },
     "home": {
       "features": "Features",
@@ -20,6 +22,115 @@
       "about": "About",
       "openMenu": "Open menu",
       "closeMenu": "Close menu"
+    },
+    "welcome": "Welcome to AutoQuote24",
+    "notifications": "View notifications",
+    "profile": "Your Profile",
+    "settings": "Settings",
+    "messages": "Messages"
+  },
+  "hero": {
+    "title": "Find Your Perfect Car",
+    "highlight": "Without the Hassle",
+    "description": "Get the best deals from trusted dealers in Quebec. No negotiation needed - just submit your preferences and receive competitive quotes within 24 hours.",
+    "primaryAction": "Get Started",
+    "secondaryAction": "Learn More",
+    "partners": "Trusted by leading dealerships across Quebec",
+    "cta": "Get your quote today",
+    "signIn": "Sign In",
+    "trustedBy": "Trusted by"
+  },
+  "primaryFeatures": {
+    "title": "Everything you need to get the best deal",
+    "description": "AutoQuote24 streamlines the car buying process with powerful features designed to save you time and money.",
+    "features": {
+      "bidding": {
+        "title": "Private Bidding System",
+        "description": "Dealers compete for your business without seeing each other's bids, ensuring you get the best possible price."
+      },
+      "tradeIn": {
+        "title": "Trade-In Valuation",
+        "description": "Get an instant estimate of your current vehicle's value based on real market data."
+      },
+      "communication": {
+        "title": "Secure Communication",
+        "description": "Chat directly with dealers through our encrypted messaging system once you accept a quote."
+      }
+    }
+  },
+  "secondaryFeatures": {
+    "title": "Advanced Features",
+    "description": "Powerful tools to make your car buying experience seamless.",
+    "features": {
+      "1": {
+        "title": "Photo Management",
+        "description": "Upload up to 4 high-quality photos of your trade-in vehicle."
+      },
+      "2": {
+        "title": "Balloon Payments",
+        "description": "Calculate and compare different financing options including balloon payments."
+      },
+      "3": {
+        "title": "Accessories Selection",
+        "description": "Browse and select from a wide range of manufacturer-approved accessories."
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Loved by car buyers across Quebec",
+    "description": "See what our satisfied customers have to say about their experience with AutoQuote24.",
+    "items": [
+      {
+        "content": "AutoQuote24 saved me thousands on my new car. The process was incredibly smooth and transparent.",
+        "author": {
+          "name": "Marie Tremblay",
+          "role": "Montreal, QC"
+        }
+      },
+      {
+        "content": "I was skeptical at first, but the private bidding system really works. Got an amazing deal on my dream car.",
+        "author": {
+          "name": "Jean-Philippe Dubois",
+          "role": "Quebec City, QC"
+        }
+      }
+    ]
+  },
+  "callToAction": {
+    "title": "Ready to find your perfect car?",
+    "description": "Join thousands of satisfied customers who found their dream car through AutoQuote24.",
+    "button": "Get Started Today"
+  },
+  "pricing": {
+    "title": "Simple, transparent pricing",
+    "description": "Choose the plan that's right for you.",
+    "plans": {
+      "buyer": {
+        "title": "Car Buyer",
+        "price": "$40",
+        "description": "Everything you need to find your perfect car",
+        "features": [
+          "Access to private bidding system",
+          "Trade-in valuation",
+          "Secure dealer communication",
+          "24/7 support"
+        ],
+        "button": "Start Your Search"
+      }
+    }
+  },
+  "faqs": {
+    "title": "Frequently asked questions",
+    "description": "Common questions about our service",
+    "items": {
+      "1": {
+        "question": "How does the bidding system work?",
+        "answer": "Dealers submit private bids without seeing competitors' offers. You receive the top 3 lowest price quotes within 24 hours."
+      },
+      "2": {
+        "question": "Is there a fee to use AutoQuote24?",
+        "answer": "Yes, there is a one-time fee of $40 to submit your vehicle preferences and receive quotes. This helps ensure serious buyers and quality service."
+      }
     }
   },
   "common": {
@@ -29,7 +140,15 @@
     "save": "Save",
     "dealer": "Dealer",
     "buyer": "Buyer",
-    "viewProfile": "View Profile"
+    "admin": "Admin",
+    "view_as": "View as",
+    "viewProfile": "View Profile",
+    "logo": "Logo",
+    "dashboard": "Dashboard",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "today": "today",
+    "toggleTheme": "Toggle theme"
   },
   "brands": {
     "transistor": "Transistor",
@@ -39,148 +158,7 @@
     "laravel": "Laravel",
     "statamic": "Statamic"
   },
-  "primaryFeatures": {
-    "title": "Streamlined Car Buying Experience",
-    "description": "Everything you need to find and purchase your perfect vehicle.",
-    "features": {
-      "payroll": {
-        "title": "Instant Price Quotes",
-        "description": "Get real-time quotes from multiple dealers in your area."
-      },
-      "expenses": {
-        "title": "Trade-In Valuation",
-        "description": "Get an accurate estimate of your current vehicle's value."
-      },
-      "vatReturns": {
-        "title": "Secure Transactions",
-        "description": "End-to-end encrypted communication and secure payment processing."
-      },
-      "reporting": {
-        "title": "Market Analysis",
-        "description": "Access real-time market data and price comparisons."
-      }
-    }
-  },
-  "secondaryFeatures": {
-    "title": "Advanced Features",
-    "description": "Powerful tools to make your car buying experience seamless.",
-    "features": {
-      "1": {
-        "title": "Vehicle History Reports",
-        "description": "Access detailed vehicle history reports for any car."
-      },
-      "2": {
-        "title": "Finance Calculator",
-        "description": "Calculate monthly payments and compare financing options."
-      },
-      "3": {
-        "title": "Document Management",
-        "description": "Securely store and manage all your vehicle documents."
-      },
-      "4": {
-        "title": "Dealer Reviews",
-        "description": "Read and write verified dealer reviews."
-      },
-      "5": {
-        "title": "Price Alerts",
-        "description": "Get notified when prices change for your saved searches."
-      },
-      "6": {
-        "title": "Mobile App",
-        "description": "Access all features on the go with our mobile app."
-      }
-    }
-  },
-  "callToAction": {
-    "title": "Ready to Find Your Dream Car?",
-    "description": "Join thousands of satisfied customers who found their perfect vehicle through AutoQuote24.",
-    "button": "Start Your Search"
-  },
-  "testimonials": {
-    "montreal": {
-      "content": "AutoQuote24 made finding my new car incredibly easy. The dealers offered competitive prices and I saved thousands.",
-      "author": {
-        "name": "Marc Tremblay",
-        "role": "Software Engineer"
-      }
-    },
-    "laval": {
-      "content": "The trade-in valuation was spot-on and I got a great deal on my new vehicle.",
-      "author": {
-        "name": "Sophie Dubois",
-        "role": "Business Owner"
-      }
-    },
-    "sherbrooke": {
-      "content": "Excellent service! The whole process was transparent and stress-free.",
-      "author": {
-        "name": "Jean-Luc Bouchard",
-        "role": "Teacher"
-      }
-    },
-    "gatineau": {
-      "content": "I appreciated the no-pressure approach and got exactly what I wanted.",
-      "author": {
-        "name": "Marie-Claire Roy",
-        "role": "Healthcare Professional"
-      }
-    },
-    "quebec": {
-      "content": "The best car buying experience I've ever had. Highly recommended!",
-      "author": {
-        "name": "Pierre Gagnon",
-        "role": "Accountant"
-      }
-    },
-    "troisrivieres": {
-      "content": "Saved both time and money. The service exceeded my expectations.",
-      "author": {
-        "name": "Isabelle Lemieux",
-        "role": "Marketing Director"
-      }
-    }
-  },
-  "features": {
-    "title": "Our Features",
-    "subtitle": "Everything you need to get the best deal on your next car",
-    "mostPopular": "Most Popular",
-    "save": "Save",
-    "regularPrice": "Regular Price",
-    "prelaunchPrice": "Pre-launch Price",
-    "newCar": {
-      "title": "New Car Quote",
-      "description": "Get competitive quotes from multiple dealers for your next new car",
-      "price": "$40",
-      "prelaunchPrice": "$29.99",
-      "regularPrice": "$40",
-      "savings": "$10.01",
-      "tooltip": "Limited time offer",
-      "ctaLabel": "Get Started",
-      "cta": "Get Your Quote"
-    },
-    "tradeIn": {
-      "title": "Trade-In Value",
-      "description": "Get an accurate trade-in value for your current vehicle",
-      "price": "$10",
-      "regularPrice": "$10",
-      "savings": "$5.01",
-      "tooltip": "Best value option",
-      "ctaLabel": "Value Your Car",
-      "cta": "Start Valuation"
-    }
-  },
   "spotsRemaining": "{{count}} spots remaining",
-  "hero": {
-    "title": "Car buying",
-    "highlight": "made simple",
-    "titleEnd": "in Quebec",
-    "description": "Get the best price on your next car without the hassle. Our private bidding system ensures dealers compete for your business, not the other way around.",
-    "getStarted": "Get your quote today",
-    "learnMore": "See how it works",
-    "partners": {
-      "title": "Trusted by leading dealerships across Quebec"
-    }
-  },
   "auth": {
     "signIn": "Sign in",
     "signInDescription": "Sign in to your account to access your dashboard",
@@ -195,48 +173,6 @@
     "hours": "hours",
     "minutes": "minutes",
     "seconds": "seconds"
-  },
-  "faqs": {
-    "title": "Frequently Asked Questions",
-    "description": "Common questions about our service",
-    "items": {
-      "1": {
-        "question": "How does AutoQuote24 work?",
-        "answer": "Submit your vehicle preferences and receive competitive quotes from certified dealers within 24 hours."
-      },
-      "2": {
-        "question": "Is the service really free?",
-        "answer": "Yes, getting quotes is completely free. You only pay when you decide to use our premium services."
-      },
-      "3": {
-        "question": "How accurate are the trade-in valuations?",
-        "answer": "Our valuations are based on real-time market data and are typically within 5% of final trade-in values."
-      },
-      "4": {
-        "question": "Are the dealers certified?",
-        "answer": "Yes, all dealers on our platform are certified and undergo regular quality checks."
-      },
-      "5": {
-        "question": "Can I negotiate the price?",
-        "answer": "Yes, you can negotiate directly with dealers through our secure chat system."
-      },
-      "6": {
-        "question": "How long does it take to get quotes?",
-        "answer": "Most quotes are received within 24 hours of submission."
-      },
-      "7": {
-        "question": "Is my information secure?",
-        "answer": "Yes, we use bank-level encryption to protect all your data."
-      },
-      "8": {
-        "question": "What areas do you serve?",
-        "answer": "We currently serve all major cities in Quebec."
-      },
-      "9": {
-        "question": "Can I cancel anytime?",
-        "answer": "Yes, you can cancel your subscription at any time with no penalties."
-      }
-    }
   },
   "footer": {
     "links": {
@@ -282,29 +218,45 @@
     "name": "AutoQuote24"
   },
   "dashboard": {
-    "quickActions": {
-      "title": "Quick Actions",
-      "requestQuote": "Request Quote",
-      "tradeInVehicle": "Trade-in Vehicle",
-      "viewMessages": "View Messages"
-    },
-    "account": {
-      "title": "Account",
-      "signOut": "Sign Out",
-      "settings": "Settings",
-      "profile": "Profile"
-    },
-    "notifications": "Notifications",
     "sections": {
       "car_viewer": "Car Viewer",
-      "quick_actions": "Quick Actions"
+      "quick_actions": "Quick Actions",
+      "analytics": "Analytics",
+      "recent_activity": "Recent Activity",
+      "dealer_stats": "Dealer Statistics",
+      "user_stats": "User Statistics"
     },
-    "navigation": {
-      "dashboard": "Dashboard",
-      "vehicles": "Vehicles",
-      "quotes": "Quotes",
-      "messages": "Messages",
-      "settings": "Settings"
+    "actions": {
+      "get_quote": "Get Quote",
+      "sell_car": "Sell Your Car",
+      "cycle_year": "Change Year",
+      "manage_dealers": "Manage Dealers",
+      "view_quotes": "View Quotes",
+      "manage_inventory": "Manage Inventory"
+    },
+    "labels": {
+      "latest": "Latest",
+      "total_dealers": "Total Dealers",
+      "active_users": "Active Users",
+      "monthly_revenue": "Monthly Revenue",
+      "active_auctions": "Active Auctions"
+    },
+    "car_details": {
+      "make": "Make",
+      "model": "Model",
+      "year": "Year"
+    },
+    "stats": {
+      "total_dealers": "Total Dealers",
+      "active_dealers": "Active Dealers",
+      "total_revenue": "Total Revenue",
+      "monthly_revenue": "Monthly Revenue",
+      "total_users": "Total Users",
+      "active_users": "Active Users",
+      "total_quotes": "Total Quotes",
+      "active_quotes": "Active Quotes",
+      "total_sales": "Total Sales",
+      "monthly_sales": "Monthly Sales"
     }
   },
   "views": {
@@ -343,5 +295,19 @@
   "theme": {
     "darkMode": "Dark Mode",
     "lightMode": "Light Mode"
+  }
+  ,
+  "nav": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "testimonials": "Testimonials",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "common": {
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "dashboard": "Dashboard",
+    "messages": "Messages"
   }
 }

@@ -1,72 +1,26 @@
-'use client';
-
-import { useEffect, useState } from "react";
-import { useTheme } from "@/providers/theme-provider";
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 interface LogoProps extends React.SVGProps<SVGSVGElement> {
   className?: string;
 }
 
-const SIZES = {
-  default: {
-    width: 180,
-    height: 40,
-  },
-  small: {
-    width: 140,
-    height: 32,
-  },
-} as const;
-
 export function Logo({ className, ...props }: LogoProps) {
-  const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
-
   return (
     <svg
-      viewBox="0 0 32 32"
-      aria-hidden="true"
-      className={cn("h-8 w-8", className)}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={cn('text-primary', className)}
       {...props}
     >
-      <circle cx="16" cy="16" r="16" fill={theme === "dark" ? "#fff" : "#003139"} fillOpacity="0.2" />
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M5 5a3 3 0 013-3h16a3 3 0 013 3v16a3 3 0 01-3 3H8a3 3 0 01-3-3V5zm3-1h16a1 1 0 011 1v16a1 1 0 01-1 1H8a1 1 0 01-1-1V5a1 1 0 011-1z"
-        fill={theme === "dark" ? "#fff" : "#003139"}
-      />
+      <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+      <polyline points="14 2 14 8 20 8" />
+      <line x1="12" y1="18" x2="12" y2="12" />
+      <line x1="9" y1="15" x2="15" y2="15" />
     </svg>
   );
-}
-
-export function LogoIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 160 24"
-      fill="none"
-      className={className}
-    >
-      <text
-        x="0"
-        y="20"
-        fontFamily="Arial"
-        fontSize="24"
-        fontWeight="bold"
-        fill="currentColor"
-      >
-        AutoQuote24
-      </text>
-    </svg>
-  )
 }

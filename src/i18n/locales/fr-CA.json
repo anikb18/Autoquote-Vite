@@ -9,76 +9,255 @@
       "features": "Fonctionnalités",
       "testimonials": "Témoignages",
       "pricing": "Tarification",
+      "about": "À propos"
+    },
+    "buttons": {
+      "signIn": "Connexion",
+      "signUp": "Inscription"
+    },
+    "home": {
+      "features": "Fonctionnalités",
+      "testimonials": "Témoignages",
+      "pricing": "Tarification",
       "about": "À propos",
       "openMenu": "Ouvrir le menu",
       "closeMenu": "Fermer le menu"
     },
-    "buttons": {
-      "signIn": "Connexion"
+    "welcome": "Bienvenue sur AutoQuote24",
+    "notifications": "Voir les notifications",
+    "profile": "Votre Profil",
+    "settings": "Paramètres",
+    "messages": "Messages"
+  },
+  "hero": {
+    "title": "Trouvez Votre Voiture Parfaite",
+    "highlight": "Sans le Stress",
+    "description": "Obtenez les meilleures offres des concessionnaires de confiance au Québec. Pas de négociation nécessaire - soumettez simplement vos préférences et recevez des devis compétitifs sous 24 heures.",
+    "primaryAction": "Commencer",
+    "secondaryAction": "En savoir plus",
+    "partners": "Approuvé par les principaux concessionnaires du Québec",
+    "cta": "Obtenez votre soumission",
+    "signIn": "Connexion",
+    "trustedBy": "Fait confiance par"
+  },
+  "primaryFeatures": {
+    "title": "Tout ce dont vous avez besoin pour obtenir la meilleure offre",
+    "description": "AutoQuote24 simplifie le processus d'achat de voiture avec des fonctionnalités puissantes conçues pour vous faire gagner du temps et de l'argent.",
+    "features": {
+      "bidding": {
+        "title": "Système d'Enchères Privées",
+        "description": "Les concessionnaires se font concurrence pour votre entreprise sans voir les offres des autres, vous garantissant le meilleur prix possible."
+      },
+      "tradeIn": {
+        "title": "Évaluation de Reprise",
+        "description": "Obtenez une estimation instantanée de la valeur de votre véhicule actuel basée sur les données réelles du marché."
+      },
+      "communication": {
+        "title": "Communication Sécurisée",
+        "description": "Chattez directement avec les concessionnaires via notre système de messagerie cryptée une fois que vous acceptez un devis."
+      }
+    }
+  },
+  "secondaryFeatures": {
+    "title": "Fonctionnalités Avancées",
+    "description": "Des outils puissants pour rendre votre expérience d'achat de voiture transparente.",
+    "features": {
+      "1": {
+        "title": "Gestion des Photos",
+        "description": "Téléchargez jusqu'à 4 photos haute qualité de votre véhicule de reprise."
+      },
+      "2": {
+        "title": "Paiements Ballons",
+        "description": "Calculez et comparez différentes options de financement, y compris les paiements ballons."
+      },
+      "3": {
+        "title": "Sélection d'Accessoires",
+        "description": "Parcourez et sélectionnez parmi une large gamme d'accessoires approuvés par le fabricant."
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Adoré par les acheteurs de voitures à travers le Québec",
+    "description": "Découvrez ce que nos clients satisfaits disent de leur expérience avec AutoQuote24.",
+    "items": [
+      {
+        "content": "AutoQuote24 m'a fait économiser des milliers de dollars sur ma nouvelle voiture. Le processus était incroyablement fluide et transparent.",
+        "author": {
+          "name": "Marie Tremblay",
+          "role": "Montréal, QC"
+        }
+      },
+      {
+        "content": "J'étais sceptique au début, mais le système d'enchères privées fonctionne vraiment. J'ai obtenu une offre incroyable pour la voiture de mes rêves.",
+        "author": {
+          "name": "Jean-Philippe Dubois",
+          "role": "Québec, QC"
+        }
+      }
+    ]
+  },
+  "callToAction": {
+    "title": "Prêt à trouver votre voiture parfaite ?",
+    "description": "Rejoignez des milliers de clients satisfaits qui ont trouvé la voiture de leurs rêves grâce à AutoQuote24.",
+    "button": "Commencez Aujourd'hui"
+  },
+  "pricing": {
+    "title": "Prix simple et transparent",
+    "description": "Choisissez le forfait qui vous convient.",
+    "plans": {
+      "buyer": {
+        "title": "Acheteur de Voiture",
+        "price": "40 $",
+        "description": "Tout ce dont vous avez besoin pour trouver votre voiture parfaite",
+        "features": [
+          "Accès au système d'enchères privées",
+          "Évaluation de reprise",
+          "Communication sécurisée avec les concessionnaires",
+          "Support 24/7"
+        ],
+        "button": "Commencez Votre Recherche"
+      }
+    }
+  },
+  "faqs": {
+    "title": "Questions fréquemment posées",
+    "description": "Questions courantes sur notre service",
+    "items": {
+      "1": {
+        "question": "Comment fonctionne le système d'enchères ?",
+        "answer": "Les concessionnaires soumettent des offres privées sans voir les offres des concurrents. Vous recevez les 3 meilleures offres sous 24 heures."
+      },
+      "2": {
+        "question": "Y a-t-il des frais pour utiliser AutoQuote24 ?",
+        "answer": "Oui, il y a des frais uniques de 40 $ pour soumettre vos préférences de véhicule et recevoir des devis. Cela aide à garantir des acheteurs sérieux et un service de qualité."
+      }
     }
   },
   "common": {
     "getStarted": "Commencer",
     "learnMore": "En savoir plus",
     "loading": "Chargement...",
-    "save": "Sauvegarder"
+    "save": "Enregistrer",
+    "dealer": "Concessionnaire",
+    "buyer": "Acheteur",
+    "admin": "Administrateur",
+    "view_as": "Voir en tant que",
+    "viewProfile": "Voir le profil"
   },
-  "brands": {
-    "transistor": "Transistor",
-    "tuple": "Tuple",
-    "staticKit": "StaticKit",
-    "mirage": "Mirage",
-    "laravel": "Laravel",
-    "statamic": "Statamic"
+  "dashboard": {
+    "sections": {
+      "car_viewer": "Visualiseur de Voiture",
+      "quick_actions": "Actions Rapides",
+      "specifications": "Spécifications"
+    },
+    "specs": {
+      "city_mpg": "Consommation ville",
+      "highway_mpg": "Consommation autoroute",
+      "fuel_type": "Type de carburant",
+      "transmission": "Transmission",
+      "drive": "Type de traction"
+    },
+    "actions": {
+      "get_quote": "Obtenir un Devis",
+      "sell_car": "Vendre Votre Voiture",
+      "cycle_year": "Changer l'Année"
+    },
+    "labels": {
+      "latest": "Dernier"
+    },
+    "car_details": {
+      "make": "Marque",
+      "model": "Modèle",
+      "year": "Année"
+    },
+    "stats": {
+      "total_dealers": "Total des Concessionnaires",
+      "active_dealers": "Concessionnaires Actifs",
+      "total_revenue": "Revenu Total",
+      "monthly_revenue": "Revenu Mensuel",
+      "total_users": "Total des Utilisateurs",
+      "active_users": "Utilisateurs Actifs",
+      "total_quotes": "Total des Devis",
+      "active_quotes": "Devis Actifs",
+      "total_sales": "Total des Ventes",
+      "monthly_sales": "Ventes Mensuelles"
+    },
+    "views": {
+      "admin": "Vue administrateur",
+      "dealer": "Vue concessionnaire",
+      "user": "Vue utilisateur"
+    },
+    "errors": {
+      "fetch_quote": "Impossible de récupérer votre devis. Veuillez réessayer.",
+      "user_not_found": "Profil utilisateur introuvable. Veuillez vous reconnecter.",
+      "initialization": "Erreur lors de l'initialisation. Veuillez rafraîchir la page."
+    },
+    "labels": {
+      "latest": "Nouveau"
+    },
+    "actions": {
+      "refresh": "Rafraîchir",
+      "get_quote": "Obtenir un devis",
+      "sell_car": "Vendre ma voiture"
+    },
+    "sections": {
+      "car_viewer": "Visualiseur de voiture",
+      "quick_actions": "Actions rapides"
+    },
+    "car_details": {
+      "make": "Marque",
+      "model": "Modèle",
+      "year": "Année"
+    }
   },
   "primaryFeatures": {
-    "title": "Une expérience d'achat simplifiée",
+    "title": "Expérience d'Achat Simplifiée",
     "description": "Tout ce dont vous avez besoin pour trouver et acheter votre véhicule parfait.",
     "features": {
       "payroll": {
-        "title": "Devis instantanés",
+        "title": "Prix Instantanés",
         "description": "Obtenez des devis en temps réel de plusieurs concessionnaires de votre région."
       },
       "expenses": {
-        "title": "Évaluation d'échange",
-        "description": "Obtenez une estimation précise de la valeur de votre véhicule actuel."
+        "title": "Évaluation d'Échange",
+        "description": "Obtenez une estimation précise de la valeur de reprise de votre véhicule instantanément."
       },
       "vatReturns": {
-        "title": "Transactions sécurisées",
+        "title": "Transactions Sécurisées",
         "description": "Communication cryptée de bout en bout et traitement sécurisé des paiements."
       },
       "reporting": {
-        "title": "Analyse de marché",
+        "title": "Analyse de Marché",
         "description": "Accédez aux données du marché en temps réel et aux comparaisons de prix."
       }
     }
   },
   "secondaryFeatures": {
-    "title": "Fonctionnalités avancées",
+    "title": "Fonctionnalités Avancées",
     "description": "Des outils puissants pour rendre votre expérience d'achat de voiture transparente.",
     "features": {
       "1": {
-        "title": "Historique des véhicules",
+        "title": "Historique des Véhicules",
         "description": "Accédez aux rapports d'historique détaillés pour chaque voiture."
       },
       "2": {
-        "title": "Calculateur de financement",
+        "title": "Calculateur de Financement",
         "description": "Calculez les paiements mensuels et comparez les options de financement."
       },
       "3": {
-        "title": "Gestion des documents",
+        "title": "Gestion des Documents",
         "description": "Stockez et gérez en toute sécurité tous vos documents de véhicule."
       },
       "4": {
-        "title": "Avis des concessionnaires",
+        "title": "Avis des Concessionnaires",
         "description": "Lisez et rédigez des avis vérifiés sur les concessionnaires."
       },
       "5": {
-        "title": "Alertes de prix",
+        "title": "Alertes de Prix",
         "description": "Soyez notifié lorsque les prix changent pour vos recherches sauvegardées."
       },
       "6": {
-        "title": "Application mobile",
+        "title": "Application Mobile",
         "description": "Accédez à toutes les fonctionnalités en déplacement avec notre application mobile."
       }
     }
@@ -635,7 +814,15 @@
     "notifications": "Notifications",
     "sections": {
       "car_viewer": "Visualiseur de Voiture",
-      "quick_actions": "Actions Rapides"
+      "quick_actions": "Actions Rapides",
+      "specifications": "Spécifications"
+    },
+    "specs": {
+      "city_mpg": "Consommation ville",
+      "highway_mpg": "Consommation autoroute",
+      "fuel_type": "Type de carburant",
+      "transmission": "Transmission",
+      "drive": "Type de traction"
     },
     "car_details": {
       "make": "Marque",
@@ -762,5 +949,57 @@
   "theme": {
     "darkMode": "Mode Sombre",
     "lightMode": "Mode Clair"
-  }
+  },
+  "dashboard": {
+    "sections": {
+      "car_viewer": "Visualiseur de Voiture",
+      "quick_actions": "Actions Rapides",
+      "specifications": "Spécifications"
+    },
+    "specs": {
+      "city_mpg": "Consommation ville",
+      "highway_mpg": "Consommation autoroute",
+      "fuel_type": "Type de carburant",
+      "transmission": "Transmission",
+      "drive": "Type de traction"
+    },
+    "actions": {
+      "get_quote": "Obtenir un Devis",
+      "sell_car": "Vendre Votre Voiture",
+      "cycle_year": "Changer l'Année"
+    },
+    "labels": {
+      "latest": "Dernier"
+    },
+    "car_details": {
+      "make": "Marque",
+      "model": "Modèle",
+      "year": "Année"
+    }
+  },
+  "sidebar": {
+    "dashboard": "Tableau de bord",
+    "quotes": "Devis",
+    "vehicles": "Véhicules",
+    "messages": "Messages",
+    "profile": "Profil",
+    "settings": "Paramètres"
+  },
+  
+    "nav": {
+     "features": "Fonctionnalités",
+    "testimonials": "Témoignages",
+    "pricing": "Tarification",
+    "about": "À propos",
+      "home": "Accueil",
+      "contact": "Contact"
+    },
+    "common": {
+      "signIn": "Sign in",
+      "signUp": "Sign up",
+      "today": "aujourd'hui",
+    "toggleTheme": "Changer le thème",
+    "logo": "Logo",
+    "dashboard": "Tableau de bord"
+    }
 }

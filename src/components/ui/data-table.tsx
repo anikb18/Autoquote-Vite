@@ -1,3 +1,4 @@
+// src/components/ui/data-table.tsx
 "use client";
 
 import * as React from "react";
@@ -38,7 +39,7 @@ interface DataTableProps<TData, TValue> {
 
 export function DataTable<TData, TValue>({
   columns,
-  data,
+  data = [], // Provide default empty array
   searchPlaceholder = "Search...",
   searchColumn = "vehicle",
 }: DataTableProps<TData, TValue>) {
@@ -68,6 +69,11 @@ export function DataTable<TData, TValue>({
     getFacetedRowModel: getFacetedRowModel(),
     getFacetedUniqueValues: getFacetedUniqueValues(),
   });
+
+  // Add safety checks
+  if (!table || !table.getHeaderGroups) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="space-y-4">

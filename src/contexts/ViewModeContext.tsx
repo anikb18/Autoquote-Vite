@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import type { User } from '@supabase/supabase-js';
 
-type ViewMode = 'admin' | 'dealer' | 'user';
+export type ViewMode = 'dealer' | 'user' | 'admin';
 
 interface ViewModeContextType {
   viewMode: ViewMode;
@@ -10,52 +10,31 @@ interface ViewModeContextType {
 
 const ViewModeContext = createContext<ViewModeContextType | undefined>(undefined);
 
-const VIEW_MODE_STORAGE_KEY = 'autoquote-view-mode';
-
 interface ViewModeProviderProps {
   children: ReactNode;
   user: User | null;
 }
 
 export function ViewModeProvider({ children, user }: ViewModeProviderProps) {
-  const [viewMode, setViewModeState] = useState<ViewMode>('user'); // Default to user
+  const [viewMode, setViewMode] = useState<ViewMode>(() => {
+    if (user?.user_metadata?.role) {
+      return user.user_metadata.role as ViewMode;
+    }
+    const savedMode = localStorage.getItem('viewMode');
+    return (savedMode as ViewMode) || 'user';
+  });
 
-  // Update viewMode when user changes or component mounts
   useEffect(() => {
-    const determineViewMode = () => {
-      // First try to get from localStorage
-      const savedMode = localStorage.getItem(VIEW_MODE_STORAGE_KEY) as ViewMode;
-      
-      if (savedMode && ['admin', 'dealer', 'user'].includes(savedMode)) {
-        return savedMode;
-      }
-      
-      // If not in localStorage or invalid, determine from user
-      if (!user) {
-        return 'user';
-      }
+    if (user?.user_metadata?.role) {
+      setViewMode(user.user_metadata.role as ViewMode);
+    }
+  }, [user?.user_metadata?.role]);
 
-      if (user.email === 'anikbeauchemin18@gmail.com') {
-        return 'admin';
-      } else if (user.user_metadata?.userType === 'dealer') {
-        return 'dealer';
-      }
-      return 'user';
-    };
+  useEffect(() => {
+    localStorage.setItem('viewMode', viewMode);
+  }, [viewMode]);
 
-    const newMode = determineViewMode();
-    setViewModeState(newMode);
-  }, [user]);
-
-  const setViewMode = (mode: ViewMode) => {
-    setViewModeState(mode);
-    localStorage.setItem(VIEW_MODE_STORAGE_KEY, mode);
-  };
-
-  const value = {
-    viewMode,
-    setViewMode,
-  };
+  const value = { viewMode, setViewMode };
 
   return (
     <ViewModeContext.Provider value={value}>

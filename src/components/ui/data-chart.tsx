@@ -9,11 +9,26 @@ import {
   ResponsiveContainer,
   BarChart,
   Bar,
+  Legend,
 } from "recharts";
 import { cn } from "@/lib/utils";
 
+interface ChartDataset {
+  label: string;
+  data: number[];
+  borderColor?: string;
+  backgroundColor?: string;
+  fill?: boolean;
+  tension?: number;
+}
+
+interface ChartData {
+  labels: string[];
+  datasets: ChartDataset[];
+}
+
 interface DataChartProps {
-  data: any[];
+  data?: ChartData;
   type?: "line" | "bar";
   className?: string;
 }
@@ -21,12 +36,29 @@ interface DataChartProps {
 export function DataChart({ data, type = "line", className }: DataChartProps) {
   const chartColor = "#003139"; // Main brand color
 
+  if (!data?.labels || !data?.datasets) {
+    return (
+      <div className={cn("w-full h-[300px] flex items-center justify-center", className)}>
+        <p className="text-muted-foreground">No data available</p>
+      </div>
+    );
+  }
+
+  // Transform the data from Chart.js format to Recharts format
+  const transformedData = data.labels.map((label, index) => {
+    const dataPoint: any = { name: label };
+    data.datasets.forEach((dataset) => {
+      dataPoint[dataset.label] = dataset.data[index];
+    });
+    return dataPoint;
+  });
+
   return (
     <div className={cn("w-full h-[300px]", className)}>
       <ResponsiveContainer width="100%" height="100%">
         {type === "line" ? (
           <LineChart
-            data={data}
+            data={transformedData}
             margin={{
               top: 5,
               right: 30,
@@ -36,7 +68,7 @@ export function DataChart({ data, type = "line", className }: DataChartProps) {
           >
             <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
             <XAxis
-              dataKey="date"
+              dataKey="name"
               className="text-xs fill-muted-foreground"
               tick={{ fontSize: 12 }}
             />
@@ -49,25 +81,25 @@ export function DataChart({ data, type = "line", className }: DataChartProps) {
                 backgroundColor: "hsl(var(--background))",
                 border: "1px solid hsl(var(--border))",
                 borderRadius: "6px",
-              }}
-              labelStyle={{
-                color: "hsl(var(--foreground))",
-                fontWeight: 500,
-                marginBottom: "4px",
+                fontSize: "12px",
               }}
             />
-            <Line
-              type="monotone"
-              dataKey="count"
-              stroke={chartColor}
-              strokeWidth={2}
-              dot={false}
-              activeDot={{ r: 6, fill: chartColor }}
-            />
+            <Legend />
+            {data.datasets.map((dataset, index) => (
+              <Line
+                key={dataset.label}
+                type="monotone"
+                dataKey={dataset.label}
+                stroke={dataset.borderColor || chartColor}
+                strokeWidth={2}
+                dot={false}
+                activeDot={{ r: 4 }}
+              />
+            ))}
           </LineChart>
         ) : (
           <BarChart
-            data={data}
+            data={transformedData}
             margin={{
               top: 5,
               right: 30,
@@ -77,7 +109,7 @@ export function DataChart({ data, type = "line", className }: DataChartProps) {
           >
             <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
             <XAxis
-              dataKey="date"
+              dataKey="name"
               className="text-xs fill-muted-foreground"
               tick={{ fontSize: 12 }}
             />
@@ -90,19 +122,18 @@ export function DataChart({ data, type = "line", className }: DataChartProps) {
                 backgroundColor: "hsl(var(--background))",
                 border: "1px solid hsl(var(--border))",
                 borderRadius: "6px",
-              }}
-              labelStyle={{
-                color: "hsl(var(--foreground))",
-                fontWeight: 500,
-                marginBottom: "4px",
+                fontSize: "12px",
               }}
             />
-            <Bar
-              dataKey="count"
-              fill={chartColor}
-              radius={[4, 4, 0, 0]}
-              maxBarSize={40}
-            />
+            <Legend />
+            {data.datasets.map((dataset, index) => (
+              <Bar
+                key={dataset.label}
+                dataKey={dataset.label}
+                fill={dataset.backgroundColor || chartColor}
+                radius={[4, 4, 0, 0]}
+              />
+            ))}
           </BarChart>
         )}
       </ResponsiveContainer>

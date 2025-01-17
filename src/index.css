@@ -1,3 +1,7 @@
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lexend:wght@100..900&display=swap');
+@import './styles/supabase-auth.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -59,6 +63,15 @@
   }
 }
 
-/* Font imports */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lexend:wght@100..900&display=swap');
-@import './styles/supabase-auth.css';
+.background-container {
+  background-image: url('/dashboard-bg.webp');
+  background-size: 100% 100%; /* Changed from 'cover' for better quality */
+  background-position: center;
+  background-repeat: no-repeat;
+  image-rendering: optimizeQuality; /* Added for better quality */
+  -ms-interpolation-mode: bicubic; /* Better scaling in IE */
+  transform: translateZ(0); /* Forces GPU acceleration */
+  backface-visibility: hidden; /* Reduces blur during transforms */
+  perspective: 1000; /* Helps with sharpness */
+  will-change: transform; /* Optimizes performance */
+}

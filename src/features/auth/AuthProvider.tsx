@@ -1,7 +1,8 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { supabase } from '@/lib/supabase';
 import type { User } from '@supabase/supabase-js';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { LoadingSpinner } from '@/components/ui/loading-spinner';
 
 interface AuthContextType {
   user: User | null;
@@ -13,10 +14,15 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export function AuthProvider({ children }: { children: React.ReactNode }) {
+interface AuthProviderProps {
+  children: ReactNode | ((props: { user: User | null }) => ReactNode);
+}
+
+export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     // Check active sessions and sets the user
@@ -30,15 +36,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setUser(session?.user ?? null);
       setLoading(false);
 
-      if (event === 'SIGNED_IN') {
+      // Only redirect to dashboard on explicit sign in
+      if (event === 'SIGNED_IN' && (location.pathname === '/sign-in' || location.pathname === '/sign-up')) {
         navigate('/dashboard');
       } else if (event === 'SIGNED_OUT') {
-        navigate('/');
+        // On sign out, redirect to home only if on a protected route
+        if (location.pathname.startsWith('/dashboard')) {
+          navigate('/');
+        }
       }
     });
 
     return () => subscription.unsubscribe();
-  }, [navigate]);
+  }, [navigate, location]);
 
   const signIn = async (email: string, password: string) => {
     const { error } = await supabase.auth.signInWithPassword({ email, password });
@@ -49,11 +59,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `${window.location.origin}/dashboard`,
-        queryParams: {
-          access_type: 'offline',
-          prompt: 'consent',
-        },
+        redirectTo: `${window.location.origin}/auth/callback`,
       },
     });
     if (error) throw error;
@@ -64,6 +70,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (error) throw error;
   };
 
+  if (loading) {
+    return <LoadingSpinner size="md" fullScreen />;
+  }
+
   const value = {
     user,
     loading,
@@ -72,7 +82,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     signOut,
   };
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={value}>
+      {typeof children === 'function' ? children({ user }) : children}
+    </AuthContext.Provider>
+  );
 }
 
 export function useAuth() {

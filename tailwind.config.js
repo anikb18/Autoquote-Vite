@@ -1,5 +1,8 @@
+const forms = require('@tailwindcss/forms');
+const headlessui = require('@headlessui/tailwindcss');
+
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   darkMode: ["class"],
   content: [
     './pages/**/*.{ts,tsx}',
@@ -73,8 +76,5 @@ export default {
       },
     },
   },
-  plugins: [
-    require("@tailwindcss/forms"),
-    require("@headlessui/tailwindcss")
-  ],
+  plugins: [forms, headlessui],
 }

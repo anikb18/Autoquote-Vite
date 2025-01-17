@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../providers/AuthProvider';
-import DashboardContent from './DashboardContent';
+import { useAuth } from '@/features/auth/AuthProvider';
 import { Suspense } from 'react';
 import { Loader2 } from 'lucide-react';
+import { UserDashboard } from '@/pages/(auth)/dashboard/UserDashboard';
 
 export default function DashboardPage() {
   const navigate = useNavigate();
@@ -27,7 +27,9 @@ export default function DashboardPage() {
         <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
       </div>
     }>
-      <DashboardContent />
+      <div className="p-6">
+        <UserDashboard user={user} />
+      </div>
     </Suspense>
   );
 }
