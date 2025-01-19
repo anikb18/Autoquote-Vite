@@ -1,12 +1,13 @@
 'use client';
 
 import { useRoleAccess } from '@/hooks/useRoleAccess';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'react-i18next';
 
 export default function AdminDashboard() {
   const t = useTranslations('dashboard');
   const { isAdmin } = useRoleAccess();
 
+  // If the user is not an admin, return null
   if (!isAdmin) return null;
 
   return (
@@ -111,9 +112,7 @@ function StatCard({ title, value, change, type }: {
       <dt className="truncate text-sm font-medium text-gray-500">{title}</dt>
       <dd className="mt-2">
         <p className="text-2xl font-semibold text-gray-900">{value}</p>
-        <p className={`text-sm font-medium ${
-          type === 'positive' ? 'text-green-600' : 'text-red-600'
-        }`}>
+        <p className={`text-sm font-medium ${type === 'positive' ? 'text-green-600' : 'text-red-600'}`}>
           {change}%
         </p>
       </dd>

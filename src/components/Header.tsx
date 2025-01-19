@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next';
 import {
   Popover,
   PopoverButton,

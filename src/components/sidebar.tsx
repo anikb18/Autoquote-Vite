@@ -19,16 +19,23 @@ import {
   PiBuildingsBold,
   PiUserCircleBold,
 } from 'react-icons/pi';
+import { FileTextIcon } from 'lucide-react'; 
 import { Logo } from './logo';
 
-const adminNavigation = [
-  { name: 'sidebar.dashboard', href: '/dashboard', icon: PiChartLineUpBold },
-  { name: 'sidebar.dealers', href: '/dashboard/dealers', icon: PiHouseBold },
-  { name: 'sidebar.users', href: '/dashboard/users', icon: PiUsersBold },
-  { name: 'sidebar.analytics', href: '/dashboard/analytics', icon: PiChartBarBold },
-  { name: 'sidebar.security', href: '/dashboard/security', icon: PiShieldCheckFill },
-  { name: 'sidebar.settings', href: '/dashboard/settings', icon: PiGearBold },
-];
+export function Sidebar() {
+  const { t } = useTranslation();
+  const { viewMode } = useViewMode();
+  const location = useLocation();
+
+  const adminNavigation = [
+    { name: 'sidebar.dashboard', href: '/dashboard', icon: PiChartLineUpBold },
+    { name: 'sidebar.dealers', href: '/dashboard/dealers', icon: PiHouseBold },
+    { name: 'sidebar.users', href: '/dashboard/users', icon: PiUsersBold },
+    { name: 'sidebar.analytics', href: '/dashboard/analytics', icon: PiChartBarBold },
+    { name: 'sidebar.security', href: '/dashboard/security', icon: PiShieldCheckFill },
+    { name: 'sidebar.settings', href: '/dashboard/settings', icon: PiGearBold },
+    { name: 'sidebar.blog', href: '/dashboard/blog', icon: FileTextIcon },
+  ];
 
 const dealerNavigation = [
   { name: 'sidebar.dashboard', href: '/dashboard', icon: PiChartLineUpBold },
@@ -101,4 +108,5 @@ export function Sidebar() {
       </div>
     </div>
   );
+}
 }

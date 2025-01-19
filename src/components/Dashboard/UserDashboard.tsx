@@ -1,17 +1,14 @@
-'use client';
-
 import { useEffect, useRef, useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
-import { 
-  PiCarFill, 
-  PiCurrencyDollarBold, 
-  PiChatCircleTextFill, 
+import {
+  PiCarFill,
+  PiCurrencyDollarBold,
+  PiChatCircleTextFill,
   PiGearFill,
   PiArrowsHorizontalBold,
   PiArrowLeftBold,
-  PiArrowRightBold
+  PiArrowRightBold,
 } from 'react-icons/pi';
 import { MdRefresh } from 'react-icons/md';
 import { ChatBot } from '../chat/ChatBot';
@@ -47,7 +44,7 @@ interface UserDashboardProps {
 }
 
 export function UserDashboard({ user }: UserDashboardProps) {
-  const t = useTranslations('Dashboard');
+  const t = useTranslation('Dashboard');
   const [selectedCar, setSelectedCar] = useState<Car | null>({
     make: 'Honda',
     model: 'CR-V',
@@ -103,11 +100,16 @@ export function UserDashboard({ user }: UserDashboardProps) {
   }, []);
 
   // Get car image URL
-  const carImageUrl = selectedCar ? createCarImage({
-    make: selectedCar.make,
-    model: selectedCar.model,
-    year: selectedCar.year
-  }, CAR_ANGLES[currentAngleIndex]) : null;
+  const carImageUrl = selectedCar
+    ? createCarImage(
+        {
+          make: selectedCar.make,
+          model: selectedCar.model,
+          year: selectedCar.year,
+        },
+        CAR_ANGLES[currentAngleIndex]
+      )
+    : null;
 
   const quickActions: QuickAction[] = [
     {
@@ -145,14 +147,14 @@ export function UserDashboard({ user }: UserDashboardProps) {
                   <span className="text-2xl font-bold text-white">AutoQuote24</span>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <button 
+                  <button
                     className="p-2 text-white/80 hover:text-white transition-colors"
                     aria-label="Refresh dashboard"
                     title="Refresh dashboard"
                   >
                     <MdRefresh className="h-5 w-5" />
                   </button>
-                  <button 
+                  <button
                     className="p-2 text-white/80 hover:text-white transition-colors"
                     aria-label="Open settings"
                     title="Open settings"
@@ -220,13 +222,10 @@ export function UserDashboard({ user }: UserDashboardProps) {
                         transition={{ duration: 0.3 }}
                         className="absolute inset-0 flex items-center justify-center"
                       >
-                        <Image
+                        <img
                           src={carImageUrl}
                           alt={`${selectedCar?.make} ${selectedCar?.model}`}
-                          fill
-                          className="object-contain transition-transform duration-300 ease-out"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          priority
+                          className="object-contain transition-transform duration-300 ease-out w-full h-full"
                         />
                       </motion.div>
                     )}
@@ -248,7 +247,11 @@ export function UserDashboard({ user }: UserDashboardProps) {
                     <motion.button
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
-                      onClick={() => setCurrentAngleIndex((prev) => (prev - 1 + CAR_ANGLES.length) % CAR_ANGLES.length)}
+                      onClick={() =>
+                        setCurrentAngleIndex(
+                          (prev) => (prev - 1 + CAR_ANGLES.length) % CAR_ANGLES.length
+                        )
+                      }
                       className="p-3 rounded-full bg-white/10 backdrop-blur-xl text-white hover:bg-white/20 transition-colors"
                     >
                       <PiArrowLeftBold className="h-5 w-5" />
@@ -256,7 +259,9 @@ export function UserDashboard({ user }: UserDashboardProps) {
                     <motion.button
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
-                      onClick={() => setCurrentAngleIndex((prev) => (prev + 1) % CAR_ANGLES.length)}
+                      onClick={() =>
+                        setCurrentAngleIndex((prev) => (prev + 1) % CAR_ANGLES.length)
+                      }
                       className="p-3 rounded-full bg-white/10 backdrop-blur-xl text-white hover:bg-white/20 transition-colors"
                     >
                       <PiArrowRightBold className="h-5 w-5" />
@@ -283,7 +288,9 @@ export function UserDashboard({ user }: UserDashboardProps) {
                         </div>
                         <div>
                           <p className="text-slate-800 font-medium">{feature}</p>
-                          <p className="text-slate-600 text-sm">{t(`features.${features[index % features.length]}`)}</p>
+                          <p className="text-slate-600 text-sm">
+                            {t(`features.${features[index % features.length]}`)}
+                          </p>
                         </div>
                       </div>
                     ))}
@@ -299,7 +306,9 @@ export function UserDashboard({ user }: UserDashboardProps) {
                 className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 shadow-xl border border-white/20"
               >
                 <div className="mt-8">
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">{t('quickActions.title')}</h3>
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">
+                    {t('quickActions.title')}
+                  </h3>
                   <div className="grid grid-cols-3 gap-4">
                     {quickActions.map((action, index) => (
                       <button
@@ -310,7 +319,9 @@ export function UserDashboard({ user }: UserDashboardProps) {
                         <div className="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center mb-2">
                           {action.icon}
                         </div>
-                        <span className="text-sm font-medium text-slate-800 text-center">{action.name}</span>
+                        <span className="text-sm font-medium text-slate-800 text-center">
+                          {action.name}
+                        </span>
                       </button>
                     ))}
                   </div>

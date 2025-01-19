@@ -1,4 +1,3 @@
-```
 ## AutoQuote24 Development Instructions
 
 **Project Overview**
@@ -31,43 +30,15 @@ AutoQuote24 is Quebec Canada's leading specialized car buying and selling platfo
 Frontend: React.js with Redux Toolkit, Tailwind CSS, Catalyst (platform), Salient (homepage).
 backend: vite
 * **3rd-Party Services:**
-    * Authentication: Clerk or Supabase
+    * Authentication: Supabase
     * Database: Supabase
     * Payment processing: Stripe
     * AI services: Google Gemini (`AIzaSyCf8ofwBfuuoVa-jVdTc3CeRxZH8RYAqL4`) for vehicle data autocomplete (2024-2025 models).
-    * Prisma ORM used for database interactions.
 
-**Development Requirements**
-
-* Implement all core features listed above.
-* **Security Implementation:**
-    * End-to-end bid encryption.
-    * Multi-factor authentication.
-    * GDPR compliance measures.
-    * Secure file upload handling.
-* **Performance Requirements:**
-    * Implement Redis caching for frequent queries.
-    * Database query optimization.
-    * Pagination for large datasets.
-    * Rate limiting implementation.
   **Brand Colors:**
   main: #003139
   secondary: #d1d2c3
   blue: #446df6
-
-**Testing Strategy**
-
-* **Required Coverage:**
-    * Unit tests for business logic.
-    * Integration tests for API endpoints.
-    * End-to-end testing for critical user flows.
-    * Load testing for auction system.
-
-**Developer Resources**
-
-* API documentation (refer to provided documentation).
-* Database schema design (refer to provided documentation).
-* Integration guides for 3rd-party services (refer to provided documentation).
 
 **Business Model**
 
@@ -99,16 +70,12 @@ backend: vite
     * Vehicle Search: Autocomplete for 2024-2025 models, separate autocomplete for trade-in, advanced filtering.
 * **Dealer Features:**
     * Dashboard Integration: Auction monitoring, bid history, quote management, communication tools, performance analytics.
+    * Lead Management: New leads, active leads, converted leads, pending follow-up.
+    * Performance Analytics: Quotes won, average response time, customer satisfaction.
+    * Communication Tools: All messages, new message, unread messages, active chats.
+    * Document Center: Upload document, recent documents, pending signatures.
 
-**Security Features**
-
-* **Data Protection:**
-    * End-to-end encryption for bids.
-    * Secure file upload handling.
-    * Data backup strategy.
-    * GDPR compliance measures.
-
-Translation Guidelines
+# Translation Guidelines
 
 * **Always** do translations for every new component using the `i18n` in C:\Autoquote Vite\src\i18n folder system and add them to the `./locales` folder.
 
@@ -117,9 +84,54 @@ Translation Guidelines
 * Platform: Catalyst components from TailwindUI (`./components/Catalyst`).
 * Homepage: Salient components (`./components`).
 
-**Important Notes**
+# Instructions
 
-* Remember to always follow the translation guidelines.
-* Refer to the provided API documentation, database schema design, and 3rd-party integration guides for detailed technical information.
-* Ensure all security and performance requirements are met.
+During you interaction with the user, if you find anything reusable in this project (e.g. version of a library, model name), especially about a fix to a mistake you made or a correction you received, you should take note in the `Lessons` section in the `scratchpad.md` file so you will not make the same mistake again. 
+
+You should also use the `scratchpad.md` file as a scratchpad to organize your thoughts. Especially when you receive a new task, you should first review the content of the scratchpad, clear old different task if necessary, first explain the task, and plan the steps you need to take to complete the task. You can use todo markers to indicate the progress, e.g.
+[X] Task 1
+[ ] Task 2
+Also update the progress of the task in the Scratchpad when you finish a subtask.
+Especially when you finished a milestone, it will help to improve your depth of task accomplishment to use the scratchpad to reflect and plan.
+The goal is to help you maintain a big picture as well as the progress of the task. Always refer to the Scratchpad when you plan the next step.
+
+# Tools
+
+Note all the tools are in python. So in the case you need to do batch processing, you can always consult the python files and write your own script.
+
+## LLM
+
+You always have an LLM at your side to help you with the task. For simple tasks, you could invoke the LLM by running the following command:
 ```
+venv/bin/python ./tools/llm_api.py --prompt "What is the capital of France?"
+```
+
+But usually it's a better idea to check the content of the file and use the APIs in the `tools/llm_api.py` file to invoke the LLM if needed.
+
+## Web browser
+
+You could use the `tools/web_scraper.py` file to scrape the web.
+```
+venv/bin/python ./tools/web_scraper.py --max-concurrent 3 URL1 URL2 URL3
+```
+This will output the content of the web pages.
+
+## Search engine
+
+You could use the `tools/search_engine.py` file to search the web.
+```
+venv/bin/python ./tools/search_engine.py "your search keywords"
+```
+This will output the search results in the following format:
+```
+URL: https://example.com
+Title: This is the title of the search result
+Snippet: This is a snippet of the search result
+```
+
+## User Specified Lessons
+
+- You have a python venv in ./venv.
+- Include info useful for debugging in the program output.
+- Read the file before you try to edit it.
+- Use LLM to perform flexible text understanding tasks. First test on a few files. After success, make it parallel.

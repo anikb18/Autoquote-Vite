@@ -1,274 +1,8 @@
 {
-  "locale": {
-    "switchLocale": "Switch to {locale}",
-    "en": "English",
-    "fr": "French"
-  },
-  "header": {
-    "navigation": {
-      "features": "Features",
-      "testimonials": "Testimonials",
-      "pricing": "Pricing",
-      "about": "About"
-    },
-    "buttons": {
-      "signIn": "Sign In",
-      "signUp": "Sign Up"
-    },
-    "home": {
-      "features": "Features",
-      "testimonials": "Testimonials",
-      "pricing": "Pricing",
-      "about": "About",
-      "openMenu": "Open menu",
-      "closeMenu": "Close menu"
-    },
-    "welcome": "Welcome to AutoQuote24",
-    "notifications": "View notifications",
-    "profile": "Your Profile",
-    "settings": "Settings",
-    "messages": "Messages"
-  },
-  "hero": {
-    "title": "Find Your Perfect Car",
-    "highlight": "Without the Hassle",
-    "description": "Get the best deals from trusted dealers in Quebec. No negotiation needed - just submit your preferences and receive competitive quotes within 24 hours.",
-    "primaryAction": "Get Started",
-    "secondaryAction": "Learn More",
-    "partners": "Trusted by leading dealerships across Quebec",
-    "cta": "Get your quote today",
-    "signIn": "Sign In",
-    "trustedBy": "Trusted by"
-  },
-  "primaryFeatures": {
-    "title": "Everything you need to get the best deal",
-    "description": "AutoQuote24 streamlines the car buying process with powerful features designed to save you time and money.",
-    "features": {
-      "bidding": {
-        "title": "Private Bidding System",
-        "description": "Dealers compete for your business without seeing each other's bids, ensuring you get the best possible price."
-      },
-      "tradeIn": {
-        "title": "Trade-In Valuation",
-        "description": "Get an instant estimate of your current vehicle's value based on real market data."
-      },
-      "communication": {
-        "title": "Secure Communication",
-        "description": "Chat directly with dealers through our encrypted messaging system once you accept a quote."
-      }
-    }
-  },
-  "secondaryFeatures": {
-    "title": "Advanced Features",
-    "description": "Powerful tools to make your car buying experience seamless.",
-    "features": {
-      "1": {
-        "title": "Photo Management",
-        "description": "Upload up to 4 high-quality photos of your trade-in vehicle."
-      },
-      "2": {
-        "title": "Balloon Payments",
-        "description": "Calculate and compare different financing options including balloon payments."
-      },
-      "3": {
-        "title": "Accessories Selection",
-        "description": "Browse and select from a wide range of manufacturer-approved accessories."
-      }
-    }
-  },
-  "testimonials": {
-    "title": "Loved by car buyers across Quebec",
-    "description": "See what our satisfied customers have to say about their experience with AutoQuote24.",
-    "items": [
-      {
-        "content": "AutoQuote24 saved me thousands on my new car. The process was incredibly smooth and transparent.",
-        "author": {
-          "name": "Marie Tremblay",
-          "role": "Montreal, QC"
-        }
-      },
-      {
-        "content": "I was skeptical at first, but the private bidding system really works. Got an amazing deal on my dream car.",
-        "author": {
-          "name": "Jean-Philippe Dubois",
-          "role": "Quebec City, QC"
-        }
-      }
-    ]
-  },
-  "callToAction": {
-    "title": "Ready to find your perfect car?",
-    "description": "Join thousands of satisfied customers who found their dream car through AutoQuote24.",
-    "button": "Get Started Today"
-  },
-  "pricing": {
-    "title": "Simple, transparent pricing",
-    "description": "Choose the plan that's right for you.",
-    "plans": {
-      "buyer": {
-        "title": "Car Buyer",
-        "price": "$40",
-        "description": "Everything you need to find your perfect car",
-        "features": [
-          "Access to private bidding system",
-          "Trade-in valuation",
-          "Secure dealer communication",
-          "24/7 support"
-        ],
-        "button": "Start Your Search"
-      }
-    }
-  },
-  "faqs": {
-    "title": "Frequently asked questions",
-    "description": "Common questions about our service",
-    "items": {
-      "1": {
-        "question": "How does the bidding system work?",
-        "answer": "Dealers submit private bids without seeing competitors' offers. You receive the top 3 lowest price quotes within 24 hours."
-      },
-      "2": {
-        "question": "Is there a fee to use AutoQuote24?",
-        "answer": "Yes, there is a one-time fee of $40 to submit your vehicle preferences and receive quotes. This helps ensure serious buyers and quality service."
-      }
-    }
-  },
-  "common": {
-    "getStarted": "Get Started",
-    "learnMore": "Learn More",
-    "loading": "Loading...",
-    "save": "Save",
-    "dealer": "Dealer",
-    "buyer": "Buyer",
-    "admin": "Admin",
-    "view_as": "View as",
-    "viewProfile": "View Profile",
-    "logo": "Logo",
-    "dashboard": "Dashboard",
-    "signIn": "Sign In",
-    "signUp": "Sign Up",
-    "today": "today",
-    "toggleTheme": "Toggle theme"
-  },
-  "brands": {
-    "transistor": "Transistor",
-    "tuple": "Tuple",
-    "staticKit": "StaticKit",
-    "mirage": "Mirage",
-    "laravel": "Laravel",
-    "statamic": "Statamic"
-  },
-  "spotsRemaining": "{{count}} spots remaining",
-  "auth": {
-    "signIn": "Sign in",
-    "signInDescription": "Sign in to your account to access your dashboard",
-    "email": "Email address",
-    "password": "Password",
-    "forgotPassword": "Forgot password?",
-    "noAccount": "Don't have an account?",
-    "signUp": "Sign up"
-  },
-  "time": {
-    "days": "days",
-    "hours": "hours",
-    "minutes": "minutes",
-    "seconds": "seconds"
-  },
-  "footer": {
-    "links": {
-      "features": "Features",
-      "testimonials": "Testimonials",
-      "pricing": "Pricing"
-    }
-  },
-  "navigation": {
-    "dashboard": "Dashboard",
-    "quotes": "Quotes",
-    "auctions": "Auctions",
-    "messages": "Messages",
-    "notifications": "Notifications",
-    "settings": "Settings",
-    "tradeIn": "Trade-ins"
-  },
-  "home": {
-    "features": "Features",
-    "testimonials": "Testimonials",
-    "pricing": "Pricing",
-    "about": "About",
-    "openMenu": "Open menu",
-    "closeMenu": "Close menu"
-  },
-  "hero": {
-    "title": "Car buying",
-    "highlight": "made simple",
-    "titleEnd": "in Quebec",
-    "description": "Get the best price on your next car without the hassle. Our private bidding system ensures dealers compete for your business, not the other way around.",
-    "getStarted": "Get your quote today",
-    "learnMore": "See how it works",
-    "partners": {
-      "title": "Trusted by leading dealerships across Quebec"
-    }
-  },
-  "auth": {
-    "signIn": "Sign in",
-    "getStarted": "Get started",
-    "today": "today"
-  },
-  "app": {
-    "name": "AutoQuote24"
-  },
-  "dashboard": {
-    "sections": {
-      "car_viewer": "Car Viewer",
-      "quick_actions": "Quick Actions",
-      "analytics": "Analytics",
-      "recent_activity": "Recent Activity",
-      "dealer_stats": "Dealer Statistics",
-      "user_stats": "User Statistics"
-    },
-    "actions": {
-      "get_quote": "Get Quote",
-      "sell_car": "Sell Your Car",
-      "cycle_year": "Change Year",
-      "manage_dealers": "Manage Dealers",
-      "view_quotes": "View Quotes",
-      "manage_inventory": "Manage Inventory"
-    },
-    "labels": {
-      "latest": "Latest",
-      "total_dealers": "Total Dealers",
-      "active_users": "Active Users",
-      "monthly_revenue": "Monthly Revenue",
-      "active_auctions": "Active Auctions"
-    },
-    "car_details": {
-      "make": "Make",
-      "model": "Model",
-      "year": "Year"
-    },
-    "stats": {
-      "total_dealers": "Total Dealers",
-      "active_dealers": "Active Dealers",
-      "total_revenue": "Total Revenue",
-      "monthly_revenue": "Monthly Revenue",
-      "total_users": "Total Users",
-      "active_users": "Active Users",
-      "total_quotes": "Total Quotes",
-      "active_quotes": "Active Quotes",
-      "total_sales": "Total Sales",
-      "monthly_sales": "Monthly Sales"
-    }
-  },
-  "views": {
-    "admin": "Admin View",
-    "dealer": "Dealer View",
-    "user": "User View"
-  },
-  "chat": {
-    "welcome": "Welcome to AutoQuote24! How can I help you today?"
-  },
-  "common": {
-    "select_view": "Select View",
+  "greeting": "Hello",
+  "Common": {
+    "new": "New",
+    "guest": "Guest",
     "loading": "Loading...",
     "error": "Error",
     "success": "Success",
@@ -277,37 +11,384 @@
     "delete": "Delete",
     "edit": "Edit",
     "view": "View",
-    "close": "Close"
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "continue": "Continue",
+    "finish": "Finish",
+    "done": "Done",
+    "viewAll": "View All",
+    "or": "or",
+    "needHelp": "Need Help?",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "export": "Export",
+    "import": "Import",
+    "add": "Add",
+    "confirm": "Confirm",
+    "noResults": "No results found"
   },
-  "quotes": {
-    "columns": {
-      "vehicle": "Vehicle",
-      "price": "Price",
-      "status": "Status"
+  "Navigation": {
+    "main": {
+      "home": "Home",
+      "about": "About",
+      "features": "Features",
+      "pricing": "Pricing",
+      "contact": "Contact",
+      "testimonials": "Testimonials"
+    },
+    "auth": {
+      "signIn": "Sign In",
+      "signUp": "Sign Up",
+      "signOut": "Sign Out",
+      "login": "Log In",
+      "startFree": "Get Started Free"
+    },
+    "dashboard": {
+      "dashboard": "Dashboard",
+      "quotes": "Quotes",
+      "tradeIn": "Trade-In",
+      "settings": "Settings",
+      "profile": "Profile",
+      "messages": "Messages",
+      "notifications": "Notifications",
+      "help": "Help & Support",
+      "documents": "Documents",
+      "inventory": "Inventory",
+      "chat": "Chat",
+      "payments": "Payments",
+      "analytics": "Analytics",
+      "users": "Users",
+      "dealers": "Dealers",
+      "blog": "Blog"
+
+    },
+    "dealer": {
+      "dealerDashboard": "Dealer Dashboard",
+      "leads": "Leads",
+      "inventory": "Inventory",
+      "analytics": "Analytics",
+      "dealerSettings": "Dealer Settings"
+    },
+    "menu": {
+      "open": "Open main menu",
+      "close": "Close main menu",
+      "openUserMenu": "Open user menu"
+    }
+  },
+  "Meta": {
+    "global": {
+      "allRightsReserved": "All rights reserved."
+    },
+    "home": {
+      "title": "AutoQuote24 - Get the Best Deal on Your Next Car",
+      "description": "Skip dealership visits and save money on your next car. Get 3 competitive dealer quotes for just $40. Private bidding system ensures you get the best deal. Money-back guarantee.",
+      "ogTitle": "AutoQuote24 - The Smart Way to Buy Cars",
+      "ogDescription": "Skip dealership visits and save money on your next car. Get 3 competitive dealer quotes for just $40."
+    },
+    "auth": {
+      "signIn": {
+        "title": "Sign In - AutoQuote24",
+        "description": "Sign in to your AutoQuote24 account to manage your quotes and trade-ins"
+      },
+      "signUp": {
+        "title": "Sign Up - AutoQuote24",
+        "description": "Create your AutoQuote24 account to start receiving competitive car quotes from dealers"
+      }
+    },
+    "dashboard": {
+      "buyer": {
+        "title": "AutoQuote24 - Your Dashboard",
+        "description": "Manage your car quotes and trade-ins"
+      },
+      "dealer": {
+        "title": "AutoQuote24 - Dealer Dashboard",
+        "description": "Manage your quotes and performance metrics"
+      }
+    }
+  },
+  "Auth": {
+    "layout": {
+      "welcome": "Welcome to AutoQuote24",
+      "description": "Sign in to access your account"
+    },
+    "dealerLogin": "Dealership Login",
+    "userLogin": "User Login",
+    "noAccount": "No account / Want a quote?",
+    "noDealerAccount": "Want to become a dealer?",
+    "startHere": "Start here",
+    "signIn": {
+      "welcome": "Welcome back",
+      "error": {
+        "default": "An error occurred while signing in. Please try again.",
+        "invalid_credentials": "Invalid email or password.",
+        "account_not_found": "Account not found. Please sign up first."
+      },
+      "success": {
+        "signed_in": "Successfully signed in!"
+      },
+      "loading": "Signing in...",
+      "email": "Email",
+      "password": "Password",
+      "forgotPassword": "Forgot password?"
+    },
+    "signUp": {
+      "welcome": "Create your account",
+      "hasAccount": "Already have an account?",
+      "createAccount": "Create an account",
+      "continueWith": "Or continue with",
+      "google": "Google",
+      "facebook": "Facebook"
+    }
+  },
+  "Dashboard": {
+    "buyer": {
+      "welcome": "Welcome back, {name}",
+      "subtitle": "View your quotes, trade-ins, and dealer responses all in one place",
+      "greetings": {
+        "morning": "Good morning, {name}",
+        "afternoon": "Good afternoon, {name}",
+        "evening": "Good evening, {name}"
+      }
+    },
+    "stats": {
+      "activeQuotes": "Active Quotes",
+      "totalQuotes": "Total Quotes",
+      "dealerResponses": "Dealer Responses",
+      "pendingQuotes": "Pending Quotes",
+      "acceptedQuotes": "Accepted Quotes",
+      "averageQuote": "Average Quote",
+      "potentialSavings": "Potential Savings"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "description": "Start with these common tasks",
+      "newQuote": {
+        "title": "Request New Quote",
+        "description": "Start a new car quote request",
+        "requestQuote": "Request a Quote",
+        "tradeInVehicle": "Trade In Vehicle",
+        "viewMessages": "View Messages"
+      },
+      "tradeIn": {
+        "title": "Get Trade-In Value",
+        "description": "Get an estimate for your current car"
+      },
+      "messages": {
+        "title": "Messages",
+        "description": "View and respond to dealer messages"
+      },
+      "documents": {
+        "title": "Documents",
+        "description": "Access your important documents"
+      }
+    },
+    "inProgress": {
+      "title": "Complete Your Journey",
+      "completeQuote": "Complete Your Quote",
+      "completePayment": "Complete Your Payment",
+      "paymentDescription": "Pay the $40 fee to view your top 3 quotes",
+      "progress": "Progress",
+      "amountDue": "Amount Due",
+      "continueQuote": "Continue Quote",
+      "payNow": "Pay Now"
+    },
+    "emptyStates": {
+      "quotes": {
+        "title": "No Active Quotes",
+        "description": "Start a new quote request to receive competitive offers from local dealers"
+      },
+      "activity": {
+        "title": "No Recent Activity",
+        "description": "Your recent actions and updates will appear here"
+      }
     },
     "status": {
+      "active": "Active",
       "pending": "Pending",
-      "accepted": "Accepted",
-      "rejected": "Rejected"
+      "completed": "Completed"
     },
-    "search": "Search quotes..."
+        "title": "Dashboard",
+    "welcome": "Welcome back",
+    "overview": "Overview"
+  },
+  "DealerDashboard": {
+    "title": "Dealer Dashboard",
+    "leadManagement": {
+      "title": "Lead Management",
+      "newLead": "New Lead",
+      "activeLeads": "Active Leads",
+      "convertedLeads": "Converted Leads",
+      "pendingFollowUp": "Pending Follow-up"
+    },
+    "performance": {
+      "title": "Performance Overview",
+      "quotesWon": "Quotes Won",
+      "averageResponse": "Average Response Time",
+      "customerSatisfaction": "Customer Satisfaction"
+    },
+    "communication": {
+      "title": "Communication Hub",
+      "allMessages": "All Messages",
+      "newMessage": "New Message",
+      "unreadMessages": "Unread Messages",
+      "activeChats": "Active Chats"
+    },
+    "documents": {
+      "title": "Document Center",
+      "upload": "Upload Document",
+      "recentDocuments": "Recent Documents",
+      "pendingSignatures": "Pending Signatures"
+    },
+    "quoteAnalytics": {
+      "title": "Smart Quote Analytics",
+      "optimize": "Optimize Quotes",
+      "tabs": {
+        "overview": "Overview",
+        "predictions": "Predictions",
+        "competition": "Competition"
+      },
+      "metrics": {
+        "winRate": "Win Rate",
+        "predictedWinRate": "Predicted Win Rate",
+        "competitiveIndex": "Competitive Index",
+        "averageMargin": "Average Margin"
+      },
+      "insights": {
+        "title": "AI Insights",
+        "winProbability": "Win Probability",
+        "suggestedPrice": "Suggested Price Range",
+        "competitorActivity": "Competitor Activity"
+      }
+    }
+  },
+  "QuoteForm": {
+    "title": "Get Your Quote",
+    "description": "Fill in the details below to get your car quote.",
+    "fields": {
+      "make": {
+        "label": "Car Make",
+        "placeholder": "Enter car make"
+      },
+      "model": {
+        "label": "Car Model",
+        "placeholder": "Enter car model"
+      },
+      "year": {
+        "label": "Car Year",
+        "placeholder": "Enter car year"
+      }
+    },
+    "submit": "Submit Quote",
+    "bidCount": "{count} bids received",
+    "lowestBid": "Lowest Bid",
+    "deadline": "Deadline"
+  },
+  "TradeIn": {
+    "title": "Trade-In Valuation",
+    "getEstimate": "Get Estimate",
+    "currentValue": "Current Value",
+    "lastUpdate": "Last Update",
+    "marketInsight": "Market Insight",
+    "valueIncreased": "Your vehicle's value has increased by 5% in the last month",
+    "viewHistory": "View History"
+  },
+  "Error": {
+    "oops": "Oops!",
+    "something_went_wrong": "Something went wrong",
+    "try_again": "Try again",
+    "page_not_found": "Page not found",
+    "back_home": "Back to home"
+  },
+  "LanguageSwitcher": {
+    "button": "Change language",
+    "currentLocale": "Current language: {locale}",
+    "switchLocale": "Switch to {locale}",
+    "en": "English",
+    "fr": "French"
+  },
+   "locale": {
+    "switchLocale": "Switch to {locale}",
+    "en": "English",
+    "fr": "French"
   },
   "theme": {
     "darkMode": "Dark Mode",
     "lightMode": "Light Mode"
-  }
-  ,
-  "nav": {
-    "features": "Features",
-    "pricing": "Pricing",
-    "testimonials": "Testimonials",
-    "about": "About",
-    "contact": "Contact"
   },
-  "common": {
-    "signIn": "Sign in",
-    "signUp": "Sign up",
+    "sidebar": {
     "dashboard": "Dashboard",
-    "messages": "Messages"
+    "quotes": "Quotes",
+    "inventory": "Inventory",
+    "chat": "Chat",
+    "payments": "Payments",
+    "analytics": "Analytics",
+    "users": "Users",
+    "dealers": "Dealers",
+    "settings": "Settings",
+    "blog": "Blog"
+  },
+  "quotes": {
+    "title": "Quotes",
+    "new": "New Quote",
+    "all": "All Quotes",
+    "draft": "Draft",
+    "pending": "Pending",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "customer": "Customer",
+    "vehicle": "Vehicle",
+    "amount": "Amount",
+    "status": "Status",
+    "date": "Date",
+    "actions": "Actions"
+  },
+  "analytics": {
+    "title": "Analytics",
+    "totalQuotes": "Total Quotes",
+    "conversionRate": "Conversion Rate",
+    "averageQuoteValue": "Average Quote Value",
+    "monthlyQuotes": "Monthly Quotes",
+    "conversionFunnel": "Conversion Funnel",
+    "vehicleTypes": "Vehicle Types"
+  },
+   "payments": {
+    "totalRevenue": "Total Revenue",
+    "pendingPayments": "Pending Payments",
+    "successRate": "Success Rate",
+    "searchPlaceholder": "Search payments...",
+    "statusFilter": "Status",
+    "all": "All",
+    "completed": "Completed",
+    "pending": "Pending",
+    "failed": "Failed",
+    "exportData": "Export Data",
+    "recentPayments": "Recent Payments",
+    "recentPaymentsDescription": "A list of recent payments and their status",
+    "date": "Date",
+    "customer": "Customer",
+    "amount": "Amount",
+    "status": "Status",
+    "method": "Payment Method",
+    "reference": "Reference",
+    "actions": "Actions",
+    "viewDetails": "View Details"
+  },
+    "blog": {
+  "admin": {
+    "title": "Blog Management",
+    "description": "Create and manage blog posts",
+    "posts": "Blog Posts",
+    "postsDescription": "View and manage all blog posts",
+    "newPost": "New Post",
+    "editPost": "Edit Post",
+    "postTitle": "Title",
+    "postContent": "Content",
+    "status": "Status",
+    "author": "Author",
+    "lastUpdated": "Last Updated"
   }
+}
 }

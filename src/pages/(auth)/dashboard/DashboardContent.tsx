@@ -1,146 +1,102 @@
 import { useTranslation } from 'react-i18next';
-import { useViewMode } from '@/contexts/ViewModeContext';
 import { useAuth } from '@/features/auth/AuthProvider';
 import { useEffect, useState } from 'react';
+import { AdminDashboardContent } from '@/pages/(auth)/admin/AdminDashboardContent';
+import DealerDashboard from '@/pages/(auth)/dashboard/dealer/index.tsx';
+import { UserDashboardContent } from './users/UserDashboardContent';
+import UsersPage from './users';
+import { supabase } from '@/lib/supabase';
 import { mockQuotes, mockAuctions } from '@/mockData';
-import { DataChart } from '@/components/ui/data-chart';
-import { DataTable } from '@/components/ui/data-table';
-import { QuoteRequestForm } from '@/components/QuoteRequestForm';
-import { ColumnDef } from "@tanstack/react-table";
+import { UserDashboard } from '@/components/Dashboard/UserDashboard';
+import { ensureUserProfile, fetchQuotes, fetchAuctions, isMockUser } from '@/lib/supabase-utils'; // Ensure isMockUser is imported
 
-const MOCK_CHART_DATA = Array.from({ length: 30 }, (_, i) => {
-  const date = new Date();
-  date.setDate(date.getDate() - (29 - i));
-  return {
-    date: date.toISOString().split('T')[0],
-    value: Math.floor(Math.random() * 100)
-  };
-});
-
-const quoteColumns: ColumnDef<any>[] = [
-  {
-    accessorKey: "id",
-    header: "ID",
-  },
-  {
-    accessorKey: "vehicle",
-    header: "Vehicle",
-  },
-  {
-    accessorKey: "status",
-    header: "Status",
-  },
-  {
-    accessorKey: "date",
-    header: "Date",
-  },
-  {
-    accessorKey: "price",
-    header: "Price",
-  }
+// Define columns for quotes
+const quoteColumns = [
+  { accessorKey: "id", header: "ID" },
+  { accessorKey: "vehicle", header: "Vehicle" },
+  { accessorKey: "status", header: "Status" },
+  { accessorKey: "date", header: "Date" },
+  { accessorKey: "price", header: "Price" },
 ];
-
-const auctionColumns: ColumnDef<any>[] = [
-  {
-    accessorKey: "id",
-    header: "ID",
-  },
-  {
-    accessorKey: "vehicle",
-    header: "Vehicle",
-  },
-  {
-    accessorKey: "currentBid",
-    header: "Current Bid",
-  },
-  {
-    accessorKey: "endDate",
-    header: "End Date",
-  },
-  {
-    accessorKey: "status",
-    header: "Status",
-  }
-];
-
-// Define the isMockUser function
-const isMockUser = (userEmail: string) => userEmail === "anikbeauchemin18@gmail.com";
 
 export function DashboardContent() {
+  console.log('DashboardContent component is rendering'); // Add this line
   const { t } = useTranslation();
-  const { viewMode } = useViewMode();
   const { user } = useAuth();
-  const [chartData] = useState<any[]>(MOCK_CHART_DATA);
   
   const [latestQuotes, setLatestQuotes] = useState<any[]>([]);
   const [latestAuctions, setLatestAuctions] = useState<any[]>([]);
-  const [loadingQuotes, setLoadingQuotes] = useState(true);
-  const [loadingAuctions, setLoadingAuctions] = useState(true);
+  const [analytics, setAnalytics] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchQuotes = async () => {
+    const fetchData = async () => {
       try {
-        const quotes = isMockUser(user.email) ? mockQuotes : await fetchRealQuotes();
+        // Fetch quotes and auctions
+        const quotes = isMockUser(user.email) ? mockQuotes : await fetchQuotes(user.id);
+        const auctions = isMockUser(user.email) ? mockAuctions : await fetchAuctions(user.id);
+        
         setLatestQuotes(quotes || []);
-      } catch (error) {
-        console.error('Error fetching quotes:', error);
-        setLatestQuotes([]);
-      } finally {
-        setLoadingQuotes(false);
-      }
-    };
-
-    const fetchAuctions = async () => {
-      try {
-        const auctions = isMockUser(user.email) ? mockAuctions : await fetchRealAuctions();
         setLatestAuctions(auctions || []);
+        
+        // Fetch analytics
+        const { data: analyticsData, error: analyticsError } = await supabase
+          .from('dealer_quotes')
+          .select('dealer_id, status');
+
+        if (analyticsError) throw analyticsError;
+
+        const dealerAnalytics = analyticsData.reduce((acc, quote) => {
+          const dealerId = quote.dealer_id;
+          if (!acc[dealerId]) {
+            acc[dealerId] = { dealerId, dealsWon: 0, dealsLost: 0, dealsAnswered: 0 };
+          }
+          if (quote.status === 'accepted') {
+            acc[dealerId].dealsWon += 1;
+          } else if (quote.status === 'rejected') {
+            acc[dealerId].dealsLost += 1;
+          }
+          acc[dealerId].dealsAnswered += 1;
+          return acc;
+        }, {});
+
+        setAnalytics(Object.values(dealerAnalytics));
       } catch (error) {
-        console.error('Error fetching auctions:', error);
-        setLatestAuctions([]);
+        console.error('Error fetching data:', error);
       } finally {
-        setLoadingAuctions(false);
+        setLoading(false);
       }
     };
 
-    fetchQuotes();
-    fetchAuctions();
-  }, [user.email]);
+    const checkUserProfile = async () => {
+      if (user) {
+        try {
+          await ensureUserProfile(user); // Ensure the user profile exists
+        } catch (error) {
+          console.error('Error ensuring user profile:', error);
+        }
+      }
+    };
 
-  if (loadingQuotes || loadingAuctions) {
+    fetchData();
+    checkUserProfile();
+
+  }, [user]);
+
+  if (loading) {
     return <div>Loading...</div>;
   }
 
+  const isAdmin = user?.publicMetadata?.role === 'admin';
+  const isDealer = user?.publicMetadata?.role === 'dealer';
+  const isUser = user?.publicMetadata?.role === 'user';
+
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-2xl font-semibold mb-4">Request a Quote</h2>
-        <QuoteRequestForm />
-      </div>
-
-      <div className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-2xl font-semibold mb-4">Latest Quotes</h2>
-        <DataTable 
-          columns={quoteColumns} 
-          data={latestQuotes}
-          searchColumn="vehicle"
-          searchPlaceholder="Search quotes..."
-        />
-      </div>
-
-      <div className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-2xl font-semibold mb-4">Latest Auctions</h2>
-        <DataTable 
-          columns={auctionColumns} 
-          data={latestAuctions}
-          searchColumn="vehicle"
-          searchPlaceholder="Search auctions..."
-        />
-      </div>
-
-      <div className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-2xl font-semibold mb-4">Quote Status</h2>
-        <DataChart data={chartData} />
-      </div>
+      {isAdmin && <AdminDashboardContent analytics={analytics} />}
+      {isDealer && <DealerDashboard />}
+      {isUser && <UserDashboard user={user} />}
     </div>
+    
   );
 }

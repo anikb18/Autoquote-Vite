@@ -3,6 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { useViewMode } from '@/contexts/ViewModeContext';
 import { useAuth } from '@/features/auth/AuthProvider';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { quickActions } from '@/contexts/quickActions';
+import { navigation } from '@/contexts/navigation';
 import { 
   PiCarFill, 
   PiCurrencyDollarBold, 
@@ -11,7 +14,6 @@ import {
   PiChartBarBold,
 } from 'react-icons/pi';
 import { MdRefresh } from 'react-icons/md';
-import { Link } from 'react-router-dom';
 
 interface Quote {
   id: string;
@@ -32,28 +34,7 @@ export default function Dashboard() {
     // TODO: Implement quote fetching
   };
 
-  const quickActions = [
-    {
-      name: t('dashboard.actions.new_quote'),
-      icon: PiCarFill,
-      href: '/quote/new'
-    },
-    {
-      name: t('dashboard.actions.chat'),
-      icon: PiChatCircleTextFill,
-      href: '/chat'
-    },
-    {
-      name: t('dashboard.actions.payments'),
-      icon: PiCurrencyDollarBold,
-      href: '/payments'
-    },
-    {
-      name: t('dashboard.actions.settings'),
-      icon: PiGearFill,
-      href: '/settings'
-    }
-  ];
+  const actions = quickActions();
 
   const renderDealerDashboard = () => (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -145,7 +126,7 @@ export default function Dashboard() {
       >
         <h3 className="text-xl font-semibold text-white mb-4">Quick Actions</h3>
         <div className="grid grid-cols-2 gap-4">
-          {quickActions.map((action) => (
+          {actions.map((action) => (
             <Link
               key={action.name}
               to={action.href}

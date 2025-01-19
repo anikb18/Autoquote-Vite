@@ -1,459 +1,29 @@
 {
+  "greeting": "Bonjour",
   "locale": {
     "switchLocale": "Passer à {locale}",
     "en": "Anglais",
     "fr": "Français"
-  },
-  "header": {
-    "navigation": {
-      "features": "Fonctionnalités",
-      "testimonials": "Témoignages",
-      "pricing": "Tarification",
-      "about": "À propos"
-    },
-    "buttons": {
-      "signIn": "Connexion",
-      "signUp": "Inscription"
-    },
-    "home": {
-      "features": "Fonctionnalités",
-      "testimonials": "Témoignages",
-      "pricing": "Tarification",
-      "about": "À propos",
-      "openMenu": "Ouvrir le menu",
-      "closeMenu": "Fermer le menu"
-    },
-    "welcome": "Bienvenue sur AutoQuote24",
-    "notifications": "Voir les notifications",
-    "profile": "Votre Profil",
-    "settings": "Paramètres",
-    "messages": "Messages"
-  },
-  "hero": {
-    "title": "Trouvez Votre Voiture Parfaite",
-    "highlight": "Sans le Stress",
-    "description": "Obtenez les meilleures offres des concessionnaires de confiance au Québec. Pas de négociation nécessaire - soumettez simplement vos préférences et recevez des devis compétitifs sous 24 heures.",
-    "primaryAction": "Commencer",
-    "secondaryAction": "En savoir plus",
-    "partners": "Approuvé par les principaux concessionnaires du Québec",
-    "cta": "Obtenez votre soumission",
-    "signIn": "Connexion",
-    "trustedBy": "Fait confiance par"
-  },
-  "primaryFeatures": {
-    "title": "Tout ce dont vous avez besoin pour obtenir la meilleure offre",
-    "description": "AutoQuote24 simplifie le processus d'achat de voiture avec des fonctionnalités puissantes conçues pour vous faire gagner du temps et de l'argent.",
-    "features": {
-      "bidding": {
-        "title": "Système d'Enchères Privées",
-        "description": "Les concessionnaires se font concurrence pour votre entreprise sans voir les offres des autres, vous garantissant le meilleur prix possible."
-      },
-      "tradeIn": {
-        "title": "Évaluation de Reprise",
-        "description": "Obtenez une estimation instantanée de la valeur de votre véhicule actuel basée sur les données réelles du marché."
-      },
-      "communication": {
-        "title": "Communication Sécurisée",
-        "description": "Chattez directement avec les concessionnaires via notre système de messagerie cryptée une fois que vous acceptez un devis."
-      }
-    }
-  },
-  "secondaryFeatures": {
-    "title": "Fonctionnalités Avancées",
-    "description": "Des outils puissants pour rendre votre expérience d'achat de voiture transparente.",
-    "features": {
-      "1": {
-        "title": "Gestion des Photos",
-        "description": "Téléchargez jusqu'à 4 photos haute qualité de votre véhicule de reprise."
-      },
-      "2": {
-        "title": "Paiements Ballons",
-        "description": "Calculez et comparez différentes options de financement, y compris les paiements ballons."
-      },
-      "3": {
-        "title": "Sélection d'Accessoires",
-        "description": "Parcourez et sélectionnez parmi une large gamme d'accessoires approuvés par le fabricant."
-      }
-    }
-  },
-  "testimonials": {
-    "title": "Adoré par les acheteurs de voitures à travers le Québec",
-    "description": "Découvrez ce que nos clients satisfaits disent de leur expérience avec AutoQuote24.",
-    "items": [
-      {
-        "content": "AutoQuote24 m'a fait économiser des milliers de dollars sur ma nouvelle voiture. Le processus était incroyablement fluide et transparent.",
-        "author": {
-          "name": "Marie Tremblay",
-          "role": "Montréal, QC"
-        }
-      },
-      {
-        "content": "J'étais sceptique au début, mais le système d'enchères privées fonctionne vraiment. J'ai obtenu une offre incroyable pour la voiture de mes rêves.",
-        "author": {
-          "name": "Jean-Philippe Dubois",
-          "role": "Québec, QC"
-        }
-      }
-    ]
-  },
-  "callToAction": {
-    "title": "Prêt à trouver votre voiture parfaite ?",
-    "description": "Rejoignez des milliers de clients satisfaits qui ont trouvé la voiture de leurs rêves grâce à AutoQuote24.",
-    "button": "Commencez Aujourd'hui"
-  },
-  "pricing": {
-    "title": "Prix simple et transparent",
-    "description": "Choisissez le forfait qui vous convient.",
-    "plans": {
-      "buyer": {
-        "title": "Acheteur de Voiture",
-        "price": "40 $",
-        "description": "Tout ce dont vous avez besoin pour trouver votre voiture parfaite",
-        "features": [
-          "Accès au système d'enchères privées",
-          "Évaluation de reprise",
-          "Communication sécurisée avec les concessionnaires",
-          "Support 24/7"
-        ],
-        "button": "Commencez Votre Recherche"
-      }
-    }
-  },
-  "faqs": {
-    "title": "Questions fréquemment posées",
-    "description": "Questions courantes sur notre service",
-    "items": {
-      "1": {
-        "question": "Comment fonctionne le système d'enchères ?",
-        "answer": "Les concessionnaires soumettent des offres privées sans voir les offres des concurrents. Vous recevez les 3 meilleures offres sous 24 heures."
-      },
-      "2": {
-        "question": "Y a-t-il des frais pour utiliser AutoQuote24 ?",
-        "answer": "Oui, il y a des frais uniques de 40 $ pour soumettre vos préférences de véhicule et recevoir des devis. Cela aide à garantir des acheteurs sérieux et un service de qualité."
-      }
-    }
   },
   "common": {
     "getStarted": "Commencer",
     "learnMore": "En savoir plus",
     "loading": "Chargement...",
     "save": "Enregistrer",
-    "dealer": "Concessionnaire",
-    "buyer": "Acheteur",
-    "admin": "Administrateur",
-    "view_as": "Voir en tant que",
-    "viewProfile": "Voir le profil"
-  },
-  "dashboard": {
-    "sections": {
-      "car_viewer": "Visualiseur de Voiture",
-      "quick_actions": "Actions Rapides",
-      "specifications": "Spécifications"
-    },
-    "specs": {
-      "city_mpg": "Consommation ville",
-      "highway_mpg": "Consommation autoroute",
-      "fuel_type": "Type de carburant",
-      "transmission": "Transmission",
-      "drive": "Type de traction"
-    },
-    "actions": {
-      "get_quote": "Obtenir un Devis",
-      "sell_car": "Vendre Votre Voiture",
-      "cycle_year": "Changer l'Année"
-    },
-    "labels": {
-      "latest": "Dernier"
-    },
-    "car_details": {
-      "make": "Marque",
-      "model": "Modèle",
-      "year": "Année"
-    },
-    "stats": {
-      "total_dealers": "Total des Concessionnaires",
-      "active_dealers": "Concessionnaires Actifs",
-      "total_revenue": "Revenu Total",
-      "monthly_revenue": "Revenu Mensuel",
-      "total_users": "Total des Utilisateurs",
-      "active_users": "Utilisateurs Actifs",
-      "total_quotes": "Total des Devis",
-      "active_quotes": "Devis Actifs",
-      "total_sales": "Total des Ventes",
-      "monthly_sales": "Ventes Mensuelles"
-    },
-    "views": {
-      "admin": "Vue administrateur",
-      "dealer": "Vue concessionnaire",
-      "user": "Vue utilisateur"
-    },
-    "errors": {
-      "fetch_quote": "Impossible de récupérer votre devis. Veuillez réessayer.",
-      "user_not_found": "Profil utilisateur introuvable. Veuillez vous reconnecter.",
-      "initialization": "Erreur lors de l'initialisation. Veuillez rafraîchir la page."
-    },
-    "labels": {
-      "latest": "Nouveau"
-    },
-    "actions": {
-      "refresh": "Rafraîchir",
-      "get_quote": "Obtenir un devis",
-      "sell_car": "Vendre ma voiture"
-    },
-    "sections": {
-      "car_viewer": "Visualiseur de voiture",
-      "quick_actions": "Actions rapides"
-    },
-    "car_details": {
-      "make": "Marque",
-      "model": "Modèle",
-      "year": "Année"
-    }
-  },
-  "primaryFeatures": {
-    "title": "Expérience d'Achat Simplifiée",
-    "description": "Tout ce dont vous avez besoin pour trouver et acheter votre véhicule parfait.",
-    "features": {
-      "payroll": {
-        "title": "Prix Instantanés",
-        "description": "Obtenez des devis en temps réel de plusieurs concessionnaires de votre région."
-      },
-      "expenses": {
-        "title": "Évaluation d'Échange",
-        "description": "Obtenez une estimation précise de la valeur de reprise de votre véhicule instantanément."
-      },
-      "vatReturns": {
-        "title": "Transactions Sécurisées",
-        "description": "Communication cryptée de bout en bout et traitement sécurisé des paiements."
-      },
-      "reporting": {
-        "title": "Analyse de Marché",
-        "description": "Accédez aux données du marché en temps réel et aux comparaisons de prix."
-      }
-    }
-  },
-  "secondaryFeatures": {
-    "title": "Fonctionnalités Avancées",
-    "description": "Des outils puissants pour rendre votre expérience d'achat de voiture transparente.",
-    "features": {
-      "1": {
-        "title": "Historique des Véhicules",
-        "description": "Accédez aux rapports d'historique détaillés pour chaque voiture."
-      },
-      "2": {
-        "title": "Calculateur de Financement",
-        "description": "Calculez les paiements mensuels et comparez les options de financement."
-      },
-      "3": {
-        "title": "Gestion des Documents",
-        "description": "Stockez et gérez en toute sécurité tous vos documents de véhicule."
-      },
-      "4": {
-        "title": "Avis des Concessionnaires",
-        "description": "Lisez et rédigez des avis vérifiés sur les concessionnaires."
-      },
-      "5": {
-        "title": "Alertes de Prix",
-        "description": "Soyez notifié lorsque les prix changent pour vos recherches sauvegardées."
-      },
-      "6": {
-        "title": "Application Mobile",
-        "description": "Accédez à toutes les fonctionnalités en déplacement avec notre application mobile."
-      }
-    }
-  },
-  "callToAction": {
-    "title": "Prêt à trouver votre voiture de rêve?",
-    "description": "Rejoignez des milliers de clients satisfaits qui ont trouvé leur véhicule parfait grâce à AutoQuote24.",
-    "button": "Commencer la recherche"
-  },
-  "testimonials": {
-    "montreal": {
-      "content": "AutoQuote24 a rendu la recherche de ma nouvelle voiture incroyablement facile. Les concessionnaires ont offert des prix compétitifs et j'ai économisé des milliers de dollars.",
-      "author": {
-        "name": "Marc Tremblay",
-        "role": "Ingénieur logiciel"
-      }
-    },
-    "laval": {
-      "content": "L'évaluation de la reprise était précise et j'ai obtenu une excellente offre pour mon nouveau véhicule.",
-      "author": {
-        "name": "Sophie Dubois",
-        "role": "Propriétaire d'entreprise"
-      }
-    },
-    "sherbrooke": {
-      "content": "Excellent service! Tout le processus était transparent et sans stress.",
-      "author": {
-        "name": "Jean-Luc Bouchard",
-        "role": "Enseignant"
-      }
-    },
-    "gatineau": {
-      "content": "J'ai apprécié l'approche sans pression et j'ai obtenu exactement ce que je voulais.",
-      "author": {
-        "name": "Marie-Claire Roy",
-        "role": "Professionnelle de la santé"
-      }
-    },
-    "quebec": {
-      "content": "La meilleure expérience d'achat de voiture que j'ai jamais eue. Hautement recommandé!",
-      "author": {
-        "name": "Pierre Gagnon",
-        "role": "Comptable"
-      }
-    },
-    "troisrivieres": {
-      "content": "J'ai économisé du temps et de l'argent. Le service a dépassé mes attentes.",
-      "author": {
-        "name": "Isabelle Lemieux",
-        "role": "Directrice marketing"
-      }
-    }
-  },
-  "features": {
-    "title": "Nos Services",
-    "subtitle": "Tout ce dont vous avez besoin pour obtenir la meilleure offre sur votre prochaine voiture",
-    "mostPopular": "Plus Populaire",
-    "save": "Économisez",
-    "regularPrice": "Prix Régulier",
-    "prelaunchPrice": "Prix de Pré-lancement",
-    "newCar": {
-      "title": "Soumission Auto Neuve",
-      "description": "Obtenez des soumissions compétitives de plusieurs concessionnaires pour votre prochaine voiture neuve",
-      "price": "40 $",
-      "prelaunchPrice": "29,99 $",
-      "regularPrice": "40 $",
-      "savings": "10,01 $",
-      "tooltip": "Offre à durée limitée",
-      "ctaLabel": "Commencer",
-      "cta": "Obtenir Votre Soumission"
-    },
-    "tradeIn": {
-      "title": "Valeur d'Échange",
-      "description": "Obtenez une évaluation précise de la valeur d'échange de votre véhicule actuel",
-      "price": "10 $",
-      "regularPrice": "10 $",
-      "savings": "5,01 $",
-      "tooltip": "Meilleure option",
-      "ctaLabel": "Évaluer Votre Voiture",
-      "cta": "Commencer l'Évaluation"
-    }
-  },
-  "spotsRemaining": "{{count}} places restantes",
-  "time": {
-    "days": "jours",
-    "hours": "heures",
-    "minutes": "minutes",
-    "seconds": "secondes"
-  },
-  "faqs": {
-    "title": "Questions fréquentes",
-    "description": "Questions courantes sur notre service",
-    "items": {
-      "1": {
-        "question": "Comment fonctionne AutoQuote24?",
-        "answer": "Soumettez vos préférences de véhicule et recevez des devis compétitifs de concessionnaires certifiés dans les 24 heures."
-      },
-      "2": {
-        "question": "Le service est-il vraiment gratuit?",
-        "answer": "Oui, obtenir des devis est totalement gratuit. Vous ne payez que lorsque vous décidez d'utiliser nos services premium."
-      },
-      "3": {
-        "question": "Les évaluations de reprise sont-elles précises?",
-        "answer": "Nos évaluations sont basées sur des données de marché en temps réel et sont généralement à 5% près des valeurs finales de reprise."
-      },
-      "4": {
-        "question": "Les concessionnaires sont-ils certifiés?",
-        "answer": "Oui, tous les concessionnaires sur notre plateforme sont certifiés et font l'objet de contrôles de qualité réguliers."
-      },
-      "5": {
-        "question": "Puis-je négocier le prix?",
-        "answer": "Oui, vous pouvez négocier directement avec les concessionnaires via notre système de chat sécurisé."
-      },
-      "6": {
-        "question": "Combien de temps faut-il pour obtenir des devis?",
-        "answer": "La plupart des devis sont reçus dans les 24 heures suivant la soumission."
-      },
-      "7": {
-        "question": "Mes informations sont-elles sécurisées?",
-        "answer": "Oui, nous utilisons un cryptage de niveau bancaire pour protéger toutes vos données."
-      },
-      "8": {
-        "question": "Quelles régions desservez-vous?",
-        "answer": "Nous desservons actuellement toutes les grandes villes du Québec."
-      },
-      "9": {
-        "question": "Puis-je annuler à tout moment?",
-        "answer": "Oui, vous pouvez annuler votre abonnement à tout moment sans pénalités."
-      }
-    }
-  },
-  "footer": {
-    "links": {
-      "features": "Fonctionnalités",
-      "testimonials": "Témoignages",
-      "pricing": "Tarification"
-    }
-  },
-  "titleStart": "L'achat d'une voiture",
-  "highlight": "simplifié",
-  "titleEnd": "au Québec",
-  "description": "Obtenez le meilleur prix pour votre prochaine voiture sans tracas. Notre système d'enchères privées assure que les concessionnaires se font concurrence pour votre entreprise, pas l'inverse.",
-  "cta": {
-    "primary": "Obtenez votre devis",
-    "secondary": "Comment ça marche"
-  },
-  "partners": {
-    "title": "Approuvé par les principaux concessionnaires du Québec"
-  },
-  "form": {
-    "title": "Trouvez votre voiture parfaite",
-    "make": {
-      "label": "Marque",
-      "placeholder": "ex., Toyota"
-    },
-    "model": {
-      "label": "Modèle",
-      "placeholder": "ex., Camry"
-    },
-    "year": {
-      "label": "Année",
-      "placeholder": "2024"
-    },
-    "budget": {
-      "label": "Fourchette de prix",
-      "min": "Min",
-      "max": "Max"
-    },
-    "tradeIn": {
-      "label": "Option de reprise",
-      "placeholder": "Avez-vous un véhicule à échanger?",
-      "no": "Pas de reprise",
-      "yes": "Oui, j'ai un véhicule à échanger"
-    },
-    "visibility": {
-      "label": "Visibilité de la reprise",
-      "placeholder": "Sélectionnez l'option de visibilité",
-      "tenDays": "Visibilité 10 jours (10$)",
-      "unlimited": "Visibilité illimitée (40$)"
-    },
-    "submit": "Obtenir des devis",
-    "submitting": "Soumission en cours..."
-  },
-  "greeting": "Bonjour",
-  "Common": {
-    "new": "Nouveau",
-    "guest": "Invité",
-    "loading": "Chargement...",
-    "error": "Erreur",
-    "success": "Succès",
-    "save": "Enregistrer",
     "cancel": "Annuler",
     "delete": "Supprimer",
     "edit": "Modifier",
     "view": "Voir",
     "close": "Fermer",
+    "error": "Erreur",
+    "success": "Succès",
+    "today": "aujourd'hui",
+    "toggleTheme": "Changer le thème",
+    "select_view": "Sélectionner la vue",
+    "viewProfile": "Voir le profil",
+    "logo": "Logo",
+    "new": "Nouveau",
+    "guest": "Invité",
     "back": "Retour",
     "next": "Suivant",
     "submit": "Soumettre",
@@ -462,9 +32,340 @@
     "done": "Terminé",
     "viewAll": "Voir tout",
     "or": "ou",
-    "needHelp": "Besoin d'aide?"
+    "needHelp": "Besoin d'aide?",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "sort": "Trier",
+    "export": "Exporter",
+    "import": "Importer",
+    "add": "Ajouter",
+    "confirm": "Confirmer",
+    "noResults": "Aucun résultat",
+    "signIn": "Sign in",
+    "signUp": "Sign up"
   },
-  "Navigation": {
+  "auth": {
+    "signIn": "Connexion",
+    "signUp": "Inscription",
+    "signInDescription": "Connectez-vous à votre compte pour accéder à votre tableau de bord",
+    "email": "Adresse courriel",
+    "password": "Mot de passe",
+    "forgotPassword": "Mot de passe oublié?",
+    "noAccount": "Vous n'avez pas de compte?",
+    "signOut": "Se déconnecter",
+    "login": "Se connecter",
+    "startFree": "Commencer gratuitement",
+    "hasAccount": "Vous avez déjà un compte?",
+    "createAccount": "Créer un compte",
+    "continueWith": "Ou continuer avec",
+    "google": "Google",
+    "facebook": "Facebook"
+  },
+  "header": {
+    "navigation": {
+      "features": "Fonctionnalités",
+      "testimonials": "Témoignages",
+      "pricing": "Tarification",
+      "about": "À propos",
+      "home": "Accueil",
+      "contact": "Contact"
+    },
+    "buttons": {
+      "signIn": "Connexion",
+      "signUp": "Inscription"
+    },
+    "welcome": "Bienvenue sur AutoQuote24",
+    "notifications": "Voir les notifications",
+    "profile": "Votre Profil",
+    "settings": "Paramètres",
+    "messages": "Messages"
+  },
+  "nav": {
+    "dashboard": "Tableau de bord",
+    "quotes": "Soumissions",
+    "messages": "Messages",
+    "settings": "Paramètres",
+    "features": "Fonctionnalités",
+    "pricing": "Tarification",
+    "testimonials": "Témoignages",
+    "about": "À propos",
+    "contact": "Contact",
+    "home": "Accueil",
+    "login": "Connexion",
+    "register": "Inscription",
+    "overview": "Aperçu",
+    "dealers": "Concessionnaires",
+    "users": "Utilisateurs",
+    "analytics": "Analytiques",
+    "security": "Sécurité",
+    "blog": "Blog",
+    "logout": "Deconnexion",
+    "tradeIn": "Échange",
+    "profile": "Profil",
+    "notifications": "Notifications",
+    "help": "Aide et support",
+    "documents": "Documents",
+    "inventory": "Inventaire",
+    "chat": "Chat",
+    "payments": "Paiements"
+  },
+  "hero": {
+    "title": "L'achat d'auto",
+    "highlight": "simplifié",
+    "titleEnd": "au Québec",
+    "description": "Obtenez le meilleur prix pour votre prochaine voiture sans tracas. Notre système d'enchères privées assure que les concessionnaires se font concurrence pour votre entreprise.",
+    "getStarted": "Obtenez votre soumission",
+    "learnMore": "Découvrez comment ça marche",
+    "partners": {
+      "title": "Approuvé par les principaux concessionnaires du Québec"
+    },
+    "trustedBy": "Fait confiance par"
+  },
+  "dashboard": {
+    "sections": {
+      "car_viewer": "Visualiseur de voitures",
+      "quick_actions": "Actions rapides",
+      "analytics": "Analytiques",
+      "recent_activity": "Activité récente",
+      "dealer_stats": "Statistiques des concessionnaires",
+      "user_stats": "Statistiques des utilisateurs",
+      "car_details": "Détails de la voiture",
+      "quote_details": "Détails de la soumission",
+      "specifications": "Spécifications"
+    },
+    "actions": {
+      "get_quote": "Obtenir une soumission",
+      "sell_car": "Vendre votre voiture",
+      "cycle_year": "Changer l'année",
+      "manage_dealers": "Gérer les concessionnaires",
+      "view_quotes": "Voir les soumissions",
+      "manage_inventory": "Gérer l'inventaire",
+      "get_quote": "Obtenir un Devis",
+      "sell_car": "Vendre Votre Voiture",
+      "cycle_year": "Changer l'Année"
+    },
+    "stats": {
+      "total_dealers": "Total des concessionnaires",
+      "active_dealers": "Concessionnaires actifs",
+      "total_revenue": "Revenu total",
+      "monthly_revenue": "Revenu mensuel",
+      "total_users": "Total des utilisateurs",
+      "active_users": "Utilisateurs actifs",
+      "total_quotes": "Total des soumissions",
+      "active_quotes": "Soumissions actives",
+      "total_sales": "Total des ventes",
+      "monthly_sales": "Ventes mensuelles",
+      "activeQuotes": "Devis actifs",
+      "totalQuotes": "Total des devis",
+      "dealerResponses": "Réponses des concessionnaires",
+      "pendingQuotes": "Devis en attente",
+      "acceptedQuotes": "Devis acceptés",
+      "averageQuote": "Devis moyen",
+      "potentialSavings": "Économies potentielles"
+    },
+    "car_details": {
+      "make": "Marque",
+      "model": "Modèle",
+      "year": "Année"
+    },
+    "buyer": {
+      "welcome": "Bon retour, {name}",
+      "subtitle": "Consultez vos devis, vos échanges et les réponses des concessionnaires en un seul endroit",
+      "greetings": {
+        "morning": "Bonjour, {name}",
+        "afternoon": "Bon après-midi, {name}",
+        "evening": "Bonsoir, {name}"
+      }
+    },
+    "quickActions": {
+      "title": "Actions rapides",
+      "description": "Commencez par ces tâches courantes",
+      "newQuote": {
+        "title": "Demander un nouveau devis",
+        "description": "Commencer une nouvelle demande de devis de voiture"
+      },
+      "tradeIn": {
+        "title": "Obtenir la valeur d'échange",
+        "description": "Obtenez une estimation pour votre voiture actuelle"
+      },
+      "messages": {
+        "title": "Messages",
+        "description": "Afficher et répondre aux messages des concessionnaires"
+      },
+      "documents": {
+        "title": "Documents",
+        "description": "Accédez à vos documents importants"
+      }
+    },
+    "inProgress": {
+      "title": "Terminez votre parcours",
+      "completeQuote": "Terminez votre devis",
+      "completePayment": "Terminez votre paiement",
+      "paymentDescription": "Payez les frais de 40 $ pour consulter vos 3 meilleurs devis",
+      "progress": "Progrès",
+      "amountDue": "Montant dû",
+      "continueQuote": "Continuer le devis",
+      "payNow": "Payer maintenant"
+    },
+    "emptyStates": {
+      "quotes": {
+        "title": "Pas de devis actifs",
+        "description": "Commencez une nouvelle demande de devis pour recevoir des offres compétitives de la part des concessionnaires locaux"
+      },
+      "activity": {
+        "title": "Pas d'activité récente",
+        "description": "Vos actions et mises à jour récentes apparaîtront ici"
+      }
+    },
+    "status": {
+      "active": "Actif",
+      "pending": "En attente",
+      "completed": "Terminé"
+    },
+    "specs": {
+      "city_mpg": "Consommation ville",
+      "highway_mpg": "Consommation autoroute",
+      "fuel_type": "Type de carburant",
+      "transmission": "Transmission",
+      "drive": "Type de traction"
+    },
+    "labels": {
+      "latest": "Dernier"
+    },
+    "title": "Tableau de bord",
+    "welcome": "Bienvenue",
+    "overview": "Aperçu"
+  },
+  "quotes": {
+    "new": {
+      "title": "Nouvelle demande de soumission",
+      "description": "Veuillez remplir le formulaire ci-dessous pour demander une soumission pour le véhicule désiré",
+      "back": "Retour aux soumissions",
+      "vehicleDetails": "Détails du véhicule",
+      "preferences": "Préférences",
+      "tradeIn": "Détails de l'échange",
+      "fields": {
+        "vehicleType": "Type de véhicule",
+        "year": "Année",
+        "make": "Marque",
+        "model": "Modèle",
+        "budget": "Budget",
+        "location": "Emplacement préféré",
+        "additionalDetails": "Détails ou exigences supplémentaires",
+        "tradeIn": {
+          "make": "Marque du véhicule d'échange",
+          "model": "Modèle du véhicule d'échange",
+          "year": "Année du véhicule d'échange",
+          "mileage": "Kilométrage du véhicule d'échange",
+          "condition": "État du véhicule"
+        }
+      }
+    },
+    "columns": {
+      "vehicle": "Véhicule",
+      "price": "Prix",
+      "status": "Statut",
+      "date": "Date"
+    },
+    "status": {
+      "pending": "En attente",
+      "accepted": "Acceptée",
+      "rejected": "Refusée"
+    },
+    "search": "Rechercher des soumissions...",
+    "title": "Devis",
+    "all": "Tous les devis",
+    "draft": "Brouillon",
+    "approved": "Approuvé",
+    "customer": "Client",
+    "amount": "Montant",
+    "actions": "Actions"
+  },
+  "theme": {
+    "darkMode": "Mode sombre",
+    "lightMode": "Mode clair"
+  },
+  "chat": {
+    "welcome": "Bienvenue sur AutoQuote24! Comment puis-je vous aider aujourd'hui?"
+  },
+    "profile": {
+    "personal_info": "Informations personnelles",
+    "personal_info_description": "Mettez à jour vos informations personnelles et vos préférences.",
+    "name": "Nom",
+    "phone": "Téléphone",
+    "language": "Langue",
+    "preferred_contact": "Méthode de contact préférée",
+    "contact": {
+      "email": "Courriel",
+      "phone": "Téléphone",
+      "both": "Les deux"
+    },
+    "notifications": "Notifications",
+    "notifications_description": "Recevez des notifications sur les nouvelles soumissions et les mises à jour.",
+    "save": "Enregistrer",
+    "saving": "Enregistrement...",
+    "success": {
+      "save": "Profil mis à jour avec succès"
+    },
+    "error": {
+      "fetch": "Erreur lors du chargement du profil",
+      "save": "Erreur lors de l'enregistrement du profil"
+    }
+  },
+   "team": {
+    "title": "Équipe",
+    "columns": {
+      "name": "Nom",
+      "role": "Rôle",
+      "email": "Courriel",
+      "phone": "Téléphone",
+      "status": "Statut",
+      "lastActive": "Dernière activité"
+    },
+    "roles": {
+      "salesManager": "Directeur des ventes",
+      "salesRep": "Représentant des ventes"
+    },
+    "status": {
+      "active": "Actif",
+      "inactive": "Inactif"
+    },
+    "actions": {
+      "addMember": "Ajouter un membre"
+    },
+    "search": "Rechercher un membre..."
+  },
+    "table": {
+    "rowsPerPage": "Lignes par page",
+    "page": "Page",
+    "of": "sur",
+    "firstPage": "Première page",
+    "previousPage": "Page précédente",
+    "nextPage": "Page suivante",
+    "lastPage": "Dernière page",
+    "resetFilters": "Réinitialiser les filtres",
+    "columns": "Colonnes",
+    "noResults": "Aucun résultat"
+  },
+  "auctions": {
+    "columns": {
+      "vehicle": "Véhicule",
+      "current_bid": "Enchère actuelle",
+      "time_left": "Temps restant"
+    },
+    "search": "Rechercher une enchère..."
+  },
+    "sidebar": {
+    "dashboard": "Tableau de bord",
+    "quotes": "Devis",
+    "vehicles": "Véhicules",
+    "messages": "Messages",
+    "profile": "Profil",
+    "settings": "Paramètres",
+    "blog": "Blog",
+    "logout": "Deconnexion"
+  },
+    "Navigation": {
     "main": {
       "home": "Accueil",
       "about": "À propos",
@@ -482,14 +383,19 @@
     },
     "dashboard": {
       "dashboard": "Tableau de bord",
-      "quotes": "Soumissions",
+      "quotes": "Devis",
       "tradeIn": "Échange",
       "settings": "Paramètres",
       "profile": "Profil",
       "messages": "Messages",
       "notifications": "Notifications",
       "help": "Aide et support",
-      "documents": "Documents"
+      "documents": "Documents",
+      "inventory":"Inventaire",
+      "analytics": "Analytiques",
+      "users": "Utilisateurs",
+      "dealers" :"Concessionnaires"
+
     },
     "dealer": {
       "dealerDashboard": "Tableau de bord du concessionnaire",
@@ -504,7 +410,7 @@
       "openUserMenu": "Ouvrir le menu utilisateur"
     }
   },
-  "Meta": {
+   "Meta": {
     "global": {
       "allRightsReserved": "Tous droits réservés."
     },
@@ -535,7 +441,7 @@
       }
     }
   },
-  "Auth": {
+   "Auth": {
     "layout": {
       "welcome": "Bienvenue sur AutoQuote24",
       "description": "Connectez-vous pour accéder à votre compte"
@@ -561,69 +467,7 @@
       "welcome": "Créez votre compte"
     }
   },
-  "Dashboard": {
-    "buyer": {
-      "welcome": "Bon retour, {{name}}",
-      "subtitle": "Consultez vos devis, vos échanges et les réponses des concessionnaires en un seul endroit",
-      "greetings": {
-        "morning": "Bonjour, {{name}}",
-        "afternoon": "Bon après-midi, {{name}}",
-        "evening": "Bonsoir, {{name}}"
-      }
-    },
-    "stats": {
-      "total_dealers": "Concessionnaires",
-      "active_dealers": "Concessionnaires actifs",
-      "total_revenue": "Revenu total",
-      "monthly_revenue": "Revenu mensuel",
-      "total_users": "Utilisateurs",
-      "active_users": "Utilisateurs actifs",
-      "conversion_rate": "Taux de conversion",
-      "quote_to_sale": "Devis à vente",
-      "system_health": "Santé du système",
-      "uptime": "Temps de disponibilité",
-      "active_quotes": "Devis actifs",
-      "pending_quotes": "Devis en attente",
-      "total_value": "Valeur totale",
-      "potential_revenue": "Revenu potentiel",
-      "quote_acceptance": "Taux d'acceptation",
-      "active_auctions": "Enchères actives",
-      "live_auctions": "Enchères en direct",
-      "response_time": "Temps de réponse",
-      "avg_response": "Temps moyen de réponse",
-      "best_offer": "Meilleure offre",
-      "lowest_quote": "Devis le plus bas",
-      "time_remaining": "Temps restant",
-      "quote_expiry": "Expiration du devis",
-      "your_quotes": "Vos devis"
-    },
-    "actions": {
-      "view_reports": "Voir les rapports",
-      "manage_dealers": "Gérer les concessionnaires",
-      "security_alerts": "Alertes de sécurité",
-      "new_quote": "Nouveau devis",
-      "view_auctions": "Voir les enchères",
-      "messages": "Messages",
-      "request_quote": "Demander un devis",
-      "view_quotes": "Voir les devis",
-      "notifications": "Notifications"
-    },
-    "sections": {
-      "revenue_chart": "Graphique des revenus",
-      "latest_quotes": "Derniers devis",
-      "active_auctions": "Enchères actives",
-      "performance": "Performance",
-      "your_quotes": "Vos devis",
-      "quote_comparison": "Comparaison des devis",
-      "car_viewer": "Visualiseur de voiture",
-      "quick_actions": "Actions rapides"
-    },
-    "actions": {
-      "get_quote": "Obtenir un devis",
-      "sell_car": "Vendre une voiture"
-    }
-  },
-  "DealerDashboard": {
+   "DealerDashboard": {
     "title": "Tableau de bord du concessionnaire",
     "leadManagement": {
       "title": "Gestion des pistes",
@@ -673,7 +517,7 @@
       }
     }
   },
-  "QuoteForm": {
+   "QuoteForm": {
     "title": "Obtenez votre devis",
     "description": "Remplissez les détails ci-dessous pour obtenir votre devis de voiture.",
     "fields": {
@@ -695,7 +539,7 @@
     "lowestBid": "Offre la plus basse",
     "deadline": "Date limite"
   },
-  "TradeIn": {
+   "TradeIn": {
     "title": "Évaluation de l'échange",
     "getEstimate": "Obtenir une estimation",
     "currentValue": "Valeur actuelle",
@@ -718,288 +562,50 @@
     "en": "Anglais",
     "fr": "Français"
   },
-  "auth": {
-    "signIn": "Se connecter",
-    "signInDescription": "Connectez-vous à votre compte pour accéder à votre tableau de bord",
-    "email": "Adresse courriel",
-    "password": "Mot de passe",
-    "forgotPassword": "Mot de passe oublié?",
-    "noAccount": "Vous n'avez pas de compte?",
-    "signUp": "S'inscrire",
-    "getStarted": "Commencer",
-    "today": "aujourd'hui"
+   "analytics": {
+    "title": "Analytiques",
+    "totalQuotes": "Total des Devis",
+    "conversionRate": "Taux de Conversion",
+    "averageQuoteValue": "Valeur Moyenne des Devis",
+    "monthlyQuotes": "Devis Mensuels",
+    "conversionFunnel": "Entonnoir de Conversion",
+    "vehicleTypes": "Types de Véhicules"
   },
-  "navigation": {
-    "dashboard": "Tableau de bord",
-    "quotes": "Soumissions",
-    "my_quotes": "Mes soumissions",
-    "messages": "Messages",
-    "settings": "Paramètres",
-    "profile": "Profil",
-    "dealers": "Concessionnaires",
-    "users": "Utilisateurs",
-    "auctions": "Enchères",
-    "dealership": "Concession",
-    "request_quote": "Demander une soumission",
-    "trade_in": "Évaluer mon échange",
-    "add_dealer": "Ajouter un concessionnaire",
-    "view_reports": "Voir les rapports",
-    "new_quote": "Nouvelle soumission",
-    "view_auctions": "Voir les enchères",
-    "quick_actions": "Actions rapides",
-    "view_notifications": "Voir les notifications"
+  "payments": {
+    "totalRevenue": "Revenu Total",
+    "pendingPayments": "Paiements en Attente",
+    "successRate": "Taux de Réussite",
+    "searchPlaceholder": "Rechercher des paiements...",
+    "statusFilter": "Statut",
+    "all": "Tous",
+    "completed": "Terminé",
+    "pending": "En attente",
+    "failed": "Échoué",
+    "exportData": "Exporter les Données",
+    "recentPayments": "Paiements Récents",
+    "recentPaymentsDescription": "Une liste des paiements récents et de leur statut",
+    "date": "Date",
+    "customer": "Client",
+    "amount": "Montant",
+    "status": "Statut",
+    "method": "Méthode de Paiement",
+    "reference": "Référence",
+    "actions": "Actions",
+    "viewDetails": "Voir les Détails"
   },
-  "common": {
-    "dealer": "Concessionnaire",
-    "buyer": "Acheteur",
-    "viewProfile": "Voir le profil"
-  },
-  "home": {
-    "features": "Fonctionnalités",
-    "testimonials": "Témoignages",
-    "pricing": "Tarification",
-    "about": "À propos",
-    "openMenu": "Ouvrir le menu",
-    "closeMenu": "Fermer le menu",
-    "hero": {
-      "title": "L'achat d'une voiture",
-      "highlight": "simplifié",
-      "titleEnd": "au Québec",
-      "description": "Obtenez le meilleur prix pour votre prochaine voiture sans tracas. Notre système d'enchères privées assure que les concessionnaires se font concurrence pour votre entreprise, pas l'inverse.",
-      "getStarted": "Commencer la recherche",
-      "learnMore": "Comment ça marche",
-      "partners": {
-        "title": "Approuvé par les principaux concessionnaires du Québec"
-      }
-    }
-  },
-  "auth": {
-    "signIn": "Se connecter",
-    "getStarted": "Commencer",
-    "today": "aujourd'hui"
-  },
-  "hero": {
-    "title": "L'achat d'une voiture",
-    "highlight": "simplifié",
-    "titleEnd": "au Québec",
-    "description": "Obtenez le meilleur prix pour votre prochaine voiture sans tracas. Notre système d'enchères privées assure que les concessionnaires se font concurrence pour votre entreprise, pas l'inverse.",
-    "getStarted": "Commencer la recherche",
-    "learnMore": "Comment ça marche",
-    "partners": {
-      "title": "Approuvé par les principaux concessionnaires du Québec"
-    }
-  },
-  "app": {
-    "name": "AutoQuote24"
-  },
-  "dashboard": {
-    "welcome": "Bienvenue, {{name}}!",
-    "welcome_message": {
-      "admin": "Gérez vos concessionnaires et suivez les performances globales.",
-      "dealer": "Consultez vos demandes de prix et gérez vos offres.",
-      "user": "Suivez vos demandes de prix et économisez sur votre prochain véhicule."
-    },
-    "quickActions": {
-      "title": "Actions Rapides",
-      "requestQuote": "Demander un Devis",
-      "tradeInVehicle": "Échanger un Véhicule",
-      "viewMessages": "Voir les Messages"
-    },
-    "account": {
-      "title": "Compte",
-      "signOut": "Se Déconnecter",
-      "settings": "Paramètres",
-      "profile": "Profil"
-    },
-    "notifications": "Notifications",
-    "sections": {
-      "car_viewer": "Visualiseur de Voiture",
-      "quick_actions": "Actions Rapides",
-      "specifications": "Spécifications"
-    },
-    "specs": {
-      "city_mpg": "Consommation ville",
-      "highway_mpg": "Consommation autoroute",
-      "fuel_type": "Type de carburant",
-      "transmission": "Transmission",
-      "drive": "Type de traction"
-    },
-    "car_details": {
-      "make": "Marque",
-      "model": "Modèle",
-      "year": "Année"
-    },
-    "actions": {
-      "get_quote": "Obtenir un Devis",
-      "sell_car": "Vendre une Voiture",
-      "cycle_year": "Changer l'Année"
-    },
-    "labels": {
-      "latest": "Plus Récent"
-    },
-    "navigation": {
-      "dashboard": "Tableau de Bord",
-      "vehicles": "Véhicules",
-      "quotes": "Devis",
-      "messages": "Messages",
-      "settings": "Paramètres"
-    }
-  },
-  "views": {
-    "admin": "Vue administrateur",
-    "dealer": "Vue concessionnaire",
-    "user": "Vue utilisateur"
-  },
-  "chat": {
-    "welcome": "Bienvenue chez AutoQuote24! Comment puis-je vous aider aujourd'hui?"
-  },
-  "common": {
-    "select_view": "Sélectionner la vue",
-    "loading": "Chargement...",
-    "error": "Erreur",
-    "success": "Succès",
-    "save": "Sauvegarder",
-    "cancel": "Annuler",
-    "delete": "Supprimer",
-    "edit": "Modifier",
-    "view": "Voir",
-    "close": "Fermer"
-  },
-  "profile": {
-    "personal_info": "Informations personnelles",
-    "personal_info_description": "Mettez à jour vos informations personnelles et vos préférences.",
-    "name": "Nom",
-    "phone": "Téléphone",
-    "language": "Langue",
-    "preferred_contact": "Méthode de contact préférée",
-    "contact": {
-      "email": "Courriel",
-      "phone": "Téléphone",
-      "both": "Les deux"
-    },
-    "notifications": "Notifications",
-    "notifications_description": "Recevez des notifications sur les nouvelles soumissions et les mises à jour.",
-    "save": "Enregistrer",
-    "saving": "Enregistrement...",
-    "success": {
-      "save": "Profil mis à jour avec succès"
-    },
-    "error": {
-      "fetch": "Erreur lors du chargement du profil",
-      "save": "Erreur lors de l'enregistrement du profil"
-    }
-  },
-  "team": {
-    "title": "Équipe",
-    "columns": {
-      "name": "Nom",
-      "role": "Rôle",
-      "email": "Courriel",
-      "phone": "Téléphone",
+    "blog": {
+    "admin": {
+      "title": "Gestion du Blog",
+      "description": "Créer et gérer des articles de blog",
+      "posts": "Articles de Blog",
+      "postsDescription": "Voir et gérer tous les articles de blog",
+      "newPost": "Nouvel Article",
+      "editPost": "Modifier l'Article",
+      "postTitle": "Titre",
+      "postContent": "Contenu",
       "status": "Statut",
-      "lastActive": "Dernière activité"
-    },
-    "roles": {
-      "salesManager": "Directeur des ventes",
-      "salesRep": "Représentant des ventes"
-    },
-    "status": {
-      "active": "Actif",
-      "inactive": "Inactif"
-    },
-    "actions": {
-      "addMember": "Ajouter un membre"
-    },
-    "search": "Rechercher un membre..."
-  },
-  "table": {
-    "rowsPerPage": "Lignes par page",
-    "page": "Page",
-    "of": "sur",
-    "firstPage": "Première page",
-    "previousPage": "Page précédente",
-    "nextPage": "Page suivante",
-    "lastPage": "Dernière page",
-    "resetFilters": "Réinitialiser les filtres",
-    "columns": "Colonnes",
-    "noResults": "Aucun résultat"
-  },
-  "quotes": {
-    "columns": {
-      "vehicle": "Véhicule",
-      "price": "Prix",
-      "status": "Statut",
-      "date": "Date"
-    },
-    "status": {
-      "pending": "En attente",
-      "accepted": "Accepté",
-      "rejected": "Refusé"
-    },
-    "search": "Rechercher un devis..."
-  },
-  "auctions": {
-    "columns": {
-      "vehicle": "Véhicule",
-      "current_bid": "Enchère actuelle",
-      "time_left": "Temps restant"
-    },
-    "search": "Rechercher une enchère..."
-  },
-  "theme": {
-    "darkMode": "Mode Sombre",
-    "lightMode": "Mode Clair"
-  },
-  "dashboard": {
-    "sections": {
-      "car_viewer": "Visualiseur de Voiture",
-      "quick_actions": "Actions Rapides",
-      "specifications": "Spécifications"
-    },
-    "specs": {
-      "city_mpg": "Consommation ville",
-      "highway_mpg": "Consommation autoroute",
-      "fuel_type": "Type de carburant",
-      "transmission": "Transmission",
-      "drive": "Type de traction"
-    },
-    "actions": {
-      "get_quote": "Obtenir un Devis",
-      "sell_car": "Vendre Votre Voiture",
-      "cycle_year": "Changer l'Année"
-    },
-    "labels": {
-      "latest": "Dernier"
-    },
-    "car_details": {
-      "make": "Marque",
-      "model": "Modèle",
-      "year": "Année"
+      "author": "Auteur",
+      "lastUpdated": "Dernière Mise à Jour"
     }
-  },
-  "sidebar": {
-    "dashboard": "Tableau de bord",
-    "quotes": "Devis",
-    "vehicles": "Véhicules",
-    "messages": "Messages",
-    "profile": "Profil",
-    "settings": "Paramètres"
-  },
-  
-    "nav": {
-     "features": "Fonctionnalités",
-    "testimonials": "Témoignages",
-    "pricing": "Tarification",
-    "about": "À propos",
-      "home": "Accueil",
-      "contact": "Contact"
-    },
-    "common": {
-      "signIn": "Sign in",
-      "signUp": "Sign up",
-      "today": "aujourd'hui",
-    "toggleTheme": "Changer le thème",
-    "logo": "Logo",
-    "dashboard": "Tableau de bord"
-    }
+  }
 }

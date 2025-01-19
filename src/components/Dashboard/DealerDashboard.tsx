@@ -1,11 +1,11 @@
 'use client';
 
 import { useRoleAccess } from '@/hooks/useRoleAccess';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Car, DollarSign, Users, Bell, Clock } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { useTheme } from 'next-themes';
+
 
 interface DealerDashboardProps {
   user: {
@@ -18,8 +18,8 @@ interface DealerDashboardProps {
   };
 }
 
-export default function DealerDashboard({ user }: DealerDashboardProps) {
-  const t = useTranslations('dashboard');
+export default function DealerDashboard() {
+  const { t } = useTranslations('dashboard');
   const { isDealer } = useRoleAccess();
   const { theme } = useTheme();
   const [showWelcome, setShowWelcome] = useState(true);
