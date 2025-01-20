@@ -1,12 +1,10 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { getSupabaseClient } from '@/lib/supabase';
-import type { SupabaseDatabase } from '@/types/supabase';
+import { getSupabaseClient } from '@/lib/supabase'; // Ensure this import is present
 import type { User } from '@supabase/supabase-js';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { LoadingSpinner } from '@/components/ui/loading-spinner';
 
 interface AuthContextType {
   user: User | null;
+  userRole: string | null;
   loading: boolean;
   signIn: (email: string, password: string) => Promise<void>;
   signInWithGoogle: () => Promise<void>;
@@ -21,58 +19,49 @@ interface AuthProviderProps {
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
+  const [userRole, setUserRole] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
-  const location = useLocation();
-  const supabase = getSupabaseClient();
-
-  useEffect(() => {
-    console.log('AuthProvider - useEffect hook is running');
-    supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_IN' || event === 'INITIAL_SESSION' || event === 'TOKEN_REFRESHED') {
-        setUser(session?.user || null);
-      } else if (event === 'SIGNED_OUT') {
-        setUser(null);
-      }
-      setLoading(false);
-    });
-    return () => {};
-  }, []);
+  const supabase = getSupabaseClient(); // Instantiate the Supabase client here
 
   const signIn = async (email: string, password: string) => {
     const { error } = await supabase.auth.signInWithPassword({ email, password });
-    if (error) throw error;
+    if (error) throw error; // Handle error appropriately
   };
 
   const signInWithGoogle = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `${window.location.origin}/callback`,
+        redirectTo: `${window.location.origin}/callback`, // Adjust the redirect URL as needed
       },
     });
-    if (error) throw error;
+    if (error) throw error; // Handle error appropriately
   };
 
   const signOut = async () => {
     const { error } = await supabase.auth.signOut();
-    if (error) throw error;
+    if (error) throw error; // Handle error appropriately
   };
 
-  if (loading) {
-    return <LoadingSpinner size="md" fullScreen />;
-  }
+  useEffect(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+      if (event === 'SIGNED_IN' || event === 'INITIAL_SESSION' || event === 'TOKEN_REFRESHED') {
+        setUser(session?.user || null);
+        // Fetch user role logic here
+      } else if (event === 'SIGNED_OUT') {
+        setUser(null);
+        setUserRole(null);
+      }
+      setLoading(false);
+    });
 
-  const value = {
-    user,
-    loading,
-    signIn,
-    signInWithGoogle,
-    signOut,
-  };
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, []);
 
   return (
-    <AuthContext.Provider value={value}>
+    <AuthContext.Provider value={{ user, userRole, loading, signIn, signInWithGoogle, signOut }}>
       {typeof children === 'function' ? children({ user }) : children}
     </AuthContext.Provider>
   );

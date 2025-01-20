@@ -1,6 +1,6 @@
 'use client';
 
-import { useRoleAccess } from '../../../hooks/useRoleAccess';
+import { useRoleAccess } from '@/hooks/useRoleAccess';
 import { useTranslation } from 'react-i18next';
 
 export default function AdminDashboard() {

@@ -43,13 +43,13 @@
       "signIn": "Sign In",
       "signUp": "Sign Up",
       "signOut": "Sign Out",
-      "login": "Log In",
-      "startFree": "Get Started Free"
+      "login": "Login",
+      "startFree": "Start Free"
     },
     "dashboard": {
       "dashboard": "Dashboard",
       "quotes": "Quotes",
-      "tradeIn": "Trade-In",
+      "tradeIn": "Trade In",
       "settings": "Settings",
       "profile": "Profile",
       "messages": "Messages",
@@ -63,7 +63,6 @@
       "users": "Users",
       "dealers": "Dealers",
       "blog": "Blog"
-
     },
     "dealer": {
       "dealerDashboard": "Dealer Dashboard",
@@ -84,9 +83,9 @@
     },
     "home": {
       "title": "AutoQuote24 - Get the Best Deal on Your Next Car",
-      "description": "Skip dealership visits and save money on your next car. Get 3 competitive dealer quotes for just $40. Private bidding system ensures you get the best deal. Money-back guarantee.",
+      "description": "Skip the dealership visits and save money on your next car. Get 3 competing offers from dealerships for only $40. A private bidding system ensures you get the best deal. Money-back guarantee.",
       "ogTitle": "AutoQuote24 - The Smart Way to Buy Cars",
-      "ogDescription": "Skip dealership visits and save money on your next car. Get 3 competitive dealer quotes for just $40."
+      "ogDescription": "Skip the dealership visits and save money on your next car. Get 3 competing offers from dealerships for only $40."
     },
     "auth": {
       "signIn": {
@@ -109,12 +108,22 @@
       }
     }
   },
+  "hero": {
+    "title": "The best offers for",
+    "highlight": " your next car",
+    "titleEnd": ".",
+    "description": "Skip the dealership visits and save money on your next car. Get 3 competing offers from dealerships for only $40. A private bidding system ensures you get the best deal. Money-back guarantee.",
+    "getStarted": "Get Started",
+    "partners": {
+      "title": "Trusted by leading car manufacturers"
+    }
+  },
   "Auth": {
     "layout": {
       "welcome": "Welcome to AutoQuote24",
       "description": "Sign in to access your account"
     },
-    "dealerLogin": "Dealership Login",
+    "dealerLogin": "Dealer Login",
     "userLogin": "User Login",
     "noAccount": "No account / Want a quote?",
     "noDealerAccount": "Want to become a dealer?",
@@ -122,12 +131,12 @@
     "signIn": {
       "welcome": "Welcome back",
       "error": {
-        "default": "An error occurred while signing in. Please try again.",
+        "default": "An error occurred during sign in. Please try again.",
         "invalid_credentials": "Invalid email or password.",
         "account_not_found": "Account not found. Please sign up first."
       },
       "success": {
-        "signed_in": "Successfully signed in!"
+        "signed_in": "Signed in successfully!"
       },
       "loading": "Signing in...",
       "email": "Email",
@@ -137,82 +146,24 @@
     "signUp": {
       "welcome": "Create your account",
       "hasAccount": "Already have an account?",
-      "createAccount": "Create an account",
+      "createAccount": "Create Account",
       "continueWith": "Or continue with",
       "google": "Google",
       "facebook": "Facebook"
     }
   },
   "Dashboard": {
-    "buyer": {
-      "welcome": "Welcome back, {name}",
-      "subtitle": "View your quotes, trade-ins, and dealer responses all in one place",
-      "greetings": {
-        "morning": "Good morning, {name}",
-        "afternoon": "Good afternoon, {name}",
-        "evening": "Good evening, {name}"
-      }
-    },
-    "stats": {
-      "activeQuotes": "Active Quotes",
-      "totalQuotes": "Total Quotes",
-      "dealerResponses": "Dealer Responses",
-      "pendingQuotes": "Pending Quotes",
-      "acceptedQuotes": "Accepted Quotes",
-      "averageQuote": "Average Quote",
-      "potentialSavings": "Potential Savings"
-    },
-    "quickActions": {
-      "title": "Quick Actions",
-      "description": "Start with these common tasks",
-      "newQuote": {
-        "title": "Request New Quote",
-        "description": "Start a new car quote request",
-        "requestQuote": "Request a Quote",
-        "tradeInVehicle": "Trade In Vehicle",
-        "viewMessages": "View Messages"
-      },
-      "tradeIn": {
-        "title": "Get Trade-In Value",
-        "description": "Get an estimate for your current car"
-      },
-      "messages": {
-        "title": "Messages",
-        "description": "View and respond to dealer messages"
-      },
-      "documents": {
-        "title": "Documents",
-        "description": "Access your important documents"
-      }
-    },
-    "inProgress": {
-      "title": "Complete Your Journey",
-      "completeQuote": "Complete Your Quote",
-      "completePayment": "Complete Your Payment",
-      "paymentDescription": "Pay the $40 fee to view your top 3 quotes",
-      "progress": "Progress",
-      "amountDue": "Amount Due",
-      "continueQuote": "Continue Quote",
-      "payNow": "Pay Now"
-    },
-    "emptyStates": {
-      "quotes": {
-        "title": "No Active Quotes",
-        "description": "Start a new quote request to receive competitive offers from local dealers"
-      },
-      "activity": {
-        "title": "No Recent Activity",
-        "description": "Your recent actions and updates will appear here"
-      }
-    },
-    "status": {
-      "active": "Active",
-      "pending": "Pending",
-      "completed": "Completed"
-    },
     "title": "Dashboard",
-    "welcome": "Welcome back",
-    "overview": "Overview"
+    "welcome": "Welcome",
+    "overview": "Overview",
+    "buyer_dashboard": {
+      "my_quote_requests": "My Quote Requests",
+      "no_quotes_yet": "No quote requests yet.",
+      "car_details": "Car Details",
+      "trade_in": "Trade-In",
+      "status": "Status",
+      "dealer_responses": "Dealer Responses"
+    }
   },
   "DealerDashboard": {
     "title": "Dealer Dashboard",
@@ -221,7 +172,7 @@
       "newLead": "New Lead",
       "activeLeads": "Active Leads",
       "convertedLeads": "Converted Leads",
-      "pendingFollowUp": "Pending Follow-up"
+      "pendingFollowUp": "Pending Follow Up"
     },
     "performance": {
       "title": "Performance Overview",
@@ -230,7 +181,7 @@
       "customerSatisfaction": "Customer Satisfaction"
     },
     "communication": {
-      "title": "Communication Hub",
+      "title": "Communication Center",
       "allMessages": "All Messages",
       "newMessage": "New Message",
       "unreadMessages": "Unread Messages",
@@ -243,7 +194,7 @@
       "pendingSignatures": "Pending Signatures"
     },
     "quoteAnalytics": {
-      "title": "Smart Quote Analytics",
+      "title": "Intelligent Quote Analytics",
       "optimize": "Optimize Quotes",
       "tabs": {
         "overview": "Overview",
@@ -287,7 +238,7 @@
     "deadline": "Deadline"
   },
   "TradeIn": {
-    "title": "Trade-In Valuation",
+    "title": "Trade-In Evaluation",
     "getEstimate": "Get Estimate",
     "currentValue": "Current Value",
     "lastUpdate": "Last Update",
@@ -300,17 +251,17 @@
     "something_went_wrong": "Something went wrong",
     "try_again": "Try again",
     "pageNotFound": "Page Not Found",
-    "pageNotFoundMessage": "The page you're looking for doesn't exist or has been moved.",
+    "pageNotFoundMessage": "The page you are looking for does not exist or has been moved.",
     "backToHome": "Back to Home"
   },
   "NotFound": {
     "title": "Page Not Found",
-    "message": "The page you're looking for doesn't exist or has been moved.",
+    "message": "The page you are looking for does not exist or has been moved.",
     "backToHome": "Back to Home"
   },
   "LanguageSwitcher": {
-    "button": "Change language",
-    "currentLocale": "Current language: {locale}",
+    "button": "Switch Language",
+    "currentLocale": "Current locale: {locale}",
     "switchLocale": "Switch to {locale}",
     "en": "English",
     "fr": "French"
@@ -399,17 +350,17 @@
   },
   "signIn": {
     "title": "Sign In",
-    "description": "Log in to your account to access your dashboard",
-    "email_label": "Email Address",
+    "description": "Sign in to your account to access your dashboard",
+    "email_label": "Email address",
     "password_label": "Password",
     "email_placeholder": "Your email address",
     "password_placeholder": "Your password",
     "button_label": "Sign In",
-    "loading_button_label": "Signing In...",
+    "loading_button_label": "Signing in...",
     "social_provider_text": "Continue with {{provider}}",
-    "link_text": "Already have an account? Sign In",
+    "link_text": "Already have an account? Sign in",
     "pageNotFound": "Page Not Found",
-    "pageNotFoundMessage": "The page you're looking for doesn't exist or has been moved.",
+    "pageNotFoundMessage": "The page you are looking for does not exist or has been moved.",
     "backToHome": "Back to Home"
   }
 }

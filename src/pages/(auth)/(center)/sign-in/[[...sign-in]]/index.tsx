@@ -3,18 +3,22 @@
 import { useNavigate } from 'react-router-dom';
 import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
-import { getSupabaseClient } from '@/integrations/supabase/client';
+import { getSupabaseClient } from '@/integrations/supabase/client'; 
 import { useEffect } from 'react';
 
 export default function SignInPage() {
   const navigate = useNavigate();
+  const supabase = getSupabaseClient(); // Instantiate the Supabase client
 
   useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN') {
+        navigate('/dashboard'); // Redirect to dashboard on sign-in
+      }
     });
 
     return () => subscription.unsubscribe();
-  }, []);
+  }, [navigate, supabase]); // Add supabase and navigate to dependencies
 
   return (
     <div className="mt-10 sm:mt-16 sm:mx-auto sm:w-full sm:max-w-[480px] animate-fade-up">
@@ -65,24 +69,6 @@ export default function SignInPage() {
                   loading_button_label: 'Connexion en cours...',
                   social_provider_text: 'Continuer avec {{provider}}',
                   link_text: 'Vous avez déjà un compte? Se connecter',
-                },
-                sign_up: {
-                  email_label: 'Adresse courriel',
-                  password_label: 'Mot de passe',
-                  email_input_placeholder: 'Votre adresse courriel',
-                  password_input_placeholder: 'Votre mot de passe',
-                  button_label: "S'inscrire",
-                  loading_button_label: 'Inscription en cours...',
-                  social_provider_text: 'Continuer avec {{provider}}',
-                  link_text: "Vous n'avez pas de compte? S'inscrire",
-                },
-                forgotten_password: {
-                  email_label: 'Adresse courriel',
-                  password_label: 'Mot de passe',
-                  email_input_placeholder: 'Votre adresse courriel',
-                  button_label: 'Envoyer les instructions',
-                  loading_button_label: 'Envoi des instructions en cours...',
-                  link_text: 'Mot de passe oublié?',
                 },
               },
             }}

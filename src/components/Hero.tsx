@@ -55,7 +55,7 @@ export function Hero() {
           <Link to="/sign-up">{t('hero.getStarted')}</Link>
         </Button>
         <Button variant="outline" asChild>
-          <Link to="/sign-in">{t('hero.signIn')}</Link>
+          <Link to="/sign-in">{t('Navigation.auth.signIn')}</Link>
         </Button>
       </div>
       <div className="mt-36 lg:mt-44">

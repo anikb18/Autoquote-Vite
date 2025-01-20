@@ -1,33 +1,35 @@
 import React from "react";
-import { StrictMode, Suspense, lazy, useEffect, useState } from "react";
+import { StrictMode, Suspense, lazy } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from './components/ui/toaster';
+import { Toaster as Sonner } from './components/ui/sonner';
+import { TooltipProvider } from './components/ui/tooltip';
 import { ThemeProvider } from "./providers/theme-provider";
-import { ViewModeProvider } from '@/contexts/ViewModeContext';
-import { LoadingSpinner } from '@/components/ui/loading-spinner';
-import { AuthProvider, useAuth } from '@/features/auth/AuthProvider';
-import  ErrorBoundary from '@/components/ErrorBoundary';
-import AuthCallback from './pages/(auth)/callback'; // Modified import statement
-import SignInPage from "@/pages/(auth)/(center)/sign-in/[[...sign-in]]/index";
+import { ViewModeProvider } from './contexts/ViewModeContext';
+import { LoadingSpinner } from './components/ui/loading-spinner';
+import { AuthProvider, useAuth } from './features/auth/AuthProvider';
+import ErrorBoundary from './components/ErrorBoundary';
+import AuthCallback from './pages/(auth)/callback';
+import SignInPage from './pages/(auth)/(center)/sign-in/[[...sign-in]]/index';
+import { UserRoles } from './types/roles';
+import { roleService } from './lib/roleService';
 
 // Lazy load components for better performance
-const DashboardLayout = lazy(() => import('@/components/layouts/DashboardLayout')) as React.LazyExoticComponent<any>;
+const DashboardLayout = lazy(() => import('./components/layouts/DashboardLayout'));
 const HomePage = lazy(() => import("./pages/home/HomePage"));
 const QuotesPage = lazy(() => import('./pages/(auth)/dashboard/quotes'));
-const NewQuotePage = lazy(() => import("@/pages/(auth)/dashboard/quotes/new"));
-const InventoryPage = lazy(() => import("@/pages/(auth)/dashboard/inventory"));
-const ChatPage = lazy(() => import("@/pages/(auth)/dashboard/chat"));
-const PaymentsPage = lazy(() => import('@/pages/(auth)/dashboard/payments'));
-const AnalyticsPage = lazy(() => import('@/pages/(auth)/dashboard/analytics'));
-const UsersPage = lazy(() => import("@/pages/(auth)/dashboard/users"));
-const SettingsPage = lazy(() => import('@/pages/(auth)/dashboard/settings'));
-const DealerDashboard = lazy(() => import('@/pages/(auth)/dashboard/dealer'));
-const AdminBlogPage = lazy(() => import('@/pages/(auth)/dashboard/blog'));
-const ProfileTest = lazy(() => import('@/components/ProfileTest'));
-const NotFound = lazy(() => import('@/components/NotFound'));
+const NewQuotePage = lazy(() => import('./pages/(auth)/dashboard/quotes/new'));
+const InventoryPage = lazy(() => import('./pages/(auth)/dashboard/inventory'));
+const ChatPage = lazy(() => import('./pages/(auth)/dashboard/chat'));
+const PaymentsPage = lazy(() => import('./pages/(auth)/dashboard/payments'));
+const AnalyticsPage = lazy(() => import('./pages/(auth)/dashboard/analytics'));
+const UsersPage = lazy(() => import('./pages/(auth)/dashboard/users'));
+const SettingsPage = lazy(() => import('./pages/(auth)/dashboard/settings'));
+const DealerDashboard = lazy(() => import('./pages/(auth)/dashboard/dealer'));
+const AdminBlogPage = lazy(() => import('./pages/(auth)/dashboard/blog'));
+const ProfileTest = lazy(() => import('./components/ProfileTest'));
+const NotFound = lazy(() => import('./components/NotFound'));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -93,26 +95,28 @@ const AppRoutes = () => {
   );
 };
 
-const App = () => {
+function App() {
   return (
-    <StrictMode>
-      <QueryClientProvider client={queryClient}>
-        <ThemeProvider>
-          <ViewModeProvider user={undefined}>
-            <TooltipProvider>
-              <Router>
-              <AuthProvider>
-                <AppRoutes />
-                <Toaster />
-                <Sonner />
-              </AuthProvider>
-              </Router>
-            </TooltipProvider>
-          </ViewModeProvider>
-        </ThemeProvider>
-      </QueryClientProvider>
-    </StrictMode>
+    <ErrorBoundary>
+      <Router>
+        <AuthProvider>
+          <QueryClientProvider client={queryClient}>
+            <ThemeProvider>
+              <TooltipProvider>
+                <ViewModeProvider user={undefined}>
+                  <Suspense fallback={<LoadingSpinner />}>
+                    <AppRoutes />
+                    <Toaster />
+                    <Sonner />
+                  </Suspense>
+                </ViewModeProvider>
+              </TooltipProvider>
+            </ThemeProvider>
+          </QueryClientProvider>
+        </AuthProvider>
+      </Router>
+    </ErrorBoundary>
   );
-};
+}
 
 export default App;

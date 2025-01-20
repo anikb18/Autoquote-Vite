@@ -1,17 +1,25 @@
-// Dashboard.tsx
 import React from 'react';
 import { useAuth } from '@/features/auth/AuthProvider';
 import AdminDashboard from '@/components/Dashboard/AdminDashboard/AdminDashboard';
 import DealerDashboard from '@/components/Dashboard/DealerDashboard/DealerDashboard';
 import UserDashboard from '@/components/Dashboard/UserDashboard/UserDashboard';
-import { getSupabaseClient } from '@/lib/supabase';
 
 const Dashboard = () => {
-  const { user } = useAuth();
+  const { user, userRole, loading, error } = useAuth();
+  
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-  console.log('Dashboard - user role:', user?.user_metadata?.role);
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
-  switch (user?.user_metadata?.role) {
+  if (!userRole) {
+    return <div>Access denied. No role assigned.</div>;
+  }
+
+  switch (userRole.toLowerCase()) {
     case 'admin':
       return <AdminDashboard />;
     case 'dealer':
@@ -19,7 +27,7 @@ const Dashboard = () => {
     case 'user':
       return <UserDashboard user={user} />;
     default:
-      return null;
+      return <div>Invalid user role: {userRole}</div>;
   }
 };
 

@@ -5,6 +5,7 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
+    "composite": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
@@ -15,6 +16,13 @@
     "skipLibCheck": true,
     "allowJs": true,
     "noUnusedLocals": false,
-    "strictNullChecks": false
-  }
+    "strictNullChecks": false,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist" // Specify an output directory for compiled files
+  },
+  "include": [
+    "src/**/*",
+    "src/types/**/*" // Ensure this line is present
+  ]
 }

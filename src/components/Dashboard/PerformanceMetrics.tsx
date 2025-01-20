@@ -1,41 +1,66 @@
-import { dealerPerformanceService } from '@/lib/dealer-performance';
-import { getTranslations } from 'next-intl/server';
+import { fetchDealerStats } from '@/lib/dealer'; // Import the fetchDealerStats function
+import { useTranslation } from 'react-i18next'; // Correct import
+import { useEffect, useState } from 'react';
 
 interface PerformanceMetricsProps {
   dealerId: string;
 }
 
-export async function PerformanceMetrics({ dealerId }: PerformanceMetricsProps) {
-  const t = await getTranslations('Dashboard');
-  const report = await dealerPerformanceService.getDealerPerformanceReport(dealerId);
+export function PerformanceMetrics({ dealerId }: PerformanceMetricsProps) {
+  const { t } = useTranslation('Dashboard');
+  const [metrics, setMetrics] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const metrics = [
-    {
-      name: t('responseTime'),
-      score: report.score.metrics.responseTimeScore,
-      description: t('responseTimeDescription'),
-    },
-    {
-      name: t('acceptanceRate'),
-      score: report.score.metrics.acceptanceRateScore,
-      description: t('acceptanceRateDescription'),
-    },
-    {
-      name: t('competitiveness'),
-      score: report.score.metrics.competitivenessScore,
-      description: t('competitivenessDescription'),
-    },
-    {
-      name: t('reliability'),
-      score: report.score.metrics.reliabilityScore,
-      description: t('reliabilityDescription'),
-    },
-    {
-      name: t('customerRating'),
-      score: report.score.metrics.customerScore,
-      description: t('customerRatingDescription'),
-    },
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const stats = await fetchDealerStats(dealerId);
+        const metricsData = [
+          {
+            name: t('responseTime'),
+            score: stats.quote_change,
+            description: t('responseTimeDescription'),
+          },
+          {
+            name: t('acceptanceRate'),
+            score: stats.acceptanceRate,
+            description: t('acceptanceRateDescription'),
+          },
+          {
+            name: t('competitiveness'),
+            score: stats.competitiveness,
+            description: t('competitivenessDescription'),
+          },
+          {
+            name: t('reliability'),
+            score: stats.reliability,
+            description: t('reliabilityDescription'),
+          },
+          {
+            name: t('customerRating'),
+            score: stats.customerRating,
+            description: t('customerRatingDescription'),
+          },
+        ];
+        setMetrics(metricsData);
+      } catch (error) {
+        console.error('Error fetching dealer stats:', error);
+        setError('Failed to fetch dealer stats.');
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, [dealerId, t]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <div className="bg-white shadow rounded-lg">
@@ -49,7 +74,7 @@ export async function PerformanceMetrics({ dealerId }: PerformanceMetricsProps) 
               {t('overallScore')}:
             </span>
             <span className="text-2xl font-bold text-blue-600">
-              {Math.round(report.score.totalScore)}
+              {metrics.length > 0 ? Math.round(metrics[0].score) : 0}
             </span>
           </div>
         </div>
@@ -82,13 +107,13 @@ export async function PerformanceMetrics({ dealerId }: PerformanceMetricsProps) 
           ))}
         </div>
 
-        {report.recommendations.length > 0 && (
+        {metrics.length > 0 && metrics[0].recommendations && metrics[0].recommendations.length > 0 && (
           <div className="mt-6">
             <h4 className="text-sm font-medium text-gray-900 mb-2">
               {t('recommendations')}
             </h4>
             <ul className="space-y-2">
-              {report.recommendations.map((recommendation, index) => (
+              {metrics[0].recommendations.map((recommendation, index) => (
                 <li
                   key={index}
                   className="text-sm text-gray-600 flex items-start"

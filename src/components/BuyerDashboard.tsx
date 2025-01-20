@@ -1,14 +1,15 @@
-// components/BuyerDashboard.tsx
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/features/auth/AuthProvider";
 import { fetchBuyerQuotesWithDetails } from "@/lib/supabase-utils";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table";
 import { LoadingSpinner } from "@/components/ui/loading-spinner";
+import { useTranslation } from 'react-i18next';
 import ChatInterface from "./ChatInterface";
 
 const BuyerDashboard = () => {
   const { user } = useAuth();
+  const { t } = useTranslation();
 
   const { data: quotes, isLoading } = useQuery({
     queryKey: ['buyer-quotes', user?.id],
@@ -31,7 +32,7 @@ const BuyerDashboard = () => {
     <div className="space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle>My Quote Requests</CardTitle>
+          <CardTitle>{t('buyer_dashboard.my_quote_requests')}</CardTitle>
         </CardHeader>
         <CardContent>
           {quotes?.length === 0 ? (
