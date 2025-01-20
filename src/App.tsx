@@ -1,74 +1,111 @@
-import { StrictMode, Suspense } from "react";
+import React from "react";
+import { StrictMode, Suspense, lazy, useEffect, useState } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from "./providers/theme-provider";
 import { ViewModeProvider } from '@/contexts/ViewModeContext';
 import { LoadingSpinner } from '@/components/ui/loading-spinner';
-import { DashboardLayout } from '@/components/layouts/DashboardLayout';
-import { AuthProvider } from '@/features/auth/AuthProvider';
-import HomePage from "./pages/home/HomePage";
-import ProtectedRoute from "./components/ProtectedRoute";
-import { ProfileTest } from './components/ProfileTest';
-import QuotesPage from './pages/(auth)/dashboard/quotes/index';
-import NewQuotePage from "@/pages/(auth)/dashboard/quotes/new"; // new.tsx
-import InventoryPage from "@/pages/(auth)/dashboard/inventory";
-import { ChatPage } from "@/pages/(auth)/dashboard/chat";
-import PaymentsPage from '@/pages/(auth)/dashboard/payments';
-import AnalyticsPage from '@/pages/(auth)/dashboard/analytics';
-import UsersPage from "@/pages/(auth)/dashboard/users";
-import SettingsPage from '@/pages/(auth)/dashboard/settings';
-import DealerDashboard from '@/pages/(auth)/dashboard/dealer';
-import AdminBlogPage from '@/pages/(auth)/dashboard/blog';
+import { AuthProvider, useAuth } from '@/features/auth/AuthProvider';
+import  ErrorBoundary from '@/components/ErrorBoundary';
+import AuthCallback from './pages/(auth)/callback'; // Modified import statement
+import SignInPage from "@/pages/(auth)/(center)/sign-in/[[...sign-in]]/index";
+
+// Lazy load components for better performance
+const DashboardLayout = lazy(() => import('@/components/layouts/DashboardLayout')) as React.LazyExoticComponent<any>;
+const HomePage = lazy(() => import("./pages/home/HomePage"));
+const QuotesPage = lazy(() => import('./pages/(auth)/dashboard/quotes'));
+const NewQuotePage = lazy(() => import("@/pages/(auth)/dashboard/quotes/new"));
+const InventoryPage = lazy(() => import("@/pages/(auth)/dashboard/inventory"));
+const ChatPage = lazy(() => import("@/pages/(auth)/dashboard/chat"));
+const PaymentsPage = lazy(() => import('@/pages/(auth)/dashboard/payments'));
+const AnalyticsPage = lazy(() => import('@/pages/(auth)/dashboard/analytics'));
+const UsersPage = lazy(() => import("@/pages/(auth)/dashboard/users"));
+const SettingsPage = lazy(() => import('@/pages/(auth)/dashboard/settings'));
+const DealerDashboard = lazy(() => import('@/pages/(auth)/dashboard/dealer'));
+const AdminBlogPage = lazy(() => import('@/pages/(auth)/dashboard/blog'));
+const ProfileTest = lazy(() => import('@/components/ProfileTest'));
+const NotFound = lazy(() => import('@/components/NotFound'));
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000,
+      retry: 1,
+    },
+  },
+});
+
+const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+  const { user, loading } = useAuth();
+
+  console.log('ProtectedRoute - user:', user, 'loading:', loading);
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+
+  if (!user) {
+    return <Navigate to="/sign-in" replace />;
+  }
+
+  return <>{children}</>;
+};
+
+const AppRoutes = () => {
+  return (
+    <ErrorBoundary>
+      <Routes>
+        {/* Public Routes */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/sign-in" element={<SignInPage />} />
+        <Route path="/callback" element={<AuthCallback />} />
+
+        {/* Protected Dashboard Routes */}
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Suspense fallback={<LoadingSpinner />}>
+                <DashboardLayout />
+              </Suspense>
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<DealerDashboard />} />
+          <Route path="quotes" element={<QuotesPage />} />
+          <Route path="quotes/new" element={<NewQuotePage />} />
+          <Route path="inventory" element={<InventoryPage />} />
+          <Route path="chat" element={<ChatPage />} />
+          <Route path="payments" element={<PaymentsPage />} />
+          <Route path="analytics" element={<AnalyticsPage />} />
+          <Route path="users" element={<UsersPage />} />
+          <Route path="blog" element={<AdminBlogPage />} />
+          <Route path="profile" element={<ProfileTest />} />
+          <Route path="settings" element={<SettingsPage />} />
+        </Route>
+
+        {/* 404 Route */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </ErrorBoundary>
+  );
+};
 
 const App = () => {
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        staleTime: 5 * 60 * 1000,
-        retry: 1,
-      },
-    },
-  });
-
   return (
     <StrictMode>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider>
-          <ViewModeProvider children={""} user={undefined}>
+          <ViewModeProvider user={undefined}>
             <TooltipProvider>
               <Router>
-                <AuthProvider>
-                  <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/dashboard" element={<DashboardLayout />}>
-                      <Route path="quotes">
-                        <Route index element={<QuotesPage />} />
-                        <Route path="new" element={<NewQuotePage />} />
-                      </Route>
-                      <Route path="inventory" element={<InventoryPage />} />
-                      <Route path="chat" element={<ChatPage />} />
-                      <Route path="payments" element={<PaymentsPage />} />
-                      <Route
-                        path="analytics"
-                        element={
-                          <Suspense fallback={<LoadingSpinner />}>
-                            <AnalyticsPage />
-                          </Suspense>
-                        }
-                      />
-                      <Route path="users" element={<UsersPage />} />
-                      <Route path="dealer" element={<DealerDashboard />} />
-                      <Route path="blog" element={<AdminBlogPage />} />
-                      <Route path="profile" element={<ProfileTest />} />
-                      <Route path="settings" element={<SettingsPage />} />
-                    </Route>
-                  </Routes>
-                  <Toaster />
-                  <Sonner />
-                </AuthProvider>
+              <AuthProvider>
+                <AppRoutes />
+                <Toaster />
+                <Sonner />
+              </AuthProvider>
               </Router>
             </TooltipProvider>
           </ViewModeProvider>

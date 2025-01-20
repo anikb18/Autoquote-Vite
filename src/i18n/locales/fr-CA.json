@@ -45,7 +45,14 @@
     "signUp": "Sign up"
   },
   "auth": {
-    "signIn": "Connexion",
+    "signIn": {
+      "title": "Connexion",
+      "description": "Connectez-vous à votre compte pour accéder à votre tableau de bord",
+      "email_label": "Adresse e-mail",
+      "password_label": "Mot de passe",
+      "email_placeholder": "Votre adresse e-mail",
+      "password_placeholder": "Votre mot de passe"
+    },
     "signUp": "Inscription",
     "signInDescription": "Connectez-vous à votre compte pour accéder à votre tableau de bord",
     "email": "Adresse courriel",
@@ -139,10 +146,7 @@
       "cycle_year": "Changer l'année",
       "manage_dealers": "Gérer les concessionnaires",
       "view_quotes": "Voir les soumissions",
-      "manage_inventory": "Gérer l'inventaire",
-      "get_quote": "Obtenir un Devis",
-      "sell_car": "Vendre Votre Voiture",
-      "cycle_year": "Changer l'Année"
+      "manage_inventory": "Gérer l'inventaire"
     },
     "stats": {
       "total_dealers": "Total des concessionnaires",
@@ -552,8 +556,14 @@
     "oops": "Oups!",
     "something_went_wrong": "Quelque chose s'est mal passé",
     "try_again": "Réessayer",
-    "page_not_found": "Page introuvable",
-    "back_home": "Retour à l'accueil"
+    "pageNotFound": "Page non trouvée",
+    "pageNotFoundMessage": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "backToHome": "Retour à l'accueil"
+  },
+  "NotFound": {
+    "pageNotFound": "Page non trouvée",
+    "pageNotFoundMessage": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "backToHome": "Retour à l'accueil"
   },
   "LanguageSwitcher": {
     "button": "Changer de langue",
@@ -600,12 +610,12 @@
       "posts": "Articles de Blog",
       "postsDescription": "Voir et gérer tous les articles de blog",
       "newPost": "Nouvel Article",
-      "editPost": "Modifier l'Article",
+      "editPost": "Modifier le post",
       "postTitle": "Titre",
       "postContent": "Contenu",
       "status": "Statut",
       "author": "Auteur",
-      "lastUpdated": "Dernière Mise à Jour"
+      "lastUpdated": "Dernière mise à jour"
     }
   }
 }

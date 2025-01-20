@@ -5,7 +5,7 @@ import { ColumnDef } from '@tanstack/react-table';
 import { Button } from '@/components/ui/button';
 import { PlusIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { UserDashboard } from '@/components/Dashboard/UserDashboard'; // Import the UserDashboard component
+import { UserDashboard } from '@/components/Dashboard/UserDashboard/UserDashboard'; // Import the UserDashboard component
 
 interface User {
   id: string;

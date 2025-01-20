@@ -1,113 +1,104 @@
-// src/pages/(auth)/dashboard/dealer/index.tsx
-import React, { useEffect, useState, Suspense } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useViewMode } from '@/contexts/ViewModeContext';
+import { Switch } from '@headlessui/react';
 import { useAuth } from '@/features/auth/AuthProvider';
-import { supabase } from '@/lib/supabase';
-import { LoadingSpinner } from '@/components/LoadingSpinner';
-import { Button } from '@/components/Catalyst/button';
-import { Plus, MessageSquare, Upload, Eye } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { DealerStats } from '@/components/Dashboard/DealerStats'; // Import the stats component
 
-// Lazy-loaded components
-const MetricsCards = React.lazy(() => import('@/components/Metrics/MetricsCards'));
-const QuoteAnalytics = React.lazy(() => import('@/components/Analytics/QuoteAnalytics'));
-const LeadManagement = React.lazy(() => import('@/components/Leads/LeadManagement'));
-const PerformanceMetrics = React.lazy(() => import('@/components/Analytics/PerformanceMetrics'));
-const CommunicationHub = React.lazy(() => import('@/components/Communication/CommunicationHub'));
-const DocumentCenter = React.lazy(() => import('@/components/Documents/DocumentCenter'));
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(' ');
+}
 
-export default function DealerDashboard() {
+export default function SettingsPage() {
   const { t } = useTranslation();
-  const { viewMode } = useViewMode();
   const { user } = useAuth();
-  const [data, setData] = useState({ quotes: [], auctions: [] });
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetch_data = async () => {
-      try {
-        if (user) {
-          const quotesResponse = await supabase
-            .from('quotes')
-            .select('*')
-            .eq('user_id', user.id)
-            .order('created_at', { ascending: false })
-            .limit(5);
-
-          const auctionsResponse = await supabase
-            .from('auctions')
-            .select('*')
-            .eq('dealer_id', user.id)
-            .order('endDate', { ascending: false })
-            .limit(5);
-
-          if (quotesResponse.error || auctionsResponse.error) {
-            throw new Error('Failed to fetch data');
-          }
-
-          setData({
-            quotes: quotesResponse.data || [],
-            auctions: auctionsResponse.data || [],
-          });
-        }
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetch_data();
-  }, [user]);
-
-  if (loading) {
-    return (
-      <div className="p-8">
-        <div className="animate-pulse space-y-8">
-          <div className="h-10 bg-gray-200 rounded w-1/2"></div>
-          <div className="h-64 bg-gray-200 rounded"></div>
-          <div className="h-64 bg-gray-200 rounded"></div>
-        </div>
-      </div>
-    );
-  }
-
-  if (viewMode !== 'dealer') {
-    return (
-      <div className="flex items-center justify-center h-full">
-        <p className="text-gray-500">{t('common.unauthorized')}</p>
-      </div>
-    );
-  }
+  const [automaticTimezoneEnabled, setAutomaticTimezoneEnabled] = useState(true);
 
   return (
-    <div className="p-8">
-      <div className="flex justify-between items-center mb-8">
+    <div className="px-4 py-6 sm:px-6 lg:px-8">
+      <h1 className="text-2xl font-semibold text-gray-900">{t('settings.title')}</h1>
+      <p className="mt-1 text-sm text-gray-500">{t('settings.description')}</p>
+
+      <div className="mt-10 space-y-10">
         <div>
-          <h1 className="text-2xl font-semibold text-gray-900">{t('dashboard.title')}</h1>
-          <p className="mt-1 text-sm text-gray-500">{t('dashboard.description')}</p>
+          <h2 className="text-base font-semibold leading-7 text-gray-900">
+            {t('settings.profile.title')}
+          </h2>
+          <p className="mt-1 text-sm leading-6 text-gray-500">
+            {t('settings.profile.description')}
+          </p>
+
+          <dl className="mt-6 space-y-6 divide-y divide-gray-100 border-t border-gray-200 text-sm leading-6">
+            <div className="pt-6 sm:flex">
+              <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">
+                {t('settings.profile.email')}
+              </dt>
+              <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
+                <div className="text-gray-900">{user?.email}</div>
+              </dd>
+            </div>
+          </dl>
         </div>
-        <Link to="/dashboard/new-quote">
-          <Button>
-            <Plus className="h-4 w-4 mr-2" />
-            {t('newQuote')}
-          </Button>
-        </Link>
-      </div>
 
-      {/* Dealer Stats Section */}
-      <DealerStats dealerId={user.id} />
+        <div>
+          <h2 className="text-base font-semibold leading-7 text-gray-900">
+            {t('settings.preferences.title')}
+          </h2>
+          <p className="mt-1 text-sm leading-6 text-gray-500">
+            {t('settings.preferences.description')}
+          </p>
 
-      <div className="space-y-8">
-        <Suspense fallback={<LoadingSpinner />}>
-          <MetricsCards />
-          <QuoteAnalytics quotes={data.quotes} />
-          <LeadManagement />
-          <PerformanceMetrics />
-          <CommunicationHub />
-          <DocumentCenter />
-        </Suspense>
+          <dl className="mt-6 space-y-6 divide-y divide-gray-100 border-t border-gray-200 text-sm leading-6">
+            <div className="pt-6 sm:flex">
+              <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">
+                {t('settings.preferences.language')}
+              </dt>
+              <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
+                <div className="text-gray-900">English</div>
+                <button
+                  type="button"
+                  className="font-semibold text-indigo-600 hover:text-indigo-500"
+                >
+                  {t('common.update')}
+                </button>
+              </dd>
+            </div>
+            <div className="pt-6 sm:flex">
+              <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">
+                {t('settings.preferences.dateFormat')}
+              </dt>
+              <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
+                <div className="text-gray-900">MM/DD/YYYY</div>
+                <button
+                  type="button"
+                  className="font-semibold text-indigo-600 hover:text-indigo-500"
+                >
+                  {t('common.update')}
+                </button>
+              </dd>
+            </div>
+            <div className="pt-6 sm:flex">
+              <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">
+                {t('settings.preferences.timezone')}
+              </dt>
+              <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
+                <Switch
+                  checked={automaticTimezoneEnabled}
+                  onChange={setAutomaticTimezoneEnabled}
+                  className={classNames(
+                    automaticTimezoneEnabled ? 'bg-indigo-600' : 'bg-gray-200',
+                    'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2'
+                  )}
+                >
+                  <span
+                    className={classNames(
+                      automaticTimezoneEnabled ? 'translate-x-5' : 'translate-x-0',
+                      'inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out'
+                    )}
+                  />
+                </Switch>
+              </dd>
+            </div>
+          </dl>
+        </div>
       </div>
     </div>
   );

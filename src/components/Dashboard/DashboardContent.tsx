@@ -1,14 +1,13 @@
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/features/auth/AuthProvider';
-import { useEffect, useState } from 'react';
 import { AdminDashboardContent } from '@/pages/(auth)/admin/AdminDashboardContent';
 import DealerDashboard from '@/pages/(auth)/dashboard/dealer/index.tsx';
-import { UserDashboardContent } from './users/UserDashboardContent';
-import UsersPage from './users';
-import { supabase } from '@/lib/supabase';
+import UserDashboard from '@/components/Dashboard/UserDashboard/UserDashboard';
+import { getSupabaseClient } from '@/lib/supabase';
+const supabase = getSupabaseClient();
 import { mockQuotes, mockAuctions } from '@/mockData';
-import { UserDashboard } from '@/components/Dashboard/UserDashboard';
-import { ensureUserProfile, fetchQuotes, fetchAuctions, isMockUser } from '@/lib/supabase-utils'; // Ensure isMockUser is imported
+import { ensureUserProfile, fetchQuotes, fetchAuctions, isMockUser } from '@/lib/supabase-utils';
 
 // Define columns for quotes
 const quoteColumns = [
@@ -20,7 +19,7 @@ const quoteColumns = [
 ];
 
 export function DashboardContent() {
-  console.log('DashboardContent component is rendering'); // Add this line
+  console.log('DashboardContent component is rendering');
   const { t } = useTranslation();
   const { user } = useAuth();
   
@@ -32,14 +31,12 @@ export function DashboardContent() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch quotes and auctions
         const quotes = isMockUser(user.email) ? mockQuotes : await fetchQuotes(user.id);
         const auctions = isMockUser(user.email) ? mockAuctions : await fetchAuctions(user.id);
         
         setLatestQuotes(quotes || []);
         setLatestAuctions(auctions || []);
         
-        // Fetch analytics
         const { data: analyticsData, error: analyticsError } = await supabase
           .from('dealer_quotes')
           .select('dealer_id, status');
@@ -71,7 +68,7 @@ export function DashboardContent() {
     const checkUserProfile = async () => {
       if (user) {
         try {
-          await ensureUserProfile(user); // Ensure the user profile exists
+          await ensureUserProfile(user);
         } catch (error) {
           console.error('Error ensuring user profile:', error);
         }
@@ -80,8 +77,11 @@ export function DashboardContent() {
 
     fetchData();
     checkUserProfile();
-
   }, [user]);
+
+  if (!user) {
+    return <div>Please log in to access the dashboard.</div>;
+  }
 
   if (loading) {
     return <div>Loading...</div>;
@@ -97,6 +97,5 @@ export function DashboardContent() {
       {isDealer && <DealerDashboard />}
       {isUser && <UserDashboard user={user} />}
     </div>
-    
   );
 }

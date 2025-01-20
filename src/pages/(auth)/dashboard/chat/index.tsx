@@ -16,7 +16,7 @@ interface Message {
   senderAvatar?: string;
 }
 
-export function ChatPage() {
+export default function ChatPage() {
   const { t } = useTranslation();
   const [messages, setMessages] = useState<Message[]>([
     {

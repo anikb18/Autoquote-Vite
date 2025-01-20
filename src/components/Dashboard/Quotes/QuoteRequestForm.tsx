@@ -1,7 +1,7 @@
 // src/components/QuoteRequestForm.tsx
 import { useState } from 'react';
 import { useAuth } from '@/features/auth/AuthProvider';
-import { quoteService } from '@/services/quoteService';
+import { fetchQuotes, submitQuoteRequest } from '@/services/quoteService';
 
 export function QuoteRequestForm() {
   const { user } = useAuth();
@@ -17,7 +17,7 @@ export function QuoteRequestForm() {
     e.preventDefault();
     setLoading(true);
     try {
-      await quoteService.createQuoteRequest(user.id, vehicleDetails);
+      await submitQuoteRequest(user.id, vehicleDetails);
       // Show success message or redirect
     } catch (error) {
       console.error('Error creating quote request:', error);

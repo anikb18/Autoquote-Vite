@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { supabase } from '@/lib/supabase'; // Adjust the path according to your project structure
+import { getSupabaseClient } from '@/lib/supabase';
+const supabase = getSupabaseClient();
 
 export function useRoleAccess() {
   const [role, setRole] = useState<Role>('profiles'); // Default role

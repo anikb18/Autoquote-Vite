@@ -1,20 +1,16 @@
+import React from 'react'
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useViewMode } from '@/contexts/ViewModeContext';
 import { useAuth } from '@/features/auth/AuthProvider';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { quickActions } from '@/contexts/quickActions';
-import { navigation } from '@/contexts/navigation';
-import { 
-  PiCarFill, 
-  PiCurrencyDollarBold, 
-  PiChatCircleTextFill,
-  PiGearFill,
-  PiChartBarBold,
-} from 'react-icons/pi';
+import { DashboardContent } from '@/components/Dashboard/DashboardContent/DashboardContent';
 import { MdRefresh } from 'react-icons/md';
-
+import { PiCarFill } from 'react-icons/pi';
+import UserDashboard from '@/components/Dashboard/UserDashboard/UserDashboard';
+import DealerDashboard from '@/pages/(auth)/dashboard/dealer/index.tsx'; 
+import AdminDashboardContent from '@/pages/(auth)/admin/AdminDashboardContent'; 
 interface Quote {
   id: string;
   vehicle: string;
@@ -27,69 +23,20 @@ interface Quote {
 export default function Dashboard() {
   const { t } = useTranslation();
   const { user } = useAuth();
-  const { viewMode } = useViewMode();
   const [latestQuote, setLatestQuote] = useState<Quote | null>(null);
 
   const fetchLatestQuote = async () => {
     // TODO: Implement quote fetching
   };
 
-  const actions = quickActions();
+  useEffect(() => {
+    fetchLatestQuote();
+  }, [fetchLatestQuote]);
 
-  const renderDealerDashboard = () => (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="col-span-full bg-white/10 backdrop-blur-xl rounded-2xl p-6 shadow-xl border border-white/20"
-      >
-        <h2 className="text-2xl font-bold text-white mb-4">Dealer Dashboard</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="bg-white/20 rounded-xl p-4">
-            <h3 className="text-lg font-semibold text-white mb-2">Active Quotes</h3>
-            <p className="text-3xl font-bold text-white">24</p>
-          </div>
-          <div className="bg-white/20 rounded-xl p-4">
-            <h3 className="text-lg font-semibold text-white mb-2">Won Deals</h3>
-            <p className="text-3xl font-bold text-white">12</p>
-          </div>
-          <div className="bg-white/20 rounded-xl p-4">
-            <h3 className="text-lg font-semibold text-white mb-2">Response Rate</h3>
-            <p className="text-3xl font-bold text-white">95%</p>
-          </div>
-        </div>
-      </motion.div>
-    </div>
-  );
+  const actions = quickActions;
 
-  const renderAdminDashboard = () => (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="col-span-full bg-white/10 backdrop-blur-xl rounded-2xl p-6 shadow-xl border border-white/20"
-      >
-        <h2 className="text-2xl font-bold text-white mb-4">Admin Dashboard</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="bg-white/20 rounded-xl p-4">
-            <h3 className="text-lg font-semibold text-white mb-2">Total Users</h3>
-            <p className="text-3xl font-bold text-white">1,234</p>
-          </div>
-          <div className="bg-white/20 rounded-xl p-4">
-            <h3 className="text-lg font-semibold text-white mb-2">Active Dealers</h3>
-            <p className="text-3xl font-bold text-white">56</p>
-          </div>
-          <div className="bg-white/20 rounded-xl p-4">
-            <h3 className="text-lg font-semibold text-white mb-2">Total Quotes</h3>
-            <p className="text-3xl font-bold text-white">789</p>
-          </div>
-        </div>
-      </motion.div>
-    </div>
-  );
-
-  const renderUserDashboard = () => (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  return (
+    <div className="space-y-6">
       {/* Quote Status Card */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -157,14 +104,9 @@ export default function Dashboard() {
           </div>
         </div>
       </motion.div>
-    </div>
-  );
 
-  return (
-    <>
-      {viewMode === 'dealer' ? renderDealerDashboard() :
-       viewMode === 'admin' ? renderAdminDashboard() :
-       renderUserDashboard()}
-    </>
+      {/* Dashboard Content */}
+      <DashboardContent />
+    </div>
   );
 }

@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { Fragment, startTransition } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
 import {
@@ -152,9 +152,9 @@ export function Header() {
                 </Button>
               </>
             ) : (
-              <Button onClick={() => navigate('/dashboard')}>
-    {t('common.dashboard')}
-  </Button>
+              <Button onClick={() => startTransition(() => navigate('/dashboard'))}>
+                {t('common.dashboard')}
+              </Button>
             )}
             <LanguageSwitcher />
             <ThemeToggle />

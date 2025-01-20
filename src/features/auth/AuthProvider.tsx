@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { supabase } from '@/lib/supabase';
+import { getSupabaseClient } from '@/lib/supabase';
+import type { SupabaseDatabase } from '@/types/supabase';
 import type { User } from '@supabase/supabase-js';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { LoadingSpinner } from '@/components/ui/loading-spinner';
@@ -23,32 +24,20 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
+  const supabase = getSupabaseClient();
 
   useEffect(() => {
-    // Check active sessions and sets the user
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-      setLoading(false);
-    });
-
-    // Listen for changes on auth state
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      setUser(session?.user ?? null);
-      setLoading(false);
-
-      // Only redirect to dashboard on explicit sign in
-      if (event === 'SIGNED_IN' && (location.pathname === '/sign-in' || location.pathname === '/sign-up')) {
-        navigate('/dashboard');
+    console.log('AuthProvider - useEffect hook is running');
+    supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN' || event === 'INITIAL_SESSION' || event === 'TOKEN_REFRESHED') {
+        setUser(session?.user || null);
       } else if (event === 'SIGNED_OUT') {
-        // On sign out, redirect to home only if on a protected route
-        if (location.pathname.startsWith('/dashboard')) {
-          navigate('/');
-        }
+        setUser(null);
       }
+      setLoading(false);
     });
-
-    return () => subscription.unsubscribe();
-  }, [navigate, location]);
+    return () => {};
+  }, []);
 
   const signIn = async (email: string, password: string) => {
     const { error } = await supabase.auth.signInWithPassword({ email, password });
@@ -59,7 +48,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `${window.location.origin}/auth/callback`,
+        redirectTo: `${window.location.origin}/callback`,
       },
     });
     if (error) throw error;
@@ -91,7 +80,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
 export function useAuth() {
   const context = useContext(AuthContext);
-  if (context === undefined) {
+  if (!context) {
     throw new Error('useAuth must be used within an AuthProvider');
   }
   return context;

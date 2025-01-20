@@ -210,7 +210,7 @@
       "pending": "Pending",
       "completed": "Completed"
     },
-        "title": "Dashboard",
+    "title": "Dashboard",
     "welcome": "Welcome back",
     "overview": "Overview"
   },
@@ -299,8 +299,14 @@
     "oops": "Oops!",
     "something_went_wrong": "Something went wrong",
     "try_again": "Try again",
-    "page_not_found": "Page not found",
-    "back_home": "Back to home"
+    "pageNotFound": "Page Not Found",
+    "pageNotFoundMessage": "The page you're looking for doesn't exist or has been moved.",
+    "backToHome": "Back to Home"
+  },
+  "NotFound": {
+    "title": "Page Not Found",
+    "message": "The page you're looking for doesn't exist or has been moved.",
+    "backToHome": "Back to Home"
   },
   "LanguageSwitcher": {
     "button": "Change language",
@@ -309,7 +315,7 @@
     "en": "English",
     "fr": "French"
   },
-   "locale": {
+  "locale": {
     "switchLocale": "Switch to {locale}",
     "en": "English",
     "fr": "French"
@@ -318,7 +324,7 @@
     "darkMode": "Dark Mode",
     "lightMode": "Light Mode"
   },
-    "sidebar": {
+  "sidebar": {
     "dashboard": "Dashboard",
     "quotes": "Quotes",
     "inventory": "Inventory",
@@ -354,7 +360,7 @@
     "conversionFunnel": "Conversion Funnel",
     "vehicleTypes": "Vehicle Types"
   },
-   "payments": {
+  "payments": {
     "totalRevenue": "Total Revenue",
     "pendingPayments": "Pending Payments",
     "successRate": "Success Rate",
@@ -376,19 +382,34 @@
     "actions": "Actions",
     "viewDetails": "View Details"
   },
-    "blog": {
-  "admin": {
-    "title": "Blog Management",
-    "description": "Create and manage blog posts",
-    "posts": "Blog Posts",
-    "postsDescription": "View and manage all blog posts",
-    "newPost": "New Post",
-    "editPost": "Edit Post",
-    "postTitle": "Title",
-    "postContent": "Content",
-    "status": "Status",
-    "author": "Author",
-    "lastUpdated": "Last Updated"
+  "blog": {
+    "admin": {
+      "title": "Blog Management",
+      "description": "Create and manage blog posts",
+      "posts": "Blog Posts",
+      "postsDescription": "View and manage all blog posts",
+      "newPost": "New Post",
+      "editPost": "Edit Post",
+      "postTitle": "Title",
+      "postContent": "Content",
+      "status": "Status",
+      "author": "Author",
+      "lastUpdated": "Last Updated"
+    }
+  },
+  "signIn": {
+    "title": "Sign In",
+    "description": "Log in to your account to access your dashboard",
+    "email_label": "Email Address",
+    "password_label": "Password",
+    "email_placeholder": "Your email address",
+    "password_placeholder": "Your password",
+    "button_label": "Sign In",
+    "loading_button_label": "Signing In...",
+    "social_provider_text": "Continue with {{provider}}",
+    "link_text": "Already have an account? Sign In",
+    "pageNotFound": "Page Not Found",
+    "pageNotFoundMessage": "The page you're looking for doesn't exist or has been moved.",
+    "backToHome": "Back to Home"
   }
-}
 }

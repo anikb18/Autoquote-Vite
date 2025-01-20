@@ -1,10 +1,10 @@
 'use client';
 
-import { useRoleAccess } from '@/hooks/useRoleAccess';
-import { useTranslations } from 'react-i18next';
+import { useRoleAccess } from '../../../hooks/useRoleAccess';
+import { useTranslation } from 'react-i18next';
 
 export default function AdminDashboard() {
-  const t = useTranslations('dashboard');
+  const { t } = useTranslation('dashboard');
   const { isAdmin } = useRoleAccess();
 
   // If the user is not an admin, return null

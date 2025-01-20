@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
+import { getSupabaseClient } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
 
 const PRICE_IDS = {
@@ -18,10 +18,10 @@ const SubscriptionPlans = () => {
   const { data: userRole } = useQuery({
     queryKey: ['user-role'],
     queryFn: async () => {
-      const { data: { user } } = await supabase.auth.getUser();
+      const { data: { user } } = await getSupabaseClient().auth.getUser();
       if (!user) return null;
       
-      const { data, error } = await supabase
+      const { data, error } = await getSupabaseClient()
         .from('user_roles')
         .select('role')
         .eq('id', user.id)
@@ -34,7 +34,7 @@ const SubscriptionPlans = () => {
 
   const handleSubscribe = async (priceId: string) => {
     try {
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session } } = await getSupabaseClient().auth.getSession();
       if (!session) {
         toast({
           title: "Authentication required",
@@ -44,7 +44,7 @@ const SubscriptionPlans = () => {
         return;
       }
 
-      const { data, error } = await supabase.functions.invoke('create-checkout', {
+      const { data, error } = await getSupabaseClient().functions.invoke('create-checkout', {
         body: { priceId }
       });
 

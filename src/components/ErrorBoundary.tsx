@@ -1,7 +1,7 @@
 'use client';
 
 import { Component, ReactNode } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslation } from 'react-i18next';
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -30,7 +30,6 @@ class ErrorBoundaryClass extends Component<ErrorBoundaryProps, ErrorBoundaryStat
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo): void {
-    // Log the error to an error reporting service
     console.error('Error caught by boundary:', error, errorInfo);
   }
 
@@ -48,8 +47,8 @@ interface ErrorFallbackProps {
   reset: () => void;
 }
 
-function ErrorFallback({ error, reset }: ErrorFallbackProps) {
-  const t = useTranslations('error');
+export function ErrorFallback({ error, reset }: ErrorFallbackProps) {
+  const { t } = useTranslation('error');
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">

@@ -1,28 +1,26 @@
 import { PiCarFill, PiChatCircleTextFill, PiCurrencyDollarBold, PiGearFill } from 'react-icons/pi';
 import { useTranslation } from 'react-i18next';
 
-export const quickActions = () => {
-  const { t } = useTranslation();
-  return [
-    {
-      name: t('dashboard.actions.new_quote'),
-      icon: PiCarFill,
-      href: '/quote/new'
-    },
-    {
-      name: t('dashboard.actions.chat'),
-      icon: PiChatCircleTextFill,
-      href: '/chat'
-    },
-    {
-      name: t('dashboard.actions.payments'),
-      icon: PiCurrencyDollarBold,
-      href: '/payments'
-    },
-    {
-      name: t('dashboard.actions.settings'),
-      icon: PiGearFill,
-      href: '/settings'
-    }
-  ];
-};
+
+export const quickActions = [
+  {
+    name: 'dashboard.actions.new_quote', // Translation key
+    icon: PiCarFill,
+    href: '/quotes/new'
+  },
+  {
+    name: 'dashboard.actions.chat', // Translation key
+    icon: PiChatCircleTextFill,
+    href: '/chat'
+  },
+  {
+    name: 'dashboard.actions.payments', // Translation key
+    icon: PiCurrencyDollarBold,
+    href: '/payments'
+  },
+  {
+    name: 'dashboard.actions.settings', // Translation key
+    icon: PiGearFill,
+    href: '/settings'
+  }
+];

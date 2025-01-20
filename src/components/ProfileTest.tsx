@@ -5,7 +5,7 @@ import { supabase } from '../lib/supabase';
 
 type Profile = Database['public']['Tables']['profiles']['Row'];
 
-export function ProfileTest() {
+export default function ProfileTest() {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [error, setError] = useState<string | null>(null);
 

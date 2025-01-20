@@ -3,21 +3,18 @@
 import { useNavigate } from 'react-router-dom';
 import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
-import { supabase } from '@/integrations/supabase/client';
+import { getSupabaseClient } from '@/integrations/supabase/client';
 import { useEffect } from 'react';
 
 export default function SignInPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_IN') {
-        navigate('/dashboard');
-      }
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(() => {
     });
 
     return () => subscription.unsubscribe();
-  }, [navigate]);
+  }, []);
 
   return (
     <div className="mt-10 sm:mt-16 sm:mx-auto sm:w-full sm:max-w-[480px] animate-fade-up">

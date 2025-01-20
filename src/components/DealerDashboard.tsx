@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
+import { getSupabaseClient } from "@/integrations/supabase/client";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
@@ -8,13 +8,15 @@ import ChatInterface from "./ChatInterface";
 
 const DealerDashboard = () => {
   const queryClient = useQueryClient();
-  
+  const supabase = getSupabaseClient();
+
   const { data: dealerQuotes, isLoading } = useQuery({
     queryKey: ['dealer-quotes'],
     queryFn: async () => {
       const { data, error } = await supabase
         .from('dealer_quotes')
-        .select(`
+        .select(
+          `
           *,
           quotes (
             car_details,
@@ -22,9 +24,10 @@ const DealerDashboard = () => {
             status,
             user_id
           )
-        `)
+        `
+        )
         .eq('dealer_id', (await supabase.auth.getUser()).data.user?.id);
-      
+
       if (error) throw error;
       return data;
     },
@@ -38,7 +41,7 @@ const DealerDashboard = () => {
         .eq('quote_id', quoteId)
         .eq('dealer_id', (await supabase.auth.getUser()).data.user?.id)
         .select();
-      
+
       if (error) throw error;
       return data;
     },
@@ -48,6 +51,7 @@ const DealerDashboard = () => {
   });
 
   if (isLoading) return <div>Loading...</div>;
+
 
   return (
     <div className="space-y-6">

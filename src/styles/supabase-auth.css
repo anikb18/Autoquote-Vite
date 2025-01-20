@@ -3,6 +3,7 @@
 }
 
 .supabase-button {
+  color: #000000; /* Change font color to black */
   width: 100%;
   padding: 0.75rem 1rem;
   font-size: 0.9375rem;

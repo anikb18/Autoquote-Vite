@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate, Outlet } from 'react-router-dom';
-import { useAuth } from '@/providers/AuthProvider';
+import { useAuth } from '@/features/auth/AuthProvider';
 import { useTranslation } from 'react-i18next';
 import { Loader2 } from 'lucide-react';
 import { ViewModeProvider } from '@/contexts/ViewModeContext';

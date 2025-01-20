@@ -2,9 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
-import "./i18n/config.ts"; // Ensure this file exists and is correctly configured
+import "./i18n/config.ts"; 
 
-// Ensure the root element exists before rendering
 const rootElement = document.getElementById("root");
 
 if (rootElement) {

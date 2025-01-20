@@ -24,7 +24,7 @@ export const NAV_ITEMS = [
 export const QUICK_ACTIONS = [
   {
     name: 'new_quote_request',
-    href: '/quote/new',
+    href: '/quotes/new',
     icon: Car
   }
 ];
